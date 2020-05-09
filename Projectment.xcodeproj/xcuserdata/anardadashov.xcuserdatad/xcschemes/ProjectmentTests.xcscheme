@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CA4510C400C0770EB8F25976"
+               BuildableName = "ProjectmentTests.xctest"
+               BlueprintName = "ProjectmentTests"
+               ReferencedContainer = "container:Projectment.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference>
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CA4510C400C0770EB8F25976"
+               BuildableName = "ProjectmentTests.xctest"
+               BlueprintName = "ProjectmentTests"
+               ReferencedContainer = "container:Projectment.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO"
+      allowLocationSimulation = "YES">
+   </LaunchAction>
+</Scheme>
