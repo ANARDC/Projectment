@@ -6,6 +6,23 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
+import SwiftUI
+@available(iOS 13, *)
+struct InProgressPreview: PreviewProvider {
+  static var previews: some View {
+    ContainerView().edgesIgnoringSafeArea(.all)
+  }
+
+  struct ContainerView: UIViewControllerRepresentable {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<InProgressPreview.ContainerView>) -> UIViewController {
+      InProgressViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: InProgressPreview.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<InProgressPreview.ContainerView>) { }
+  }
+}
+
+
 import UIKit
 
 final class InProgressViewController: BaseTasksViewController, InProgressViewProtocol {
