@@ -6,13 +6,13 @@
 import UIKit
 
 extension UINavigationController {
-  static func make(for viewController: UIViewController, selected: UIImage, unselected: UIImage, title: String) -> UINavigationController {
+  static func make(for viewController: UIViewController, selected: UIImage, unselected: UIImage) -> UINavigationController {
     let navigationController = self.init(rootViewController: viewController)
 
     navigationController.tabBarItem.image                 = unselected
     navigationController.tabBarItem.selectedImage         = selected
     navigationController.navigationBar.prefersLargeTitles = true
-    navigationController.navigationItem.title             = title
+    navigationController.tabBarItem.imageInsets = .init(top: 5, left: 0, bottom: -5, right: 0)
 
     return navigationController
   }
