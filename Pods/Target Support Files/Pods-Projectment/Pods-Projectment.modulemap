@@ -1,0 +1,6 @@
+framework module Pods_Projectment {
+  umbrella header "Pods-Projectment-umbrella.h"
+
+  export *
+  module * { export * }
+}
