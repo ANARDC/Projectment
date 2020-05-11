@@ -29,19 +29,6 @@ final class ToDoViewController: BaseTasksViewController, ToDoViewProtocol {
   // MARK: properties
   var configurator : ToDoConfiguratorProtocol!
   var presenter    : ToDoViewPresenterProtocol!
-  
-//  override init(with tasks: [Task]? = nil) {
-//    super.init(with: [Task(id: "1",
-//                           title: "First Task",
-//                           created: Date(),
-//                           state: .toDo,
-//                           type: .development,
-//                           weight: .easy)])
-//  }
-//  
-//  required init?(coder: NSCoder) {
-//    fatalError("init(coder:) has not been implemented")
-//  }
 }
 
 // MARK: - Life Cycle
@@ -53,6 +40,14 @@ extension ToDoViewController {
     self.configurator = ToDoConfigurator(self)
     self.configurator.configure(self)
     self.presenter.viewDidLoad()
+  }
+}
+
+// MARK: - Data
+
+extension ToDoViewController: ToDoViewDataProtocol {
+  func setTasks(for tasks: [Task]?) {
+    super.tasks = tasks
   }
 }
 

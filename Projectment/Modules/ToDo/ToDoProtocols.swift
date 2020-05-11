@@ -14,8 +14,12 @@ protocol ToDoViewProtocol: UIViewController, ToDoUIProtocol {
   var presenter: ToDoViewPresenterProtocol! { get set }
 }
 
-protocol ToDoUIProtocol: class {
+protocol ToDoUIProtocol: class, ToDoViewDataProtocol {
   func makeNavBar()
+}
+
+protocol ToDoViewDataProtocol {
+  func setTasks(for tasks: [Task]?)
 }
 
 // MARK: Presenter
@@ -47,7 +51,7 @@ protocol ToDoRouterPresenterProtocol: class {
 // MARK: Interactor
 
 protocol ToDoInteractorProtocol: class {
-  
+  var tasks: [Task]? { get }
 }
 
 // MARK: Router

@@ -18,7 +18,9 @@ final class ToDoConfigurator: ToDoConfiguratorProtocol {
   init(_ view: ToDoUIProtocol) {
     self.presenter = ToDoPresenter(view)
     
-    self.interactor = ToDoInteractor(self.presenter)
+    let dataService = DataService()
+    
+    self.interactor = ToDoInteractor(self.presenter, dataService)
     self.router     = ToDoRouter(self.presenter)
     
     self.presenter.interactor = self.interactor

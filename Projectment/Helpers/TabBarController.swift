@@ -45,7 +45,7 @@ final class TabBarController: UITabBarController {
   
   private func configure() {
     self.tabBar.barTintColor            = .purple
-    self.tabBar.tintColor               = .yellow
+    self.tabBar.tintColor               = .brown
     self.tabBar.unselectedItemTintColor = .white
     self.tabBar.layer.masksToBounds     = true
     self.tabBar.isTranslucent           = true

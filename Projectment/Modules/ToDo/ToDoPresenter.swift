@@ -23,6 +23,7 @@ final class ToDoPresenter: ToDoPresenterGeneralProtocol {
 
 extension ToDoPresenter: ToDoLifeCyclePresenterProtocol {
   func viewDidLoad() {
+    self.view.setTasks(for: self.interactor.tasks)
     self.view.makeNavBar()
   }
 }

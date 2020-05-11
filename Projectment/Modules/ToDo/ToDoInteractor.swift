@@ -9,9 +9,15 @@
 final class ToDoInteractor: ToDoInteractorProtocol {
   
   // MARK: properties
-  weak var presenter: ToDoInteractorPresenterProtocol!
+  weak var presenter : ToDoInteractorPresenterProtocol!
+  var dataService    : DataService!
   
-  init(_ presenter: ToDoInteractorPresenterProtocol) {
-    self.presenter = presenter
+  init(_ presenter: ToDoInteractorPresenterProtocol, _ dataService: DataService) {
+    self.presenter   = presenter
+    self.dataService = dataService
+  }
+  
+  var tasks: [Task]? {
+    self.dataService.tasks
   }
 }

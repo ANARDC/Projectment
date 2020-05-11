@@ -9,29 +9,40 @@
 import SnapKit
 
 class BaseTasksViewController: UITableViewController {
-  var tasks: [Task]?
+  var cellID = "cellID"
   
-//  init(with tasks: [Task]? = nil) {
-//    self.tasks = tasks
-//    super.init(nibName: nil, bundle: nil)
-//  }
-//
-//  required init?(coder: NSCoder) {
-//    fatalError("init(coder:) has not been implemented")
-//  }
+  var tasks: [Task]? {
+    didSet {
+      self.tableView.reloadData()
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.makeTasksTableView()
   }
   
-  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    tableView.estimatedRowHeight
-  }
 }
 
 private extension BaseTasksViewController {
   func makeTasksTableView() {
-    self.tableView = BaseTasksTableView(frame: self.view.frame, style: .plain)
+    self.tableView.register(BaseTasksTableViewCell.self, forCellReuseIdentifier: self.cellID)
+  }
+}
+
+extension BaseTasksViewController {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    print(self.tasks?.count)
+    return self.tasks?.count ?? 0
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: self.cellID, for: indexPath) as! BaseTasksTableViewCell
+    cell.textLabel?.text = self.tasks?[indexPath.row].title
+    return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    tableView.estimatedRowHeight
   }
 }

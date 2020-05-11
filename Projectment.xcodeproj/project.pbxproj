@@ -31,6 +31,8 @@
 		99941ABD24685B07000CBA82 /* BaseTasksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ABC24685B07000CBA82 /* BaseTasksTableView.swift */; };
 		99941ABF24686F56000CBA82 /* BaseTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ABE24686F56000CBA82 /* BaseTasksTableViewCell.swift */; };
 		99941AC124687AC1000CBA82 /* TaskWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AC024687AC1000CBA82 /* TaskWeight.swift */; };
+		99941AC32469CE79000CBA82 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AC22469CE79000CBA82 /* DataService.swift */; };
+		99941AC52469D23B000CBA82 /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AC42469D23B000CBA82 /* TimeService.swift */; };
 		CA45108F81D75B05F8C7C856 /* ToDoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45129777003F6F32162C3F /* ToDoInteractor.swift */; };
 		CA451112DA4D172EE08F167F /* ProjectmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451805317CAA5BA1789582 /* ProjectmentTests.swift */; };
 		CA4511ED465EA6EC8A24CF1A /* ToDoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451A9164D4FF1DA631D9E3 /* ToDoPresenter.swift */; };
@@ -95,6 +97,8 @@
 		99941ABC24685B07000CBA82 /* BaseTasksTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTasksTableView.swift; sourceTree = "<group>"; };
 		99941ABE24686F56000CBA82 /* BaseTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTasksTableViewCell.swift; sourceTree = "<group>"; };
 		99941AC024687AC1000CBA82 /* TaskWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskWeight.swift; sourceTree = "<group>"; };
+		99941AC22469CE79000CBA82 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		99941AC42469D23B000CBA82 /* TimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
 		A35C16FAC44FD0BB236DB65A /* Pods_Projectment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Projectment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4511302D8C04D3F67A3D0C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CA4511E9420E8DE3F3FF6661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 		CA4515D8EE796EFD5706C792 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				99941AC22469CE79000CBA82 /* DataService.swift */,
+				99941AC42469D23B000CBA82 /* TimeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				99941AAB246830F3000CBA82 /* DoneInteractor.swift in Sources */,
 				99941A9C246830E7000CBA82 /* InProgressPresenter.swift in Sources */,
 				CA451506517F8BFB98978223 /* BaseNavigationViewController.swift in Sources */,
+				99941AC52469D23B000CBA82 /* TimeService.swift in Sources */,
 				99941AA1246830E7000CBA82 /* InProgressConfigurator.swift in Sources */,
 				99941AA8246830F3000CBA82 /* DonePresenter.swift in Sources */,
 				99941AA9246830F3000CBA82 /* DoneRouter.swift in Sources */,
@@ -605,6 +612,7 @@
 				CA451C5BFD2A9EAA82EA60E0 /* ToDoRouter.swift in Sources */,
 				99941AA0246830E7000CBA82 /* InProgressView.swift in Sources */,
 				CA451AF7CB2F9BF7B3BBAD58 /* ToDoProtocols.swift in Sources */,
+				99941AC32469CE79000CBA82 /* DataService.swift in Sources */,
 				99941AAC246830F3000CBA82 /* DoneView.swift in Sources */,
 				CA45108F81D75B05F8C7C856 /* ToDoInteractor.swift in Sources */,
 				CA4515B6414C9CF6B17B4F2B /* ToDoView.swift in Sources */,
