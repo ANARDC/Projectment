@@ -15,7 +15,7 @@ protocol DoneViewProtocol: UIViewController, DoneUIProtocol {
 }
 
 protocol DoneUIProtocol: class {
-  
+  func makeNavBar()
 }
 
 // MARK: Presenter

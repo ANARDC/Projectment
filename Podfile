@@ -9,6 +9,7 @@ target 'Projectment' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RealmSwift'
+  pod 'Unrealm'
 
   target 'ProjectmentTests' do
     inherit! :search_paths

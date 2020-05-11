@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+
 @available(iOS 13, *)
 struct DonePreview: PreviewProvider {
   static var previews: some View {
@@ -46,5 +47,7 @@ extension DoneViewController {
 // MARK: - UI Making
 
 extension DoneViewController: DoneUIProtocol {
-  
+  func makeNavBar() {
+    self.navigationItem.title = "Done"
+  }
 }

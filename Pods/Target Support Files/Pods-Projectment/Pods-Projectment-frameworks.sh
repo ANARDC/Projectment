@@ -1,5 +1,9 @@
 #!/bin/sh
 set -e
+KG_FILE="${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Pods-Projectment-frameworks-Installation-Flag"
+if [ -f "$KG_FILE" ]; then exit 0; fi
+mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+touch "$KG_FILE"
 set -u
 set -o pipefail
 
@@ -163,18 +167,22 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RuntimeNew/RuntimeNew.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Unrealm/Unrealm.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RuntimeNew/RuntimeNew.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Unrealm/Unrealm.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

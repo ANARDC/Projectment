@@ -22,13 +22,22 @@
 		99941AAC246830F3000CBA82 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AA6246830F3000CBA82 /* DoneView.swift */; };
 		99941AAD246830F3000CBA82 /* DoneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AA7246830F3000CBA82 /* DoneConfigurator.swift */; };
 		99941AAF24683123000CBA82 /* BaseTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAE24683123000CBA82 /* BaseTasksViewController.swift */; };
+		99941AB1246845B3000CBA82 /* Teammate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AB0246845B3000CBA82 /* Teammate.swift */; };
+		99941AB3246845BF000CBA82 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AB2246845BF000CBA82 /* Task.swift */; };
+		99941AB524684ECF000CBA82 /* TaskState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AB424684ECF000CBA82 /* TaskState.swift */; };
+		99941AB724684F3E000CBA82 /* TeammatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AB624684F3E000CBA82 /* TeammatePost.swift */; };
+		99941AB924684F9D000CBA82 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AB824684F9D000CBA82 /* TaskType.swift */; };
+		99941ABB2468506E000CBA82 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ABA2468506E000CBA82 /* Posts.swift */; };
+		99941ABD24685B07000CBA82 /* BaseTasksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ABC24685B07000CBA82 /* BaseTasksTableView.swift */; };
+		99941ABF24686F56000CBA82 /* BaseTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ABE24686F56000CBA82 /* BaseTasksTableViewCell.swift */; };
+		99941AC124687AC1000CBA82 /* TaskWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AC024687AC1000CBA82 /* TaskWeight.swift */; };
 		CA45108F81D75B05F8C7C856 /* ToDoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45129777003F6F32162C3F /* ToDoInteractor.swift */; };
 		CA451112DA4D172EE08F167F /* ProjectmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451805317CAA5BA1789582 /* ProjectmentTests.swift */; };
 		CA4511ED465EA6EC8A24CF1A /* ToDoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451A9164D4FF1DA631D9E3 /* ToDoPresenter.swift */; };
 		CA4512FFF499CF4ADA8457CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4517FCA4A4071459B39C0E /* SceneDelegate.swift */; };
 		CA45141712227397B9C71134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA45172E13447C52AE7BDC93 /* Assets.xcassets */; };
 		CA4514AD414433E64E5D4EB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4519550325B6BED14FF292 /* LaunchScreen.storyboard */; };
-		CA451506517F8BFB98978223 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451F5F6FEDE6656362A20C /* UINavigationController.swift */; };
+		CA451506517F8BFB98978223 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451F5F6FEDE6656362A20C /* BaseNavigationViewController.swift */; };
 		CA451593D438A9FE196E5A63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45192E74FF41B42BE4CD7D /* AppDelegate.swift */; };
 		CA4515B6414C9CF6B17B4F2B /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451C6F0E145689E6CBC0AE /* ToDoView.swift */; };
 		CA4515E69D95D2D713FB5FDE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4511302D8C04D3F67A3D0C /* TabBarController.swift */; };
@@ -77,6 +86,15 @@
 		99941AA6246830F3000CBA82 /* DoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
 		99941AA7246830F3000CBA82 /* DoneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneConfigurator.swift; sourceTree = "<group>"; };
 		99941AAE24683123000CBA82 /* BaseTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTasksViewController.swift; sourceTree = "<group>"; };
+		99941AB0246845B3000CBA82 /* Teammate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teammate.swift; sourceTree = "<group>"; };
+		99941AB2246845BF000CBA82 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		99941AB424684ECF000CBA82 /* TaskState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskState.swift; sourceTree = "<group>"; };
+		99941AB624684F3E000CBA82 /* TeammatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeammatePost.swift; sourceTree = "<group>"; };
+		99941AB824684F9D000CBA82 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
+		99941ABA2468506E000CBA82 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		99941ABC24685B07000CBA82 /* BaseTasksTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTasksTableView.swift; sourceTree = "<group>"; };
+		99941ABE24686F56000CBA82 /* BaseTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTasksTableViewCell.swift; sourceTree = "<group>"; };
+		99941AC024687AC1000CBA82 /* TaskWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskWeight.swift; sourceTree = "<group>"; };
 		A35C16FAC44FD0BB236DB65A /* Pods_Projectment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Projectment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4511302D8C04D3F67A3D0C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CA4511E9420E8DE3F3FF6661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -97,7 +115,7 @@
 		CA451DE52F12AA1BBDF7DDAB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		CA451E32AA64157F310E679A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		CA451E4CF88AE128C0E486F3 /* ProjectmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectmentUITests.swift; sourceTree = "<group>"; };
-		CA451F5F6FEDE6656362A20C /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		CA451F5F6FEDE6656362A20C /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		D1F9478F96728F0F5ACA8B48 /* Pods-ProjectmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectmentTests.release.xcconfig"; path = "Target Support Files/Pods-ProjectmentTests/Pods-ProjectmentTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,8 +177,10 @@
 			isa = PBXGroup;
 			children = (
 				CA4511302D8C04D3F67A3D0C /* TabBarController.swift */,
-				CA451F5F6FEDE6656362A20C /* UINavigationController.swift */,
+				CA451F5F6FEDE6656362A20C /* BaseNavigationViewController.swift */,
 				99941AAE24683123000CBA82 /* BaseTasksViewController.swift */,
+				99941ABC24685B07000CBA82 /* BaseTasksTableView.swift */,
+				99941ABE24686F56000CBA82 /* BaseTasksTableViewCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -263,6 +283,13 @@
 		CA451CBFE0960B7F1B5BC1D3 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				99941AB2246845BF000CBA82 /* Task.swift */,
+				99941AB0246845B3000CBA82 /* Teammate.swift */,
+				99941AB424684ECF000CBA82 /* TaskState.swift */,
+				99941AB624684F3E000CBA82 /* TeammatePost.swift */,
+				99941AB824684F9D000CBA82 /* TaskType.swift */,
+				99941ABA2468506E000CBA82 /* Posts.swift */,
+				99941AC024687AC1000CBA82 /* TaskWeight.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -445,19 +472,23 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Projectment/Pods-Projectment-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RuntimeNew/RuntimeNew.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Unrealm/Unrealm.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RuntimeNew.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Unrealm.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -473,19 +504,23 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Projectment-ProjectmentUITests/Pods-Projectment-ProjectmentUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RuntimeNew/RuntimeNew.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Unrealm/Unrealm.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RuntimeNew.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Unrealm.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -546,18 +581,26 @@
 				99941A9E246830E7000CBA82 /* InProgressProtocols.swift in Sources */,
 				CA4512FFF499CF4ADA8457CC /* SceneDelegate.swift in Sources */,
 				99941AAD246830F3000CBA82 /* DoneConfigurator.swift in Sources */,
+				99941ABD24685B07000CBA82 /* BaseTasksTableView.swift in Sources */,
 				CA451593D438A9FE196E5A63 /* AppDelegate.swift in Sources */,
 				99941AAF24683123000CBA82 /* BaseTasksViewController.swift in Sources */,
 				CA4515E69D95D2D713FB5FDE /* TabBarController.swift in Sources */,
 				99941AAB246830F3000CBA82 /* DoneInteractor.swift in Sources */,
 				99941A9C246830E7000CBA82 /* InProgressPresenter.swift in Sources */,
-				CA451506517F8BFB98978223 /* UINavigationController.swift in Sources */,
+				CA451506517F8BFB98978223 /* BaseNavigationViewController.swift in Sources */,
 				99941AA1246830E7000CBA82 /* InProgressConfigurator.swift in Sources */,
 				99941AA8246830F3000CBA82 /* DonePresenter.swift in Sources */,
 				99941AA9246830F3000CBA82 /* DoneRouter.swift in Sources */,
+				99941AB3246845BF000CBA82 /* Task.swift in Sources */,
 				99941A9F246830E7000CBA82 /* InProgressInteractor.swift in Sources */,
+				99941AC124687AC1000CBA82 /* TaskWeight.swift in Sources */,
+				99941AB524684ECF000CBA82 /* TaskState.swift in Sources */,
 				99941AAA246830F3000CBA82 /* DoneProtocols.swift in Sources */,
+				99941ABB2468506E000CBA82 /* Posts.swift in Sources */,
 				CA4511ED465EA6EC8A24CF1A /* ToDoPresenter.swift in Sources */,
+				99941AB724684F3E000CBA82 /* TeammatePost.swift in Sources */,
+				99941ABF24686F56000CBA82 /* BaseTasksTableViewCell.swift in Sources */,
+				99941AB924684F9D000CBA82 /* TaskType.swift in Sources */,
 				99941A9D246830E7000CBA82 /* InProgressRouter.swift in Sources */,
 				CA451C5BFD2A9EAA82EA60E0 /* ToDoRouter.swift in Sources */,
 				99941AA0246830E7000CBA82 /* InProgressView.swift in Sources */,
@@ -566,6 +609,7 @@
 				CA45108F81D75B05F8C7C856 /* ToDoInteractor.swift in Sources */,
 				CA4515B6414C9CF6B17B4F2B /* ToDoView.swift in Sources */,
 				CA451FB8F4738039D893E784 /* ToDoConfigurator.swift in Sources */,
+				99941AB1246845B3000CBA82 /* Teammate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,7 +652,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 989TVX6JAA;
 				INFOPLIST_FILE = "Projectment/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.commodo.Projectment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -661,7 +705,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -735,7 +779,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 989TVX6JAA;
 				INFOPLIST_FILE = "Projectment/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.commodo.Projectment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -794,7 +838,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+
 @available(iOS 13, *)
 struct ToDoPreview: PreviewProvider {
   static var previews: some View {
@@ -28,6 +29,19 @@ final class ToDoViewController: BaseTasksViewController, ToDoViewProtocol {
   // MARK: properties
   var configurator : ToDoConfiguratorProtocol!
   var presenter    : ToDoViewPresenterProtocol!
+  
+//  override init(with tasks: [Task]? = nil) {
+//    super.init(with: [Task(id: "1",
+//                           title: "First Task",
+//                           created: Date(),
+//                           state: .toDo,
+//                           type: .development,
+//                           weight: .easy)])
+//  }
+//  
+//  required init?(coder: NSCoder) {
+//    fatalError("init(coder:) has not been implemented")
+//  }
 }
 
 // MARK: - Life Cycle
@@ -45,7 +59,9 @@ extension ToDoViewController {
 // MARK: - UI Making
 
 extension ToDoViewController: ToDoUIProtocol {
-  
+  func makeNavBar() {
+    self.navigationItem.title = "To Do"
+  }
 }
 
 

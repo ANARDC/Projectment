@@ -15,7 +15,7 @@ protocol InProgressViewProtocol: UIViewController, InProgressUIProtocol {
 }
 
 protocol InProgressUIProtocol: class {
-  
+  func makeNavBar()
 }
 
 // MARK: Presenter

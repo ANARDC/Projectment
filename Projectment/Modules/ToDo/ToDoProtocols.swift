@@ -15,7 +15,7 @@ protocol ToDoViewProtocol: UIViewController, ToDoUIProtocol {
 }
 
 protocol ToDoUIProtocol: class {
-  
+  func makeNavBar()
 }
 
 // MARK: Presenter

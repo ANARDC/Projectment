@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+
 @available(iOS 13, *)
 struct InProgressPreview: PreviewProvider {
   static var previews: some View {
@@ -47,5 +48,7 @@ extension InProgressViewController {
 // MARK: - UI Making
 
 extension InProgressViewController: InProgressUIProtocol {
-  
+  func makeNavBar() {
+    self.navigationItem.title = "In Progress"
+  }
 }

@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+
 @available(iOS 13, *)
 struct TabBarPreview: PreviewProvider {
   static var previews: some View {
@@ -24,12 +25,10 @@ import UIKit
 final class TabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    if #available(iOS 13.0, *) {
-      self.setup()
-    }
+    self.setup()
+    self.configure()
   }
 
-  @available(iOS 13.0, *)
   private func setup() {
     let toDoViewController  = UINavigationController.make(for: ToDoViewController(),
                                                           selected: UIImage(systemName: "rectangle.stack.fill")!,
@@ -42,13 +41,16 @@ final class TabBarController: UITabBarController {
                                                          unselected: UIImage(systemName: "checkmark.circle")!)
 
     self.viewControllers = [toDoViewController, inProgressViewController, doneViewController]
-    
-    self.tabBar.backgroundColor     = UIColor.purple.withAlphaComponent(0.8)
-    self.tabBar.tintColor           = UIColor.yellow.withAlphaComponent(0.9)
-    self.tabBar.layer.masksToBounds = true
-    self.tabBar.isTranslucent       = true
-    self.tabBar.barStyle            = .blackOpaque
-    self.tabBar.layer.cornerRadius  = 40
-    self.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+  }
+  
+  private func configure() {
+    self.tabBar.barTintColor            = .purple
+    self.tabBar.tintColor               = .yellow
+    self.tabBar.unselectedItemTintColor = .white
+    self.tabBar.layer.masksToBounds     = true
+    self.tabBar.isTranslucent           = true
+    self.tabBar.barStyle                = .black
+    self.tabBar.layer.cornerRadius      = 40
+    self.tabBar.layer.maskedCorners     = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
   }
 }

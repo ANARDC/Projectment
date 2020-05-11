@@ -23,7 +23,7 @@ final class DonePresenter: DonePresenterGeneralProtocol {
 
 extension DonePresenter: DoneLifeCyclePresenterProtocol {
   func viewDidLoad() {
-    
+    self.view.makeNavBar()
   }
 }
 
