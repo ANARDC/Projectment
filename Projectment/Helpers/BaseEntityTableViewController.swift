@@ -65,11 +65,6 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
   override func viewDidLoad() {
     super.viewDidLoad()
     self.makeTasksTableView()
-    self.makeAddEntityButton()
-    if type(of: self.context) == TasksContext.self {
-      self.makeShowTeammateListButton()
-    }
-    self.addNavBarButtons()
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

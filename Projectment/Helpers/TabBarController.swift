@@ -30,15 +30,13 @@ final class TabBarController: UITabBarController {
   }
 
   private func setup() {
-    let tasksContext = TasksContext(info: ContextInfo(name: "Tasks Context", description: "Interaction with tasks with different state", scenesCount: 3))
-    
-    let toDoViewController  = UINavigationController.make(for: ToDoViewController(context: tasksContext, style: .grouped),
+    let toDoViewController  = UINavigationController.make(for: ToDoViewController(context: TasksContext.shared, style: .grouped),
                                                           selected: UIImage(systemName: "rectangle.stack.fill")!,
                                                           unselected: UIImage(systemName: "rectangle.stack")!)
-    let inProgressViewController = UINavigationController.make(for: InProgressViewController(context: tasksContext, style: .grouped),
+    let inProgressViewController = UINavigationController.make(for: InProgressViewController(context: TasksContext.shared, style: .grouped),
                                                                selected: UIImage(systemName: "chart.bar.fill")!,
                                                                unselected: UIImage(systemName: "chart.bar")!)
-    let doneViewController = UINavigationController.make(for: DoneViewController(context: tasksContext, style: .grouped),
+    let doneViewController = UINavigationController.make(for: DoneViewController(context: TasksContext.shared, style: .grouped),
                                                          selected: UIImage(systemName: "checkmark.circle.fill")!,
                                                          unselected: UIImage(systemName: "checkmark.circle")!)
 
