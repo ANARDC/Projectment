@@ -36,8 +36,8 @@ final class TabBarController: UITabBarController {
                                                           selected: UIImage(systemName: "rectangle.stack.fill")!,
                                                           unselected: UIImage(systemName: "rectangle.stack")!)
     let inProgressViewController = UINavigationController.make(for: InProgressViewController(context: tasksContext, style: .grouped),
-                                                               selected: UIImage(systemName: "hourglass.tophalf.fill")!,
-                                                               unselected: UIImage(systemName: "hourglass")!)
+                                                               selected: UIImage(systemName: "chart.bar.fill")!,
+                                                               unselected: UIImage(systemName: "chart.bar")!)
     let doneViewController = UINavigationController.make(for: DoneViewController(context: tasksContext, style: .grouped),
                                                          selected: UIImage(systemName: "checkmark.circle.fill")!,
                                                          unselected: UIImage(systemName: "checkmark.circle")!)
