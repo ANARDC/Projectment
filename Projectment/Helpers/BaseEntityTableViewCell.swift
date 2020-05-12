@@ -44,7 +44,6 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
     self.titleLabel = UILabel() {
       $0.text          = self.entity?.title
       $0.font          = .systemFont(ofSize: 25)
-      $0.textColor     = .darkText
       $0.numberOfLines = 1
     }
     
