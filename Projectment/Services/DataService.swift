@@ -9,7 +9,7 @@
 import Realm
 
 final class DataService {
-  var tasks: [Task]? {
+  private var tasks: [Task]? {
     [Task(id: "1",
           title: "Make login screen design",
           description: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
@@ -59,7 +59,7 @@ final class DataService {
                         post: .senior),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .toDo,
+          state: .inProgress,
           type: .planning,
           complexity: .easy),
      Task(id: "5",
@@ -72,7 +72,7 @@ final class DataService {
                         post: .middle),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .toDo,
+          state: .inProgress,
           type: .testing,
           complexity: .easy),
      Task(id: "6",
@@ -85,7 +85,7 @@ final class DataService {
                         post: .senior),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .toDo,
+          state: .done,
           type: .development,
           complexity: .easy),
      Task(id: "7",
@@ -98,7 +98,7 @@ final class DataService {
                         post: .middle),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .toDo,
+          state: .done,
           type: .design,
           complexity: .easy),
      Task(id: "8",
@@ -114,5 +114,17 @@ final class DataService {
           state: .toDo,
           type: .development,
           complexity: .easy)]
+  }
+  
+  var toDoTasks: [Task]? {
+    self.tasks?.filter({ $0.state == .toDo })
+  }
+  
+  var inProgressTasks: [Task]? {
+    self.tasks?.filter({ $0.state == .inProgress })
+  }
+  
+  var doneTasks: [Task]? {
+    self.tasks?.filter({ $0.state == .done })
   }
 }

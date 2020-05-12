@@ -14,8 +14,12 @@ protocol InProgressViewProtocol: UIViewController, InProgressUIProtocol {
   var presenter: InProgressViewPresenterProtocol! { get set }
 }
 
-protocol InProgressUIProtocol: class {
+protocol InProgressUIProtocol: class, InProgressViewDataProtocol {
   func makeNavBar()
+}
+
+protocol InProgressViewDataProtocol {
+  func setTasks(for tasks: [Task]?)
 }
 
 // MARK: Presenter
@@ -47,7 +51,7 @@ protocol InProgressRouterPresenterProtocol: class {
 // MARK: Interactor
 
 protocol InProgressInteractorProtocol: class {
-  
+  var tasks: [Task]? { get }
 }
 
 // MARK: Router

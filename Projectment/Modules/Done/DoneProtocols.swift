@@ -14,8 +14,12 @@ protocol DoneViewProtocol: UIViewController, DoneUIProtocol {
   var presenter: DoneViewPresenterProtocol! { get set }
 }
 
-protocol DoneUIProtocol: class {
+protocol DoneUIProtocol: class, DoneViewDataProtocol {
   func makeNavBar()
+}
+
+protocol DoneViewDataProtocol {
+  func setTasks(for tasks: [Task]?)
 }
 
 // MARK: Presenter
@@ -47,7 +51,7 @@ protocol DoneRouterPresenterProtocol: class {
 // MARK: Interactor
 
 protocol DoneInteractorProtocol: class {
-  
+  var tasks: [Task]? { get }
 }
 
 // MARK: Router

@@ -23,6 +23,7 @@ final class InProgressPresenter: InProgressPresenterGeneralProtocol {
 
 extension InProgressPresenter: InProgressLifeCyclePresenterProtocol {
   func viewDidLoad() {
+    self.view.setTasks(for: self.interactor.tasks)
     self.view.makeNavBar()
   }
 }

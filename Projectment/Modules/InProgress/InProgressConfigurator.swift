@@ -18,7 +18,9 @@ final class InProgressConfigurator: InProgressConfiguratorProtocol {
   init(_ view: InProgressUIProtocol) {
     self.presenter = InProgressPresenter(view)
     
-    self.interactor = InProgressInteractor(self.presenter)
+    let dataService = DataService()
+    
+    self.interactor = InProgressInteractor(self.presenter, dataService)
     self.router     = InProgressRouter(self.presenter)
     
     self.presenter.interactor = self.interactor

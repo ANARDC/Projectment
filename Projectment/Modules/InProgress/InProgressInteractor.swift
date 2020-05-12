@@ -9,9 +9,15 @@
 final class InProgressInteractor: InProgressInteractorProtocol {
   
   // MARK: properties
-  weak var presenter: InProgressInteractorPresenterProtocol!
+  weak var presenter : InProgressInteractorPresenterProtocol!
+  var dataService    : DataService!
   
-  init(_ presenter: InProgressInteractorPresenterProtocol) {
-    self.presenter = presenter
+  init(_ presenter: InProgressInteractorPresenterProtocol, _ dataService: DataService) {
+    self.presenter   = presenter
+    self.dataService = dataService
+  }
+  
+  var tasks: [Task]? {
+    self.dataService.inProgressTasks
   }
 }

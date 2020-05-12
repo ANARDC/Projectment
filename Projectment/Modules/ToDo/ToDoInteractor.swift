@@ -18,6 +18,6 @@ final class ToDoInteractor: ToDoInteractorProtocol {
   }
   
   var tasks: [Task]? {
-    self.dataService.tasks
+    self.dataService.toDoTasks
   }
 }

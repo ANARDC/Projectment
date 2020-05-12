@@ -35,12 +35,19 @@ final class DoneViewController: BaseEntityTableViewController<TasksContext, Task
 // MARK: - Life Cycle
 
 extension DoneViewController {
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configurator = DoneConfigurator(self)
     self.configurator.configure(self)
     self.presenter.viewDidLoad()
+  }
+}
+
+// MARK: - Data
+
+extension DoneViewController: DoneViewDataProtocol {
+  func setTasks(for tasks: [Task]?) {
+    super.entities = tasks
   }
 }
 

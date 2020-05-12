@@ -9,9 +9,15 @@
 final class DoneInteractor: DoneInteractorProtocol {
   
   // MARK: properties
-  weak var presenter: DoneInteractorPresenterProtocol!
+  weak var presenter : DoneInteractorPresenterProtocol!
+  var dataService    : DataService!
   
-  init(_ presenter: DoneInteractorPresenterProtocol) {
-    self.presenter = presenter
+  init(_ presenter: DoneInteractorPresenterProtocol, _ dataService: DataService) {
+    self.presenter  = presenter
+    self.dataService = dataService
+  }
+  
+  var tasks: [Task]? {
+    self.dataService.doneTasks
   }
 }

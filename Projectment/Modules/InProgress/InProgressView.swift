@@ -36,12 +36,19 @@ final class InProgressViewController: BaseEntityTableViewController<TasksContext
 // MARK: - Life Cycle
 
 extension InProgressViewController {
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configurator = InProgressConfigurator(self)
     self.configurator.configure(self)
     self.presenter.viewDidLoad()
+  }
+}
+
+// MARK: - Data
+
+extension InProgressViewController: InProgressViewDataProtocol {
+  func setTasks(for tasks: [Task]?) {
+    super.entities = tasks
   }
 }
 

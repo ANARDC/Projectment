@@ -23,6 +23,7 @@ final class DonePresenter: DonePresenterGeneralProtocol {
 
 extension DonePresenter: DoneLifeCyclePresenterProtocol {
   func viewDidLoad() {
+    self.view.setTasks(for: self.interactor.tasks)
     self.view.makeNavBar()
   }
 }

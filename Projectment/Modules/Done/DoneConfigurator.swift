@@ -18,7 +18,9 @@ final class DoneConfigurator: DoneConfiguratorProtocol {
   init(_ view: DoneUIProtocol) {
     self.presenter = DonePresenter(view)
     
-    self.interactor = DoneInteractor(self.presenter)
+    let dataService = DataService()
+    
+    self.interactor = DoneInteractor(self.presenter, dataService)
     self.router     = DoneRouter(self.presenter)
     
     self.presenter.interactor = self.interactor
