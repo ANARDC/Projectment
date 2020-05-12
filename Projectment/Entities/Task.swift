@@ -17,5 +17,5 @@ struct Task: Realmable, Entitiable {
   var expires     : Date?
   var state       : TaskState = .toDo
   var type        : TaskType = .development
-  var weight      : TaskWeight = .easy
+  var complexity  : TaskComplexity = .easy
 }
