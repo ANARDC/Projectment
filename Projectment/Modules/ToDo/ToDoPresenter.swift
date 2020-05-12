@@ -31,5 +31,11 @@ extension ToDoPresenter: ToDoLifeCyclePresenterProtocol {
 // MARK: - View Actions
 
 extension ToDoPresenter: ToDoActionsPresenterProtocol {
+  func addTaskButton() {
+    self.router.goToAddTaskScreen(from: self.view)
+  }
   
+  func showTeamListButton() {
+    self.router.goToTeamListScreen(from: self.view)
+  }
 }

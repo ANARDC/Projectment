@@ -13,7 +13,7 @@ import UIKit
 }
 
 @objc protocol BaseEntityTableViewControllerTasksContextDelegate {
-  func showTeammateListButton()
+  func showTeamListButton()
 }
 
 class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: UITableViewController {
@@ -21,7 +21,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
     didSet {
       self.makeAddEntityButton()
       if type(of: self.context) == TasksContext.self {
-        self.makeShowTeammateListButton()
+        self.makeShowTeamListButton()
       }
       self.addNavBarButtons()
     }
@@ -30,7 +30,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
     didSet {
       self.makeAddEntityButton()
       if type(of: self.context) == TasksContext.self {
-        self.makeShowTeammateListButton()
+        self.makeShowTeamListButton()
       }
       self.addNavBarButtons()
     }
@@ -39,7 +39,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
   var context: Context
   
   var addEntityButton        : UIBarButtonItem!
-  var showTeammateListButton : UIBarButtonItem?
+  var showTeamListButton : UIBarButtonItem?
   
   init(context: Context, style: UITableView.Style) {
     self.context = context
@@ -106,22 +106,22 @@ private extension BaseEntityTableViewController {
     self.addEntityButton = addEntityButton
   }
   
-  func makeShowTeammateListButton() {
-    var showTeammateListButton: UIBarButtonItem
+  func makeShowTeamListButton() {
+    var showTeamListButton: UIBarButtonItem
     
     if let tasksContextDelegate = self.tasksContextDelegate {
-      showTeammateListButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.stack.person.crop"), style: .done, target: self, action: #selector(tasksContextDelegate.showTeammateListButton))
+      showTeamListButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.stack.person.crop"), style: .done, target: self, action: #selector(tasksContextDelegate.showTeamListButton))
     } else {
-      showTeammateListButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.stack.person.crop"), style: .done, target: self, action: nil)
+      showTeamListButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.stack.person.crop"), style: .done, target: self, action: nil)
     }
     
-    showTeammateListButton.tintColor = .white
-    self.showTeammateListButton = showTeammateListButton
+    showTeamListButton.tintColor = .white
+    self.showTeamListButton = showTeamListButton
   }
   
   func addNavBarButtons() {
-    if let showTeammateListButton = self.showTeammateListButton {
-      self.navigationItem.rightBarButtonItems = [self.addEntityButton, showTeammateListButton]
+    if let showTeamListButton = self.showTeamListButton {
+      self.navigationItem.rightBarButtonItems = [self.addEntityButton, showTeamListButton]
     } else {
       self.navigationItem.rightBarButtonItems = [self.addEntityButton]
     }

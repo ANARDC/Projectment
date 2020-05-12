@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: View
 
-protocol ToDoViewProtocol: UIViewController, ToDoUIProtocol {
+protocol ToDoViewProtocol: ToDoUIProtocol {
   var presenter: ToDoViewPresenterProtocol! { get set }
 }
 
-protocol ToDoUIProtocol: class, ToDoViewDataProtocol {
+protocol ToDoUIProtocol: UIViewController, ToDoViewDataProtocol {
   func makeNavBar()
 }
 
@@ -37,7 +37,8 @@ protocol ToDoLifeCyclePresenterProtocol: class {
 }
 
 protocol ToDoActionsPresenterProtocol: class {
-  
+  func addTaskButton()
+  func showTeamListButton()
 }
 
 protocol ToDoInteractorPresenterProtocol: class {
@@ -57,7 +58,8 @@ protocol ToDoInteractorProtocol: class {
 // MARK: Router
 
 protocol ToDoRouterProtocol: class {
-  
+  func goToAddTaskScreen(from toDoView: ToDoUIProtocol)
+  func goToTeamListScreen(from toDoView: ToDoUIProtocol)
 }
 
 // MARK: Configurator

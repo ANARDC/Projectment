@@ -6,6 +6,8 @@
 //    Copyright © 2020 Anar. All rights reserved.
 //
 
+import RxSwift
+
 // MARK: class
 
 final class ToDoConfigurator: ToDoConfiguratorProtocol {

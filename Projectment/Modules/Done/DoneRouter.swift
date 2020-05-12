@@ -19,4 +19,14 @@ final class DoneRouter: DoneRouterProtocol {
   init(_ presenter: DoneRouterPresenterProtocol) {
     self.presenter = presenter
   }
+  
+  func goToAddTaskScreen(from doneView: DoneUIProtocol) {
+    let addTaskScreen = AddTaskViewController()
+    doneView.navigationController?.pushViewController(addTaskScreen, animated: false)
+  }
+  
+  func goToTeamListScreen(from doneView: DoneUIProtocol) {
+    let teamListScreen = TeamListViewController()
+    doneView.navigationController?.pushViewController(teamListScreen, animated: false)
+  }
 }

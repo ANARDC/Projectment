@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: View
 
-protocol InProgressViewProtocol: UIViewController, InProgressUIProtocol {
+protocol InProgressViewProtocol: InProgressUIProtocol {
   var presenter: InProgressViewPresenterProtocol! { get set }
 }
 
-protocol InProgressUIProtocol: class, InProgressViewDataProtocol {
+protocol InProgressUIProtocol: UIViewController, InProgressViewDataProtocol {
   func makeNavBar()
 }
 
@@ -37,7 +37,8 @@ protocol InProgressLifeCyclePresenterProtocol: class {
 }
 
 protocol InProgressActionsPresenterProtocol: class {
-  
+  func addTaskButton()
+  func showTeamListButton()
 }
 
 protocol InProgressInteractorPresenterProtocol: class {
@@ -57,7 +58,8 @@ protocol InProgressInteractorProtocol: class {
 // MARK: Router
 
 protocol InProgressRouterProtocol: class {
-  
+  func goToAddTaskScreen(from inProgressView: InProgressUIProtocol)
+  func goToTeamListScreen(from inProgressView: InProgressUIProtocol)
 }
 
 // MARK: Configurator

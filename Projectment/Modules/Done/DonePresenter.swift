@@ -31,5 +31,11 @@ extension DonePresenter: DoneLifeCyclePresenterProtocol {
 // MARK: - View Actions
 
 extension DonePresenter: DoneActionsPresenterProtocol {
+  func addTaskButton() {
+    self.router.goToAddTaskScreen(from: self.view)
+  }
   
+  func showTeamListButton() {
+    self.router.goToTeamListScreen(from: self.view)
+  }
 }

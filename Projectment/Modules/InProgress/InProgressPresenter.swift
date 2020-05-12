@@ -31,5 +31,11 @@ extension InProgressPresenter: InProgressLifeCyclePresenterProtocol {
 // MARK: - View Actions
 
 extension InProgressPresenter: InProgressActionsPresenterProtocol {
+  func addTaskButton() {
+    self.router.goToAddTaskScreen(from: self.view)
+  }
   
+  func showTeamListButton() {
+    self.router.goToTeamListScreen(from: self.view)
+  }
 }

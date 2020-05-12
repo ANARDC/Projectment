@@ -25,16 +25,7 @@ struct DonePreview: PreviewProvider {
 
 import UIKit
 
-final class DoneViewController: BaseEntityTableViewController<TasksContext, Task>, BaseEntityTableViewControllerDelegate, BaseEntityTableViewControllerTasksContextDelegate, DoneViewProtocol {
-  func addEntityButton() {
-    print("addEntityButton from Done")
-  }
-  
-  func showTeammateListButton() {
-    print("addEntityButton from Done")
-  }
-  
-  
+final class DoneViewController: BaseEntityTableViewController<TasksContext, Task>, DoneViewProtocol {
   // MARK: properties
   var configurator : DoneConfiguratorProtocol!
   var presenter    : DoneViewPresenterProtocol!
@@ -50,6 +41,18 @@ extension DoneViewController {
     self.configurator = DoneConfigurator(self)
     self.configurator.configure(self)
     self.presenter.viewDidLoad()
+  }
+}
+
+extension DoneViewController: BaseEntityTableViewControllerDelegate {
+  func addEntityButton() {
+    self.presenter.addTaskButton()
+  }
+}
+
+extension DoneViewController: BaseEntityTableViewControllerTasksContextDelegate {
+  func showTeamListButton() {
+    self.presenter.showTeamListButton()
   }
 }
 

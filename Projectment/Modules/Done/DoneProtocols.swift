@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: View
 
-protocol DoneViewProtocol: UIViewController, DoneUIProtocol {
+protocol DoneViewProtocol: DoneUIProtocol {
   var presenter: DoneViewPresenterProtocol! { get set }
 }
 
-protocol DoneUIProtocol: class, DoneViewDataProtocol {
+protocol DoneUIProtocol: UIViewController, DoneViewDataProtocol {
   func makeNavBar()
 }
 
@@ -37,7 +37,8 @@ protocol DoneLifeCyclePresenterProtocol: class {
 }
 
 protocol DoneActionsPresenterProtocol: class {
-  
+  func addTaskButton()
+  func showTeamListButton()
 }
 
 protocol DoneInteractorPresenterProtocol: class {
@@ -57,7 +58,8 @@ protocol DoneInteractorProtocol: class {
 // MARK: Router
 
 protocol DoneRouterProtocol: class {
-  
+  func goToAddTaskScreen(from doneView: DoneUIProtocol)
+  func goToTeamListScreen(from doneView: DoneUIProtocol)
 }
 
 // MARK: Configurator

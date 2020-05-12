@@ -26,6 +26,7 @@ extension UINavigationController {
     navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     navBarAppearance.backgroundColor          = .purple
     
+    navigationController.navigationBar.tintColor            = .white
     navigationController.navigationBar.standardAppearance   = navBarAppearance
     navigationController.navigationBar.scrollEdgeAppearance = navBarAppearance
     navigationController.navigationBar.prefersLargeTitles   = true

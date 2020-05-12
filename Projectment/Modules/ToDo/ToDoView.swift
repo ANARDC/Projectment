@@ -24,18 +24,15 @@ struct ToDoPreview: PreviewProvider {
 }
 
 import UIKit
-final class ToDoViewController: BaseEntityTableViewController<TasksContext, Task>, BaseEntityTableViewControllerDelegate, BaseEntityTableViewControllerTasksContextDelegate, ToDoViewProtocol {
-  func addEntityButton() {
-    print("addEntityButton from ToDo")
-  }
-  
-  func showTeammateListButton() {
-    print("showTeammateListButton from ToDo")
-  }
-  
+import RxSwift
+import RxCocoa
+
+final class ToDoViewController: BaseEntityTableViewController<TasksContext, Task>, ToDoViewProtocol {
   // MARK: properties
   var configurator : ToDoConfiguratorProtocol!
   var presenter    : ToDoViewPresenterProtocol!
+  
+  var bag = DisposeBag()
 }
 
 // MARK: - Life Cycle
@@ -48,6 +45,18 @@ extension ToDoViewController {
     self.configurator = ToDoConfigurator(self)
     self.configurator.configure(self)
     self.presenter.viewDidLoad()
+  }
+}
+
+extension ToDoViewController: BaseEntityTableViewControllerDelegate {
+  func addEntityButton() {
+    self.presenter.addTaskButton()
+  }
+}
+
+extension ToDoViewController: BaseEntityTableViewControllerTasksContextDelegate {
+  func showTeamListButton() {
+    self.presenter.showTeamListButton()
   }
 }
 
@@ -66,5 +75,3 @@ extension ToDoViewController: ToDoUIProtocol {
     self.navigationItem.title = "To Do"
   }
 }
-
-

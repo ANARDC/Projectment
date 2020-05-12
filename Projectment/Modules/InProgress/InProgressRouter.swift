@@ -19,4 +19,14 @@ final class InProgressRouter: InProgressRouterProtocol {
   init(_ presenter: InProgressRouterPresenterProtocol) {
     self.presenter = presenter
   }
+  
+  func goToAddTaskScreen(from inProgressView: InProgressUIProtocol) {
+    let addTaskScreen = AddTaskViewController()
+    inProgressView.navigationController?.pushViewController(addTaskScreen, animated: false)
+  }
+  
+  func goToTeamListScreen(from inProgressView: InProgressUIProtocol) {
+    let teamListScreen = TeamListViewController()
+    inProgressView.navigationController?.pushViewController(teamListScreen, animated: false)
+  }
 }

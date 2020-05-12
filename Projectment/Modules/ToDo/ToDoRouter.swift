@@ -19,4 +19,14 @@ final class ToDoRouter: ToDoRouterProtocol {
   init(_ presenter: ToDoRouterPresenterProtocol) {
     self.presenter = presenter
   }
+  
+  func goToAddTaskScreen(from toDoView: ToDoUIProtocol) {
+    let addTaskScreen = AddTaskViewController()
+    toDoView.navigationController?.pushViewController(addTaskScreen, animated: false)
+  }
+  
+  func goToTeamListScreen(from toDoView: ToDoUIProtocol) {
+    let teamListScreen = TeamListViewController()
+    toDoView.navigationController?.pushViewController(teamListScreen, animated: false)
+  }
 }
