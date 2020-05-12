@@ -79,7 +79,7 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
   func makeWhoButton() {
     self.whoButton = UIButton() {
       $0.setImage(UIImage(systemName: "person.crop.circle.fill"), for: .normal)
-      $0.tintColor = .purple
+      $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
       
       $0.snp.makeConstraints {
         $0.width.height.equalTo(20)
@@ -90,7 +90,7 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
   func makeDateButton() {
     self.dateButton = UIButton() {
       $0.setImage(UIImage(systemName: "clock.fill"), for: .normal)
-      $0.tintColor = .purple
+      $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
       
       $0.snp.makeConstraints {
         $0.width.height.equalTo(20)
@@ -100,7 +100,7 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
     
   func makeTypeIcon() {
     self.typeIcon = UIImageView(image: self.entity?.type.icon) {
-      $0.tintColor = .purple
+      $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
       
       $0.snp.makeConstraints {
         switch self.entity?.type {
@@ -123,7 +123,7 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
   
   func makeWeightIcon() {
     self.weightIcon = UIImageView(image: self.entity?.complexity.icon) {
-      $0.tintColor = .purple
+      $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
       
       $0.snp.makeConstraints {
         switch self.entity?.complexity {

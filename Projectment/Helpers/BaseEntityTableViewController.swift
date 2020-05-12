@@ -28,6 +28,10 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
     }
   }
   
+  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    self.tableView.reloadData()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.makeTasksTableView()
