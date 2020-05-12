@@ -24,7 +24,14 @@ struct ToDoPreview: PreviewProvider {
 }
 
 import UIKit
-final class ToDoViewController: BaseEntityTableViewController<TasksContext, Task>, ToDoViewProtocol {
+final class ToDoViewController: BaseEntityTableViewController<TasksContext, Task>, BaseEntityTableViewControllerDelegate, BaseEntityTableViewControllerTasksContextDelegate, ToDoViewProtocol {
+  func addEntityButton() {
+    print("addEntityButton from ToDo")
+  }
+  
+  func showTeammateListButton() {
+    print("showTeammateListButton from ToDo")
+  }
   
   // MARK: properties
   var configurator : ToDoConfiguratorProtocol!
@@ -34,9 +41,10 @@ final class ToDoViewController: BaseEntityTableViewController<TasksContext, Task
 // MARK: - Life Cycle
 
 extension ToDoViewController {
-  
   override func viewDidLoad() {
     super.viewDidLoad()
+    super.generalDelegate = self
+    super.tasksContextDelegate = self
     self.configurator = ToDoConfigurator(self)
     self.configurator.configure(self)
     self.presenter.viewDidLoad()

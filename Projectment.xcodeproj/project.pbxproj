@@ -40,6 +40,7 @@
 		99941AD2246ACABB000CBA82 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AD1246ACABB000CBA82 /* UIButton.swift */; };
 		99941AD4246ACE21000CBA82 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AD3246ACE21000CBA82 /* UIStackView.swift */; };
 		99941AD6246ADEFD000CBA82 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AD5246ADEFD000CBA82 /* UIImageView.swift */; };
+		99941AD8246AFA80000CBA82 /* TeamContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AD7246AFA80000CBA82 /* TeamContext.swift */; };
 		CA45108F81D75B05F8C7C856 /* ToDoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45129777003F6F32162C3F /* ToDoInteractor.swift */; };
 		CA451112DA4D172EE08F167F /* ProjectmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451805317CAA5BA1789582 /* ProjectmentTests.swift */; };
 		CA4511ED465EA6EC8A24CF1A /* ToDoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451A9164D4FF1DA631D9E3 /* ToDoPresenter.swift */; };
@@ -113,6 +114,7 @@
 		99941AD1246ACABB000CBA82 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		99941AD3246ACE21000CBA82 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		99941AD5246ADEFD000CBA82 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		99941AD7246AFA80000CBA82 /* TeamContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamContext.swift; sourceTree = "<group>"; };
 		A35C16FAC44FD0BB236DB65A /* Pods_Projectment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Projectment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4511302D8C04D3F67A3D0C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CA4511E9420E8DE3F3FF6661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				99941AC72469E7D8000CBA82 /* TasksContext.swift */,
+				99941AD7246AFA80000CBA82 /* TeamContext.swift */,
 				99941AC92469E7F8000CBA82 /* Contextable.swift */,
 				99941ACB2469E929000CBA82 /* ContextInfo.swift */,
 			);
@@ -631,6 +634,7 @@
 				99941AA9246830F3000CBA82 /* DoneRouter.swift in Sources */,
 				99941ACA2469E7F8000CBA82 /* Contextable.swift in Sources */,
 				99941AB3246845BF000CBA82 /* Task.swift in Sources */,
+				99941AD8246AFA80000CBA82 /* TeamContext.swift in Sources */,
 				99941A9F246830E7000CBA82 /* InProgressInteractor.swift in Sources */,
 				99941AC124687AC1000CBA82 /* TaskComplexity.swift in Sources */,
 				99941AB524684ECF000CBA82 /* TaskState.swift in Sources */,

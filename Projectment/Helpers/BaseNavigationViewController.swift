@@ -19,16 +19,16 @@ extension UINavigationController {
     navigationController.tabBarItem.selectedImage         = selected
     navigationController.tabBarItem.imageInsets = .init(top: 5, left: 0, bottom: -5, right: 0)
     
-    if #available(iOS 13.0, *) {
-      let navBarAppearance = UINavigationBarAppearance()
-      navBarAppearance.configureWithOpaqueBackground()
-      navBarAppearance.titleTextAttributes                    = [.foregroundColor: UIColor.white]
-      navBarAppearance.largeTitleTextAttributes               = [.foregroundColor: UIColor.white]
-      navBarAppearance.backgroundColor                        = .purple
-      navigationController.navigationBar.standardAppearance   = navBarAppearance
-      navigationController.navigationBar.scrollEdgeAppearance = navBarAppearance
-    }
-    navigationController.navigationBar.prefersLargeTitles = true
+    let navBarAppearance = UINavigationBarAppearance()
+    
+    navBarAppearance.configureWithOpaqueBackground()
+    navBarAppearance.titleTextAttributes      = [.foregroundColor: UIColor.white]
+    navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    navBarAppearance.backgroundColor          = .purple
+    
+    navigationController.navigationBar.standardAppearance   = navBarAppearance
+    navigationController.navigationBar.scrollEdgeAppearance = navBarAppearance
+    navigationController.navigationBar.prefersLargeTitles   = true
     
     return navigationController
   }

@@ -26,7 +26,14 @@ struct InProgressPreview: PreviewProvider {
 
 import UIKit
 
-final class InProgressViewController: BaseEntityTableViewController<TasksContext, Task>, InProgressViewProtocol {
+final class InProgressViewController: BaseEntityTableViewController<TasksContext, Task>, BaseEntityTableViewControllerDelegate, BaseEntityTableViewControllerTasksContextDelegate, InProgressViewProtocol {
+  func addEntityButton() {
+    print("addEntityButton from InProgress")
+  }
+  
+  func showTeammateListButton() {
+    print("showTeammateListButton from InProgress")
+  }
   
   // MARK: properties
   var configurator : InProgressConfiguratorProtocol!
@@ -38,6 +45,8 @@ final class InProgressViewController: BaseEntityTableViewController<TasksContext
 extension InProgressViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
+    super.generalDelegate = self
+    super.tasksContextDelegate = self
     self.configurator = InProgressConfigurator(self)
     self.configurator.configure(self)
     self.presenter.viewDidLoad()

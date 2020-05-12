@@ -8,8 +8,38 @@
 
 import UIKit
 
+@objc protocol BaseEntityTableViewControllerDelegate {
+  func addEntityButton()
+}
+
+@objc protocol BaseEntityTableViewControllerTasksContextDelegate {
+  func showTeammateListButton()
+}
+
 class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: UITableViewController {
+  var generalDelegate      : BaseEntityTableViewControllerDelegate? {
+    didSet {
+      self.makeAddEntityButton()
+      if type(of: self.context) == TasksContext.self {
+        self.makeShowTeammateListButton()
+      }
+      self.addNavBarButtons()
+    }
+  }
+  var tasksContextDelegate : BaseEntityTableViewControllerTasksContextDelegate? {
+    didSet {
+      self.makeAddEntityButton()
+      if type(of: self.context) == TasksContext.self {
+        self.makeShowTeammateListButton()
+      }
+      self.addNavBarButtons()
+    }
+  }
+  
   var context: Context
+  
+  var addEntityButton        : UIBarButtonItem!
+  var showTeammateListButton : UIBarButtonItem?
   
   init(context: Context, style: UITableView.Style) {
     self.context = context
@@ -35,6 +65,11 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
   override func viewDidLoad() {
     super.viewDidLoad()
     self.makeTasksTableView()
+    self.makeAddEntityButton()
+    if type(of: self.context) == TasksContext.self {
+      self.makeShowTeammateListButton()
+    }
+    self.addNavBarButtons()
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,5 +96,39 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
 private extension BaseEntityTableViewController {
   func makeTasksTableView() {
     self.tableView.register(BaseEntityTableViewCell<Context, Entity>.self, forCellReuseIdentifier: self.cellID)
+  }
+  
+  func makeAddEntityButton() {
+    var addEntityButton: UIBarButtonItem
+    
+    if let generalDelegate = self.generalDelegate {
+      addEntityButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .done, target: self, action: #selector(generalDelegate.addEntityButton))
+    } else {
+      addEntityButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .done, target: self, action: nil)
+    }
+    
+    addEntityButton.tintColor = .white
+    self.addEntityButton = addEntityButton
+  }
+  
+  func makeShowTeammateListButton() {
+    var showTeammateListButton: UIBarButtonItem
+    
+    if let tasksContextDelegate = self.tasksContextDelegate {
+      showTeammateListButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.stack.person.crop"), style: .done, target: self, action: #selector(tasksContextDelegate.showTeammateListButton))
+    } else {
+      showTeammateListButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.stack.person.crop"), style: .done, target: self, action: nil)
+    }
+    
+    showTeammateListButton.tintColor = .white
+    self.showTeammateListButton = showTeammateListButton
+  }
+  
+  func addNavBarButtons() {
+    if let showTeammateListButton = self.showTeammateListButton {
+      self.navigationItem.rightBarButtonItems = [self.addEntityButton, showTeammateListButton]
+    } else {
+      self.navigationItem.rightBarButtonItems = [self.addEntityButton]
+    }
   }
 }
