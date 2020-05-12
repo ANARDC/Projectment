@@ -16,7 +16,7 @@ struct ToDoPreview: PreviewProvider {
 
   struct ContainerView: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<ToDoPreview.ContainerView>) -> UIViewController {
-      ToDoViewController()
+      ToDoViewController(context: TasksContext.shared, style: .grouped)
     }
 
     func updateUIViewController(_ uiViewController: ToDoPreview.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ToDoPreview.ContainerView>) { }
@@ -24,7 +24,7 @@ struct ToDoPreview: PreviewProvider {
 }
 
 import UIKit
-final class ToDoViewController: BaseTasksViewController, ToDoViewProtocol {
+final class ToDoViewController: BaseEntityTableViewController<TasksContext, Task>, ToDoViewProtocol {
   
   // MARK: properties
   var configurator : ToDoConfiguratorProtocol!
@@ -47,7 +47,7 @@ extension ToDoViewController {
 
 extension ToDoViewController: ToDoViewDataProtocol {
   func setTasks(for tasks: [Task]?) {
-    super.tasks = tasks
+    super.entities = tasks
   }
 }
 

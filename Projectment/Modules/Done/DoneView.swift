@@ -16,7 +16,7 @@ struct DonePreview: PreviewProvider {
 
   struct ContainerView: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<DonePreview.ContainerView>) -> UIViewController {
-      DoneViewController()
+      DoneViewController(context: TasksContext.shared, style: .grouped)
     }
 
     func updateUIViewController(_ uiViewController: DonePreview.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<DonePreview.ContainerView>) { }
@@ -25,7 +25,7 @@ struct DonePreview: PreviewProvider {
 
 import UIKit
 
-final class DoneViewController: BaseTasksViewController, DoneViewProtocol {
+final class DoneViewController: BaseEntityTableViewController<TasksContext, Task>, DoneViewProtocol {
   
   // MARK: properties
   var configurator : DoneConfiguratorProtocol!

@@ -30,13 +30,15 @@ final class TabBarController: UITabBarController {
   }
 
   private func setup() {
-    let toDoViewController  = UINavigationController.make(for: ToDoViewController(),
+    let tasksContext = TasksContext(info: ContextInfo(name: "Tasks Context", description: "Interaction with tasks with different state", scenesCount: 3))
+    
+    let toDoViewController  = UINavigationController.make(for: ToDoViewController(context: tasksContext, style: .grouped),
                                                           selected: UIImage(systemName: "rectangle.stack.fill")!,
                                                           unselected: UIImage(systemName: "rectangle.stack")!)
-    let inProgressViewController = UINavigationController.make(for: InProgressViewController(),
+    let inProgressViewController = UINavigationController.make(for: InProgressViewController(context: tasksContext, style: .grouped),
                                                                selected: UIImage(systemName: "hourglass.tophalf.fill")!,
                                                                unselected: UIImage(systemName: "hourglass")!)
-    let doneViewController = UINavigationController.make(for: DoneViewController(),
+    let doneViewController = UINavigationController.make(for: DoneViewController(context: tasksContext, style: .grouped),
                                                          selected: UIImage(systemName: "checkmark.circle.fill")!,
                                                          unselected: UIImage(systemName: "checkmark.circle")!)
 
@@ -45,7 +47,7 @@ final class TabBarController: UITabBarController {
   
   private func configure() {
     self.tabBar.barTintColor            = .purple
-    self.tabBar.tintColor               = .brown
+    self.tabBar.tintColor               = .white
     self.tabBar.unselectedItemTintColor = .white
     self.tabBar.layer.masksToBounds     = true
     self.tabBar.isTranslucent           = true

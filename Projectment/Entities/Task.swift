@@ -8,7 +8,7 @@
 
 import Unrealm
 
-struct Task: Realmable {
+struct Task: Realmable, Entitiable {
   var id          : String = UUID().uuidString
   var title       : String = ""
   var description : String?

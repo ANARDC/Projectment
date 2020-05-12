@@ -16,7 +16,7 @@ struct InProgressPreview: PreviewProvider {
 
   struct ContainerView: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<InProgressPreview.ContainerView>) -> UIViewController {
-      InProgressViewController()
+      InProgressViewController(context: TasksContext.shared, style: .grouped)
     }
 
     func updateUIViewController(_ uiViewController: InProgressPreview.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<InProgressPreview.ContainerView>) { }
@@ -26,7 +26,7 @@ struct InProgressPreview: PreviewProvider {
 
 import UIKit
 
-final class InProgressViewController: BaseTasksViewController, InProgressViewProtocol {
+final class InProgressViewController: BaseEntityTableViewController<TasksContext, Task>, InProgressViewProtocol {
   
   // MARK: properties
   var configurator : InProgressConfiguratorProtocol!

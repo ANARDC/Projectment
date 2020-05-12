@@ -21,18 +21,21 @@
 		99941AAB246830F3000CBA82 /* DoneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AA5246830F3000CBA82 /* DoneInteractor.swift */; };
 		99941AAC246830F3000CBA82 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AA6246830F3000CBA82 /* DoneView.swift */; };
 		99941AAD246830F3000CBA82 /* DoneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AA7246830F3000CBA82 /* DoneConfigurator.swift */; };
-		99941AAF24683123000CBA82 /* BaseTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAE24683123000CBA82 /* BaseTasksViewController.swift */; };
+		99941AAF24683123000CBA82 /* BaseEntityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AAE24683123000CBA82 /* BaseEntityTableViewController.swift */; };
 		99941AB1246845B3000CBA82 /* Teammate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AB0246845B3000CBA82 /* Teammate.swift */; };
 		99941AB3246845BF000CBA82 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AB2246845BF000CBA82 /* Task.swift */; };
 		99941AB524684ECF000CBA82 /* TaskState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AB424684ECF000CBA82 /* TaskState.swift */; };
 		99941AB724684F3E000CBA82 /* TeammatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AB624684F3E000CBA82 /* TeammatePost.swift */; };
 		99941AB924684F9D000CBA82 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AB824684F9D000CBA82 /* TaskType.swift */; };
 		99941ABB2468506E000CBA82 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ABA2468506E000CBA82 /* Posts.swift */; };
-		99941ABD24685B07000CBA82 /* BaseTasksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ABC24685B07000CBA82 /* BaseTasksTableView.swift */; };
-		99941ABF24686F56000CBA82 /* BaseTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ABE24686F56000CBA82 /* BaseTasksTableViewCell.swift */; };
+		99941ABF24686F56000CBA82 /* BaseEntityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ABE24686F56000CBA82 /* BaseEntityTableViewCell.swift */; };
 		99941AC124687AC1000CBA82 /* TaskWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AC024687AC1000CBA82 /* TaskWeight.swift */; };
 		99941AC32469CE79000CBA82 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AC22469CE79000CBA82 /* DataService.swift */; };
 		99941AC52469D23B000CBA82 /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AC42469D23B000CBA82 /* TimeService.swift */; };
+		99941AC82469E7D8000CBA82 /* TasksContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AC72469E7D8000CBA82 /* TasksContext.swift */; };
+		99941ACA2469E7F8000CBA82 /* Contextable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941AC92469E7F8000CBA82 /* Contextable.swift */; };
+		99941ACC2469E929000CBA82 /* ContextInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ACB2469E929000CBA82 /* ContextInfo.swift */; };
+		99941ACE2469F4CA000CBA82 /* Entitiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99941ACD2469F4CA000CBA82 /* Entitiable.swift */; };
 		CA45108F81D75B05F8C7C856 /* ToDoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45129777003F6F32162C3F /* ToDoInteractor.swift */; };
 		CA451112DA4D172EE08F167F /* ProjectmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451805317CAA5BA1789582 /* ProjectmentTests.swift */; };
 		CA4511ED465EA6EC8A24CF1A /* ToDoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA451A9164D4FF1DA631D9E3 /* ToDoPresenter.swift */; };
@@ -87,18 +90,21 @@
 		99941AA5246830F3000CBA82 /* DoneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneInteractor.swift; sourceTree = "<group>"; };
 		99941AA6246830F3000CBA82 /* DoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
 		99941AA7246830F3000CBA82 /* DoneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneConfigurator.swift; sourceTree = "<group>"; };
-		99941AAE24683123000CBA82 /* BaseTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTasksViewController.swift; sourceTree = "<group>"; };
+		99941AAE24683123000CBA82 /* BaseEntityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEntityTableViewController.swift; sourceTree = "<group>"; };
 		99941AB0246845B3000CBA82 /* Teammate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teammate.swift; sourceTree = "<group>"; };
 		99941AB2246845BF000CBA82 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		99941AB424684ECF000CBA82 /* TaskState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskState.swift; sourceTree = "<group>"; };
 		99941AB624684F3E000CBA82 /* TeammatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeammatePost.swift; sourceTree = "<group>"; };
 		99941AB824684F9D000CBA82 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		99941ABA2468506E000CBA82 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
-		99941ABC24685B07000CBA82 /* BaseTasksTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTasksTableView.swift; sourceTree = "<group>"; };
-		99941ABE24686F56000CBA82 /* BaseTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTasksTableViewCell.swift; sourceTree = "<group>"; };
+		99941ABE24686F56000CBA82 /* BaseEntityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEntityTableViewCell.swift; sourceTree = "<group>"; };
 		99941AC024687AC1000CBA82 /* TaskWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskWeight.swift; sourceTree = "<group>"; };
 		99941AC22469CE79000CBA82 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		99941AC42469D23B000CBA82 /* TimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
+		99941AC72469E7D8000CBA82 /* TasksContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksContext.swift; sourceTree = "<group>"; };
+		99941AC92469E7F8000CBA82 /* Contextable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contextable.swift; sourceTree = "<group>"; };
+		99941ACB2469E929000CBA82 /* ContextInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextInfo.swift; sourceTree = "<group>"; };
+		99941ACD2469F4CA000CBA82 /* Entitiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitiable.swift; sourceTree = "<group>"; };
 		A35C16FAC44FD0BB236DB65A /* Pods_Projectment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Projectment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4511302D8C04D3F67A3D0C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CA4511E9420E8DE3F3FF6661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -177,14 +183,23 @@
 			path = InProgress;
 			sourceTree = "<group>";
 		};
+		99941AC62469E7AE000CBA82 /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				99941AC72469E7D8000CBA82 /* TasksContext.swift */,
+				99941AC92469E7F8000CBA82 /* Contextable.swift */,
+				99941ACB2469E929000CBA82 /* ContextInfo.swift */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
 		CA4510898091F89BB52C31DB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				CA4511302D8C04D3F67A3D0C /* TabBarController.swift */,
 				CA451F5F6FEDE6656362A20C /* BaseNavigationViewController.swift */,
-				99941AAE24683123000CBA82 /* BaseTasksViewController.swift */,
-				99941ABC24685B07000CBA82 /* BaseTasksTableView.swift */,
-				99941ABE24686F56000CBA82 /* BaseTasksTableViewCell.swift */,
+				99941AAE24683123000CBA82 /* BaseEntityTableViewController.swift */,
+				99941ABE24686F56000CBA82 /* BaseEntityTableViewCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -280,6 +295,7 @@
 				CA451F6C218FF4E5B76A00E2 /* Supporting Files */,
 				CA4510898091F89BB52C31DB /* Helpers */,
 				CA451CBFE0960B7F1B5BC1D3 /* Entities */,
+				99941AC62469E7AE000CBA82 /* Contexts */,
 				CA4515D8EE796EFD5706C792 /* Services */,
 				CA4513F1C21C44C19EE335DB /* Modules */,
 			);
@@ -289,6 +305,7 @@
 		CA451CBFE0960B7F1B5BC1D3 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				99941ACD2469F4CA000CBA82 /* Entitiable.swift */,
 				99941AB2246845BF000CBA82 /* Task.swift */,
 				99941AB0246845B3000CBA82 /* Teammate.swift */,
 				99941AB424684ECF000CBA82 /* TaskState.swift */,
@@ -587,26 +604,29 @@
 				99941A9E246830E7000CBA82 /* InProgressProtocols.swift in Sources */,
 				CA4512FFF499CF4ADA8457CC /* SceneDelegate.swift in Sources */,
 				99941AAD246830F3000CBA82 /* DoneConfigurator.swift in Sources */,
-				99941ABD24685B07000CBA82 /* BaseTasksTableView.swift in Sources */,
+				99941AC82469E7D8000CBA82 /* TasksContext.swift in Sources */,
 				CA451593D438A9FE196E5A63 /* AppDelegate.swift in Sources */,
-				99941AAF24683123000CBA82 /* BaseTasksViewController.swift in Sources */,
+				99941AAF24683123000CBA82 /* BaseEntityTableViewController.swift in Sources */,
 				CA4515E69D95D2D713FB5FDE /* TabBarController.swift in Sources */,
 				99941AAB246830F3000CBA82 /* DoneInteractor.swift in Sources */,
+				99941ACC2469E929000CBA82 /* ContextInfo.swift in Sources */,
 				99941A9C246830E7000CBA82 /* InProgressPresenter.swift in Sources */,
 				CA451506517F8BFB98978223 /* BaseNavigationViewController.swift in Sources */,
 				99941AC52469D23B000CBA82 /* TimeService.swift in Sources */,
 				99941AA1246830E7000CBA82 /* InProgressConfigurator.swift in Sources */,
 				99941AA8246830F3000CBA82 /* DonePresenter.swift in Sources */,
 				99941AA9246830F3000CBA82 /* DoneRouter.swift in Sources */,
+				99941ACA2469E7F8000CBA82 /* Contextable.swift in Sources */,
 				99941AB3246845BF000CBA82 /* Task.swift in Sources */,
 				99941A9F246830E7000CBA82 /* InProgressInteractor.swift in Sources */,
 				99941AC124687AC1000CBA82 /* TaskWeight.swift in Sources */,
 				99941AB524684ECF000CBA82 /* TaskState.swift in Sources */,
 				99941AAA246830F3000CBA82 /* DoneProtocols.swift in Sources */,
 				99941ABB2468506E000CBA82 /* Posts.swift in Sources */,
+				99941ACE2469F4CA000CBA82 /* Entitiable.swift in Sources */,
 				CA4511ED465EA6EC8A24CF1A /* ToDoPresenter.swift in Sources */,
 				99941AB724684F3E000CBA82 /* TeammatePost.swift in Sources */,
-				99941ABF24686F56000CBA82 /* BaseTasksTableViewCell.swift in Sources */,
+				99941ABF24686F56000CBA82 /* BaseEntityTableViewCell.swift in Sources */,
 				99941AB924684F9D000CBA82 /* TaskType.swift in Sources */,
 				99941A9D246830E7000CBA82 /* InProgressRouter.swift in Sources */,
 				CA451C5BFD2A9EAA82EA60E0 /* ToDoRouter.swift in Sources */,
