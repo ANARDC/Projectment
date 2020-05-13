@@ -78,8 +78,12 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
         cell.make()
         return cell
       }
-    } else if type(of: self.context) == TasksContext.self {
-      
+    } else if type(of: self.context) == TeamContext.self {
+      if let cell = tableView.dequeueReusableCell(withIdentifier: self.cellID, for: indexPath) as? BaseEntityTableViewCell<TeamContext, Teammate>, let teammate = self.entities?[indexPath.row] as? Teammate {
+        cell.setup(with: teammate)
+        cell.make()
+        return cell
+      }
     }
     
     return UITableViewCell()
