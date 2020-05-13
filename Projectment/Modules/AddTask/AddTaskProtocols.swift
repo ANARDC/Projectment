@@ -14,10 +14,21 @@ protocol AddTaskViewProtocol: AddTaskUIProtocol {
   var presenter: AddTaskViewPresenterProtocol! { get set }
 }
 
-protocol AddTaskUIProtocol: UIViewController {
+protocol AddTaskUIProtocol: UIViewController, AddTaskViewDataProtocol {
+  func changeTheme()
   func makeView()
   func makeNavBar()
   func makeTabBar()
+  func makeTitleTextField()
+  func makeDescriptionTextView()
+  func makeWhoPickerView()
+  func makeExpiresPickerView()
+  func makeStateAndTypeAndComplexityPickerView()
+  func makeAddTaskButton()
+}
+
+protocol AddTaskViewDataProtocol {
+  func setTeam(for data: [Teammate]?)
 }
 
 // MARK: Presenter
@@ -50,7 +61,7 @@ protocol AddTaskRouterPresenterProtocol: class {
 // MARK: Interactor
 
 protocol AddTaskInteractorProtocol: class {
-  
+  var team: [Teammate]? { get }
 }
 
 // MARK: Router

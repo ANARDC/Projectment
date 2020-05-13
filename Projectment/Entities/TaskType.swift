@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum TaskType: String {
+enum TaskType: String, CaseIterable {
   case design
   case management
   case development

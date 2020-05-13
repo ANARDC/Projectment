@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum TaskComplexity: String {
+enum TaskComplexity: String, CaseIterable {
   case easy
   case middle
   case hard

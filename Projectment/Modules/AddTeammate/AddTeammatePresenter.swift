@@ -39,8 +39,6 @@ extension AddTeammatePresenter: AddTeammateLifeCyclePresenterProtocol {
   
   func traitCollectionDidChange() {
     self.view.changeTheme()
-    self.makeReactive()
-    self.bindReactive()
   }
 }
 

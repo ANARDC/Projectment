@@ -18,7 +18,9 @@ final class AddTaskConfigurator: AddTaskConfiguratorProtocol {
   init(_ view: AddTaskUIProtocol) {
     self.presenter = AddTaskPresenter(view)
     
-    self.interactor = AddTaskInteractor(self.presenter)
+    let dataService = DataService()
+    
+    self.interactor = AddTaskInteractor(self.presenter, dataService)
     self.router     = AddTaskRouter(self.presenter)
     
     self.presenter.interactor = self.interactor

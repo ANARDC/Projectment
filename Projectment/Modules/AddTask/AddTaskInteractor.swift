@@ -9,9 +9,15 @@
 final class AddTaskInteractor: AddTaskInteractorProtocol {
   
   // MARK: properties
-  weak var presenter: AddTaskInteractorPresenterProtocol!
+  weak var presenter : AddTaskInteractorPresenterProtocol!
+  var dataService    : DataService
   
-  init(_ presenter: AddTaskInteractorPresenterProtocol) {
-    self.presenter = presenter
+  init(_ presenter: AddTaskInteractorPresenterProtocol, _ dataService: DataService) {
+    self.presenter    = presenter
+    self.dataService = dataService
+  }
+  
+  var team: [Teammate]? {
+    self.dataService.team
   }
 }

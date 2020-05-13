@@ -23,13 +23,20 @@ final class AddTaskPresenter: AddTaskPresenterGeneralProtocol {
 
 extension AddTaskPresenter: AddTaskLifeCyclePresenterProtocol {
   func viewDidLoad() {
+    self.view.setTeam(for: self.interactor.team)
     self.view.makeView()
     self.view.makeNavBar()
     self.view.makeTabBar()
+    self.view.makeTitleTextField()
+    self.view.makeDescriptionTextView()
+    self.view.makeWhoPickerView()
+    self.view.makeExpiresPickerView()
+    self.view.makeStateAndTypeAndComplexityPickerView()
+    self.view.makeAddTaskButton()
   }
   
   func traitCollectionDidChange() {
-    self.view.view.backgroundColor = self.view.traitCollection.userInterfaceStyle == .light ? .white : .black
+    self.view.changeTheme()
   }
 }
 
