@@ -14,6 +14,7 @@ enum TaskType {
   case development
   case testing
   case planning
+  case unknown
   
   var icon: UIImage? {
     switch self {
@@ -27,6 +28,8 @@ enum TaskType {
       return UIImage(systemName: "hammer.fill")
     case .planning:
       return UIImage(systemName: "calendar")
+    case .unknown:
+      return UIImage(systemName: "questionmark")
     }
   }
 }

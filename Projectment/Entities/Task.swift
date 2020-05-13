@@ -10,12 +10,12 @@ import Unrealm
 
 struct Task: Realmable, Entitiable {
   var id          : String = UUID().uuidString
-  var title       : String = ""
+  var title       : String = "UnknownTask"
   var description : String?
   var who         : Teammate?
   var created     : Date = Date()
   var expires     : Date?
   var state       : TaskState = .toDo
-  var type        : TaskType = .development
-  var complexity  : TaskComplexity = .easy
+  var type        : TaskType = .unknown
+  var complexity  : TaskComplexity = .unknown
 }

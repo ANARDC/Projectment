@@ -124,6 +124,8 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
           $0.width.height.equalTo(20)
         case .testing:
           $0.width.height.equalTo(25)
+        case .unknown:
+          $0.width.height.equalTo(20)
         case .none:
           return
         }
@@ -143,6 +145,8 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
           $0.width.height.equalTo(20)
         case .hard:
           $0.width.height.equalTo(25)
+        case .unknown:
+          $0.width.height.equalTo(20)
         case .none:
           return
         }
@@ -214,7 +218,7 @@ extension BaseEntityTableViewCell where Context == TeamContext, Entity == Teamma
   
   func makeTeammateJobLabel() {
     self.teammateJobLabel = UILabel() {
-      $0.text          = self.entity?.job?.rawValue.capitalized
+      $0.text          = "Job: \(self.entity?.job?.rawValue.capitalized ?? "Unknown")"
       $0.font          = .systemFont(ofSize: 14)
       $0.numberOfLines = 1
     }
@@ -231,7 +235,7 @@ extension BaseEntityTableViewCell where Context == TeamContext, Entity == Teamma
   
   func makeTeammatePostLabel() {
     self.teammatePostLabel = UILabel() {
-      $0.text          = self.entity?.post?.rawValue.capitalized
+      $0.text          = "Post: \(self.entity?.post?.rawValue.capitalized ?? "Unknown")"
       $0.font          = .systemFont(ofSize: 14)
       $0.numberOfLines = 1
     }

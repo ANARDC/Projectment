@@ -12,6 +12,7 @@ enum TaskComplexity {
   case easy
   case middle
   case hard
+  case unknown
   
   var icon: UIImage? {
     switch self {
@@ -21,6 +22,8 @@ enum TaskComplexity {
       return UIImage(systemName: "ant.fill")
     case .hard:
       return UIImage(systemName: "tortoise.fill")
+    case .unknown:
+      return UIImage(systemName: "questionmark")
     }
   }
 }
