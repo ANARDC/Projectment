@@ -75,8 +75,8 @@ private extension AddTeammatePresenter {
         Teammate(id: id,
                  name: name,
                  lastName: lastName,
-                 job: job,
-                 post: post)
+                 job: job.rawValue,
+                 post: post.rawValue)
     }
   }
   
@@ -94,8 +94,23 @@ private extension AddTeammatePresenter {
   func makeAddTeammateButtonSubscriber() {
     self.input.addButton
       .withLatestFrom(self.teammateObservable)
-      .subscribe(onNext: { teammate in
-        self.interactor.saveTeammate(for: teammate)
+      .flatMapLatest({ teammate in
+        self.interactor.saveTeammate(for: teammate).materialize()
+      })
+      .subscribe(onNext: { event in
+        switch event {
+        case .next(let state):
+          switch state {
+          case .success:
+            dump("Success Saving")
+          case .error:
+            fatalError("Saving Data Cannot Be Done")
+          }
+        case .error(let error):
+          fatalError(error.localizedDescription)
+        case .completed:
+          dump("Realm Session Completed")
+        }
       })
       .disposed(by: self.bag)
   }

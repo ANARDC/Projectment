@@ -67,7 +67,7 @@ protocol AddTeammateRouterPresenterProtocol: class {
 // MARK: Interactor
 
 protocol AddTeammateInteractorProtocol: class {
-  func saveTeammate(for data: Teammate)
+  func saveTeammate(for data: Teammate) -> Observable<RealmOperationState>
   
   var teammatesIDList: [String]? { get }
 }

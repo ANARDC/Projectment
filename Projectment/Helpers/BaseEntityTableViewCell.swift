@@ -109,11 +109,11 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
   }
     
   func makeTypeIcon() {
-    self.taskTypeIcon = UIImageView(image: self.entity?.type.icon) {
+    self.taskTypeIcon = UIImageView(image: TaskType(rawValue: self.entity?.type ?? "unknown")?.icon) {
       $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
       
       $0.snp.makeConstraints {
-        switch self.entity?.type {
+        switch TaskType(rawValue: self.entity?.type ?? "unknown") {
         case .design:
           $0.width.height.equalTo(20)
         case .management:
@@ -134,11 +134,11 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
   }
   
   func makeWeightIcon() {
-    self.taskComplexityIcon = UIImageView(image: self.entity?.complexity.icon) {
+    self.taskComplexityIcon = UIImageView(image: TaskComplexity(rawValue: self.entity?.complexity ?? "unknown")? .icon) {
       $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
       
       $0.snp.makeConstraints {
-        switch self.entity?.complexity {
+        switch TaskComplexity(rawValue: self.entity?.complexity ?? "unknown") {
         case .easy:
           $0.width.height.equalTo(20)
         case .middle:
@@ -218,7 +218,8 @@ extension BaseEntityTableViewCell where Context == TeamContext, Entity == Teamma
   
   func makeTeammateJobLabel() {
     self.teammateJobLabel = UILabel() {
-      $0.text          = "Job: \(self.entity?.job?.rawValue.capitalized ?? "Unknown")"
+      
+      $0.text          = "Job: \(Job(rawValue: self.entity?.job ?? "designer")?.rawValue.capitalized ?? "Uncnown")"
       $0.font          = .systemFont(ofSize: 14)
       $0.numberOfLines = 1
     }
@@ -235,7 +236,7 @@ extension BaseEntityTableViewCell where Context == TeamContext, Entity == Teamma
   
   func makeTeammatePostLabel() {
     self.teammatePostLabel = UILabel() {
-      $0.text          = "Post: \(self.entity?.post?.rawValue.capitalized ?? "Unknown")"
+      $0.text          = "Post: \(TeammatePost(rawValue: self.entity?.post ?? "junior")?.rawValue.capitalized ?? "Unknown")"
       $0.font          = .systemFont(ofSize: 14)
       $0.numberOfLines = 1
     }

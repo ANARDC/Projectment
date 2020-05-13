@@ -139,7 +139,7 @@ extension AddTeammateViewController: AddTeammateUIProtocol {
       $0.layer.borderWidth  = 3
       $0.layer.cornerRadius = 25
       $0.font               = .systemFont(ofSize: 18)
-      $0.placeholder        = "Last name"
+      $0.placeholder        = "Last name (optional)"
     }
     
     guard let lastNameTextField = self.lastNameTextField, let nameTextField = self.nameTextField else { return }

@@ -6,11 +6,29 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-import Realm
+import RealmSwift
+import RxSwift
 
 final class DataService {
-  func saveTeammate(for data: Teammate) {
+  let realm = try? Realm()
+  
+  init() {
+    print(Realm.Configuration.defaultConfiguration.fileURL)
+  }
+  
+  func saveTeammate(for data: Teammate) -> Observable<RealmOperationState> {
+    var state: RealmOperationState?
     
+    do {
+      try realm?.write {
+        self.realm?.add(data)
+        state = .success
+      }
+    } catch {
+      state = .error
+    }
+    
+    return Observable.just(state ?? .error)
   }
   
   private var tasks: [Task]? {
@@ -20,86 +38,77 @@ final class DataService {
           who: self.team?.randomElement(),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .toDo,
-          type: .design,
-          complexity: .easy),
+          state: TaskState.toDo.rawValue,
+          type: TaskType.design.rawValue,
+          complexity: TaskComplexity.easy.rawValue),
      Task(id: "2",
           title: "Configure GitHub",
           description: "Delegate to head of development team configuring github for remote control versions of the product",
           who: self.team?.randomElement(),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .toDo,
-          type: .development,
-          complexity: .middle),
+          state: TaskState.toDo.rawValue,
+          type: TaskType.development.rawValue,
+          complexity: TaskComplexity.middle.rawValue),
      Task(id: "3",
           title: "Make login screen design",
           description: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
           who: self.team?.randomElement(),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .toDo,
-          type: .management,
-          complexity: .hard),
+          state: TaskState.toDo.rawValue,
+          type: TaskType.management.rawValue,
+          complexity: TaskComplexity.hard.rawValue),
      Task(id: "4",
           title: "Configure GitHub",
           description: "Delegate to head of development team configuring github for remote control versions of the product",
           who: self.team?.randomElement(),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .inProgress,
-          type: .planning,
-          complexity: .easy),
+          state: TaskState.inProgress.rawValue,
+          type: TaskType.planning.rawValue,
+          complexity: TaskComplexity.easy.rawValue),
      Task(id: "5",
           title: "Make login screen design",
           description: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
           who: self.team?.randomElement(),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .inProgress,
-          type: .testing,
-          complexity: .easy),
+          state: TaskState.inProgress.rawValue,
+          type: TaskType.testing.rawValue,
+          complexity: TaskComplexity.easy.rawValue),
      Task(id: "6",
           title: "Configure GitHub",
           description: "Delegate to head of development team configuring github for remote control versions of the product",
           who: self.team?.randomElement(),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .done,
-          type: .development,
-          complexity: .easy),
+          state: TaskState.done.rawValue,
+          type: TaskType.development.rawValue,
+          complexity: TaskComplexity.easy.rawValue),
      Task(id: "7",
           title: "Make login screen design",
           description: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
           who: self.team?.randomElement(),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .done,
-          type: .design,
-          complexity: .easy),
+          state: TaskState.done.rawValue,
+          type: TaskType.design.rawValue,
+          complexity: TaskComplexity.easy.rawValue),
      Task(id: "8",
           title: "Configure GitHub",
           description: "Delegate to head of development team configuring github for remote control versions of the product",
           who: self.team?.randomElement(),
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
-          state: .toDo,
-          type: .development,
-          complexity: .easy)]
+          state: TaskState.toDo.rawValue,
+          type: TaskType.development.rawValue,
+          complexity: TaskComplexity.easy.rawValue)]
   }
   
-  var team: [Teammate]? {
-    [Teammate(id: "1",
-              name: "Kevin",
-              lastName: "Spacey",
-              job: .designer,
-              post: .middle),
-     Teammate(id: "2",
-              name: "Abraham",
-              lastName: "Lincoln",
-              job: .developer,
-              post: .senior)]
-  }
+  lazy var team: [Teammate]? = {
+    self.realm?.objects(Teammate.self).map { $0 }
+  }()
   
   var tasksIDList: [String]? {
     self.tasks?.map { $0.id }
@@ -110,14 +119,14 @@ final class DataService {
   }
   
   var toDoTasks: [Task]? {
-    self.tasks?.filter { $0.state == .toDo }
+    self.tasks?.filter { $0.state == TaskState.toDo.rawValue }
   }
   
   var inProgressTasks: [Task]? {
-    self.tasks?.filter { $0.state == .inProgress }
+    self.tasks?.filter { $0.state == TaskState.inProgress.rawValue }
   }
   
   var doneTasks: [Task]? {
-    self.tasks?.filter { $0.state == .done }
+    self.tasks?.filter { $0.state == TaskState.done.rawValue }
   }
 }

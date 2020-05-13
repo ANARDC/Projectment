@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum TaskType {
+enum TaskType: String {
   case design
   case management
   case development

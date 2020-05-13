@@ -6,7 +6,7 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-enum TaskState {
+enum TaskState: String {
   case toDo
   case inProgress
   case done

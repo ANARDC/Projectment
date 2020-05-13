@@ -12,6 +12,6 @@ struct Teammate: Realmable, Entitiable {
   var id       : String = UUID().uuidString
   var name     : String = ""
   var lastName : String?
-  var job      : Job?
-  var post     : TeammatePost?
+  var job      : String?
+  var post     : String?
 }

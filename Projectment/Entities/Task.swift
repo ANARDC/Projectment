@@ -15,7 +15,7 @@ struct Task: Realmable, Entitiable {
   var who         : Teammate?
   var created     : Date = Date()
   var expires     : Date?
-  var state       : TaskState = .toDo
-  var type        : TaskType = .unknown
-  var complexity  : TaskComplexity = .unknown
+  var state       : String = TaskState.toDo.rawValue
+  var type        : String = TaskType.unknown.rawValue
+  var complexity  : String = TaskComplexity.unknown.rawValue
 }

@@ -6,6 +6,8 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
+import RxSwift
+
 final class AddTeammateInteractor: AddTeammateInteractorProtocol {
   
   // MARK: properties
@@ -17,7 +19,7 @@ final class AddTeammateInteractor: AddTeammateInteractorProtocol {
     self.dataService = dataService
   }
   
-  func saveTeammate(for data: Teammate) {
+  func saveTeammate(for data: Teammate) -> Observable<RealmOperationState> {
     self.dataService.saveTeammate(for: data)
   }
   
