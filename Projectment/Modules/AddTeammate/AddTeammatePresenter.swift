@@ -25,6 +25,14 @@ extension AddTeammatePresenter: AddTeammateLifeCyclePresenterProtocol {
   func viewDidLoad() {
     self.view.makeView()
     self.view.makeNavBar()
+    self.view.makeNameTextField()
+    self.view.makeLastNameTextField()
+    self.view.makeJobAndPostPickerView()
+    self.view.makeAddTeammateButton()
+  }
+  
+  func traitCollectionDidChange() {
+    self.view.changeTheme()
   }
 }
 

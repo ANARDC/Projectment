@@ -10,13 +10,18 @@ import UIKit
 
 // MARK: View
 
-protocol AddTeammateViewProtocol: UIViewController, AddTeammateUIProtocol {
+protocol AddTeammateViewProtocol: AddTeammateUIProtocol {
   var presenter: AddTeammateViewPresenterProtocol! { get set }
 }
 
-protocol AddTeammateUIProtocol: class {
+protocol AddTeammateUIProtocol: UIViewController {
+  func changeTheme()
   func makeView()
   func makeNavBar()
+  func makeNameTextField()
+  func makeLastNameTextField()
+  func makeJobAndPostPickerView()
+  func makeAddTeammateButton()
 }
 
 // MARK: Presenter
@@ -31,6 +36,7 @@ protocol AddTeammateViewPresenterProtocol: AddTeammateLifeCyclePresenterProtocol
 
 protocol AddTeammateLifeCyclePresenterProtocol: class {
   func viewDidLoad()
+  func traitCollectionDidChange()
 }
 
 protocol AddTeammateActionsPresenterProtocol: class {

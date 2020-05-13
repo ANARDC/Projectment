@@ -6,7 +6,7 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-enum TeammatePost: String {
+enum TeammatePost: String, CaseIterable {
   case junior
   case middle
   case senior

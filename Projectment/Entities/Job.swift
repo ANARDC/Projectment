@@ -6,7 +6,7 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-enum Job: String {
+enum Job: String, CaseIterable {
   case designer
   case developer
   case manager
