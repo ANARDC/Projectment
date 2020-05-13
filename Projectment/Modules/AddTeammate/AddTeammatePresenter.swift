@@ -39,6 +39,8 @@ extension AddTeammatePresenter: AddTeammateLifeCyclePresenterProtocol {
   
   func traitCollectionDidChange() {
     self.view.changeTheme()
+    self.makeReactive()
+    self.bindReactive()
   }
 }
 
@@ -71,7 +73,7 @@ private extension AddTeammatePresenter {
 private extension AddTeammatePresenter {
   var teammateObservable: Observable<Teammate> {
     Observable
-      .combineLatest(self.input.id, self.input.name, self.input.lastName, self.input.job, self.input.post) { id, name, lastName, job, post in
+      .combineLatest(self.input.id, self.input.name, self.input.lastName, self.input.job.startWith(.designer), self.input.post.startWith(.junior)) { id, name, lastName, job, post in
         Teammate(id: id,
                  name: name,
                  lastName: lastName,
@@ -98,6 +100,7 @@ private extension AddTeammatePresenter {
         self.interactor.saveTeammate(for: teammate).materialize()
       })
       .subscribe(onNext: { event in
+        print("asdasd")
         switch event {
         case .next(let state):
           switch state {

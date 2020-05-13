@@ -102,6 +102,7 @@ extension AddTeammateViewController: AddTeammateUIProtocol {
     self.view.backgroundColor = self.view.traitCollection.userInterfaceStyle == .light ? .white : .black
     self.nameTextField?.layer.borderColor = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
     self.lastNameTextField?.layer.borderColor = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
+    self.idTextField?.layer.borderColor = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
   }
   
   func makeView() {
@@ -196,7 +197,7 @@ extension AddTeammateViewController: AddTeammateUIProtocol {
   
   func makeAddTeammateButton() {
     self.addTeammateButton = UIButton() {
-      $0.backgroundColor = self.view.traitCollection.userInterfaceStyle == .light ? .purple : .white
+      $0.backgroundColor = .purple
       $0.titleLabel?.font = .systemFont(ofSize: 25, weight: .bold)
       $0.setTitle("Add", for: .normal)
       $0.layer.cornerRadius = 25
