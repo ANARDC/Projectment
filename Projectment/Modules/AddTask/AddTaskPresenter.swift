@@ -25,6 +25,7 @@ extension AddTaskPresenter: AddTaskLifeCyclePresenterProtocol {
   func viewDidLoad() {
     self.view.makeView()
     self.view.makeNavBar()
+    self.view.makeTabBar()
   }
   
   func traitCollectionDidChange() {

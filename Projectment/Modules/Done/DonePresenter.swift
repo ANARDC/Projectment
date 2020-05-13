@@ -22,6 +22,10 @@ final class DonePresenter: DonePresenterGeneralProtocol {
 // MARK: - View Life Cycle
 
 extension DonePresenter: DoneLifeCyclePresenterProtocol {
+  func viewWillAppear() {
+    self.view.makeTabBar()
+  }
+  
   func viewDidLoad() {
     self.view.setTasks(for: self.interactor.tasks)
     self.view.makeNavBar()

@@ -22,6 +22,10 @@ final class InProgressPresenter: InProgressPresenterGeneralProtocol {
 // MARK: - View Life Cycle
 
 extension InProgressPresenter: InProgressLifeCyclePresenterProtocol {
+  func viewWillAppear() {
+    self.view.makeTabBar()
+  }
+  
   func viewDidLoad() {
     self.view.setTasks(for: self.interactor.tasks)
     self.view.makeNavBar()

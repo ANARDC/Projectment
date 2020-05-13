@@ -16,6 +16,7 @@ protocol InProgressViewProtocol: InProgressUIProtocol {
 
 protocol InProgressUIProtocol: UIViewController, InProgressViewDataProtocol {
   func makeNavBar()
+  func makeTabBar()
 }
 
 protocol InProgressViewDataProtocol {
@@ -33,6 +34,7 @@ protocol InProgressViewPresenterProtocol: InProgressLifeCyclePresenterProtocol, 
 }
 
 protocol InProgressLifeCyclePresenterProtocol: class {
+  func viewWillAppear()
   func viewDidLoad()
 }
 

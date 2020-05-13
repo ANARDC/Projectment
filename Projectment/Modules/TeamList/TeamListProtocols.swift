@@ -16,6 +16,7 @@ protocol TeamListViewProtocol: TeamListUIProtocol {
 
 protocol TeamListUIProtocol: UIViewController, TeamListViewDataProtocol {
   func makeNavBar()
+  func makeTabBar()
 }
 
 protocol TeamListViewDataProtocol {

@@ -40,4 +40,8 @@ extension AddTaskViewController: AddTaskUIProtocol {
   func makeNavBar() {
     self.navigationItem.title = "Add Task"
   }
+  
+  func makeTabBar() {
+    self.tabBarController?.tabBar.isHidden = true
+  }
 }

@@ -207,7 +207,7 @@ extension AddTeammateViewController: AddTeammateUIProtocol {
     self.view.addSubview(addTeammateButton)
     
     addTeammateButton.snp.makeConstraints { maker in
-      maker.bottom.equalTo(-(self.tabBarController?.tabBar.frame.size.height ?? 0) - 20)
+      maker.bottom.equalTo(-40)
       maker.left.equalTo(20)
       maker.right.equalTo(-20)
       maker.height.equalTo(50)

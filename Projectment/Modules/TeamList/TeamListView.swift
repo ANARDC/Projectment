@@ -51,4 +51,8 @@ extension TeamListViewController: TeamListUIProtocol {
   func makeNavBar() {
     self.navigationItem.title = "Team List"
   }
+  
+  func makeTabBar() {
+    self.tabBarController?.tabBar.isHidden = true
+  }
 }

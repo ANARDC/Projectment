@@ -34,6 +34,10 @@ final class ToDoViewController: BaseEntityTableViewController<TasksContext, Task
 // MARK: - Life Cycle
 
 extension ToDoViewController {
+  override func viewWillAppear(_ animated: Bool) {
+    self.presenter.viewWillAppear()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     super.generalDelegate = self
@@ -69,5 +73,9 @@ extension ToDoViewController: ToDoViewDataProtocol {
 extension ToDoViewController: ToDoUIProtocol {
   func makeNavBar() {
     self.navigationItem.title = "To Do"
+  }
+  
+  func makeTabBar() {
+    self.tabBarController?.tabBar.isHidden = false
   }
 }

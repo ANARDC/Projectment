@@ -16,6 +16,7 @@ protocol DoneViewProtocol: DoneUIProtocol {
 
 protocol DoneUIProtocol: UIViewController, DoneViewDataProtocol {
   func makeNavBar()
+  func makeTabBar()
 }
 
 protocol DoneViewDataProtocol {
@@ -33,6 +34,7 @@ protocol DoneViewPresenterProtocol: DoneLifeCyclePresenterProtocol, DoneActionsP
 }
 
 protocol DoneLifeCyclePresenterProtocol: class {
+  func viewWillAppear()
   func viewDidLoad()
 }
 

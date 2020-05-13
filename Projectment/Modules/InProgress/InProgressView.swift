@@ -36,6 +36,10 @@ final class InProgressViewController: BaseEntityTableViewController<TasksContext
 // MARK: - Life Cycle
 
 extension InProgressViewController {
+  override func viewWillAppear(_ animated: Bool) {
+    self.presenter.viewWillAppear()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     super.generalDelegate = self
@@ -71,5 +75,9 @@ extension InProgressViewController: InProgressViewDataProtocol {
 extension InProgressViewController: InProgressUIProtocol {
   func makeNavBar() {
     self.navigationItem.title = "In Progress"
+  }
+  
+  func makeTabBar() {
+    self.tabBarController?.tabBar.isHidden = false
   }
 }

@@ -17,6 +17,7 @@ protocol AddTaskViewProtocol: AddTaskUIProtocol {
 protocol AddTaskUIProtocol: UIViewController {
   func makeView()
   func makeNavBar()
+  func makeTabBar()
 }
 
 // MARK: Presenter

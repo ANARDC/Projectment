@@ -16,6 +16,7 @@ protocol ToDoViewProtocol: ToDoUIProtocol {
 
 protocol ToDoUIProtocol: UIViewController, ToDoViewDataProtocol {
   func makeNavBar()
+  func makeTabBar()
 }
 
 protocol ToDoViewDataProtocol {
@@ -33,6 +34,7 @@ protocol ToDoViewPresenterProtocol: ToDoLifeCyclePresenterProtocol, ToDoActionsP
 }
 
 protocol ToDoLifeCyclePresenterProtocol: class {
+  func viewWillAppear()
   func viewDidLoad()
 }
 

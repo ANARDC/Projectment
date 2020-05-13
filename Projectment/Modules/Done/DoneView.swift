@@ -34,6 +34,10 @@ final class DoneViewController: BaseEntityTableViewController<TasksContext, Task
 // MARK: - Life Cycle
 
 extension DoneViewController {
+  override func viewWillAppear(_ animated: Bool) {
+    self.presenter.viewWillAppear()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     super.generalDelegate = self
@@ -69,5 +73,9 @@ extension DoneViewController: DoneViewDataProtocol {
 extension DoneViewController: DoneUIProtocol {
   func makeNavBar() {
     self.navigationItem.title = "Done"
+  }
+  
+  func makeTabBar() {
+    self.tabBarController?.tabBar.isHidden = false
   }
 }

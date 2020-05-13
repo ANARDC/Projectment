@@ -30,6 +30,7 @@ extension TeamListPresenter: TeamListLifeCyclePresenterProtocol {
   func viewDidLoad() {
     self.view.setTeam(for: self.interactor.team)
     self.view.makeNavBar()
+    self.view.makeTabBar()
   }
 }
 
