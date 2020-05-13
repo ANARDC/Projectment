@@ -16,4 +16,8 @@ final class AddTeammateRouter: AddTeammateRouterProtocol {
   init(_ presenter: AddTeammateRouterPresenterProtocol) {
     self.presenter = presenter
   }
+  
+  func back(from addTeammateView: AddTeammateUIProtocol) {
+    addTeammateView.navigationController?.popViewController(animated: true)
+  }
 }

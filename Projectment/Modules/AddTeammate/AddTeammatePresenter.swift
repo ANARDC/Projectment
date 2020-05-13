@@ -109,7 +109,7 @@ private extension AddTeammatePresenter {
         case .error(let error):
           fatalError(error.localizedDescription)
         case .completed:
-          dump("Realm Session Completed")
+          self.router.back(from: self.view)
         }
       })
       .disposed(by: self.bag)

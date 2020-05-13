@@ -75,7 +75,7 @@ protocol AddTeammateInteractorProtocol: class {
 // MARK: Router
 
 protocol AddTeammateRouterProtocol: class {
-  
+  func back(from addTeammateView: AddTeammateUIProtocol)
 }
 
 // MARK: Configurator
