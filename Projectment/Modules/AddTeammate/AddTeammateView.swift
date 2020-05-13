@@ -161,6 +161,7 @@ extension AddTeammateViewController: AddTeammateUIProtocol {
       $0.layer.cornerRadius = 25
       $0.font               = .systemFont(ofSize: 18)
       $0.placeholder        = "ID"
+      $0.keyboardType       = .numberPad
     }
     
     guard let idTextField = self.idTextField, let lastNameTextField = self.lastNameTextField else { return }

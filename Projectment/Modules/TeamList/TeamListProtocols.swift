@@ -33,6 +33,7 @@ protocol TeamListViewPresenterProtocol: TeamListLifeCyclePresenterProtocol, Team
 }
 
 protocol TeamListLifeCyclePresenterProtocol: class {
+  func viewWillAppear()
   func viewDidLoad()
 }
 
@@ -51,6 +52,7 @@ protocol TeamListRouterPresenterProtocol: class {
 // MARK: Interactor
 
 protocol TeamListInteractorProtocol: class {
+  var dataService    : DataService! { get set }
   var team: [Teammate]? { get }
 }
 

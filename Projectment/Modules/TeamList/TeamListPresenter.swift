@@ -22,6 +22,11 @@ final class TeamListPresenter: TeamListPresenterGeneralProtocol {
 // MARK: - View Life Cycle
 
 extension TeamListPresenter: TeamListLifeCyclePresenterProtocol {
+  func viewWillAppear() {
+    self.interactor.dataService = DataService()
+    self.view.setTeam(for: self.interactor.team)
+  }
+  
   func viewDidLoad() {
     self.view.setTeam(for: self.interactor.team)
     self.view.makeNavBar()

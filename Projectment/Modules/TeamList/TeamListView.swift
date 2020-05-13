@@ -18,6 +18,10 @@ final class TeamListViewController: BaseEntityTableViewController<TeamContext, T
 // MARK: - Life Cycle
 
 extension TeamListViewController {
+  override func viewWillAppear(_ animated: Bool) {
+    self.presenter.viewWillAppear()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     super.generalDelegate = self
