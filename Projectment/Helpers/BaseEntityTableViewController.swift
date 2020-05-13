@@ -38,7 +38,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
   
   var context: Context
   
-  var addEntityButton        : UIBarButtonItem!
+  var addEntityButton    : UIBarButtonItem!
   var showTeamListButton : UIBarButtonItem?
   
   init(context: Context, style: UITableView.Style) {

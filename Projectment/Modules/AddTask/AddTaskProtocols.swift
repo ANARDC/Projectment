@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: View
 
-protocol AddTaskViewProtocol: UIViewController, AddTaskUIProtocol {
+protocol AddTaskViewProtocol: AddTaskUIProtocol {
   var presenter: AddTaskViewPresenterProtocol! { get set }
 }
 
-protocol AddTaskUIProtocol: class {
+protocol AddTaskUIProtocol: UIViewController {
   func makeNavBar()
 }
 
@@ -30,6 +30,7 @@ protocol AddTaskViewPresenterProtocol: AddTaskLifeCyclePresenterProtocol, AddTas
 
 protocol AddTaskLifeCyclePresenterProtocol: class {
   func viewDidLoad()
+  func traitCollectionDidChange()
 }
 
 protocol AddTaskActionsPresenterProtocol: class {

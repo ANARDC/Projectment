@@ -24,15 +24,11 @@ struct ToDoPreview: PreviewProvider {
 }
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 final class ToDoViewController: BaseEntityTableViewController<TasksContext, Task>, ToDoViewProtocol {
   // MARK: properties
   var configurator : ToDoConfiguratorProtocol!
   var presenter    : ToDoViewPresenterProtocol!
-  
-  var bag = DisposeBag()
 }
 
 // MARK: - Life Cycle

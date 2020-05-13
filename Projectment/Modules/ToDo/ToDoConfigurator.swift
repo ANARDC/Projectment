@@ -8,8 +8,6 @@
 
 import RxSwift
 
-// MARK: class
-
 final class ToDoConfigurator: ToDoConfiguratorProtocol {
   
   // MARK: properties

@@ -8,9 +8,6 @@
 
 import UIKit
 
-
-// MARK: - class
-
 final class ToDoRouter: ToDoRouterProtocol {
   
   // MARK: properties
@@ -22,11 +19,11 @@ final class ToDoRouter: ToDoRouterProtocol {
   
   func goToAddTaskScreen(from toDoView: ToDoUIProtocol) {
     let addTaskScreen = AddTaskViewController()
-    toDoView.navigationController?.pushViewController(addTaskScreen, animated: false)
+    toDoView.navigationController?.pushViewController(addTaskScreen, animated: true)
   }
   
   func goToTeamListScreen(from toDoView: ToDoUIProtocol) {
     let teamListScreen = TeamListViewController()
-    toDoView.navigationController?.pushViewController(teamListScreen, animated: false)
+    toDoView.navigationController?.pushViewController(teamListScreen, animated: true)
   }
 }

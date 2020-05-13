@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: View
 
-protocol TeamListViewProtocol: UIViewController, TeamListUIProtocol {
+protocol TeamListViewProtocol: TeamListUIProtocol {
   var presenter: TeamListViewPresenterProtocol! { get set }
 }
 
-protocol TeamListUIProtocol: class {
+protocol TeamListUIProtocol: UIViewController {
   func makeNavBar()
 }
 
@@ -30,6 +30,7 @@ protocol TeamListViewPresenterProtocol: TeamListLifeCyclePresenterProtocol, Team
 
 protocol TeamListLifeCyclePresenterProtocol: class {
   func viewDidLoad()
+  func traitCollectionDidChange()
 }
 
 protocol TeamListActionsPresenterProtocol: class {

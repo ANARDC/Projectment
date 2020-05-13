@@ -25,6 +25,10 @@ extension AddTaskPresenter: AddTaskLifeCyclePresenterProtocol {
   func viewDidLoad() {
     self.view.makeNavBar()
   }
+  
+  func traitCollectionDidChange() {
+    self.view.view.backgroundColor = self.view.traitCollection.userInterfaceStyle == .light ? .white : .black
+  }
 }
 
 // MARK: - View Actions

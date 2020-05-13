@@ -22,11 +22,11 @@ final class DoneRouter: DoneRouterProtocol {
   
   func goToAddTaskScreen(from doneView: DoneUIProtocol) {
     let addTaskScreen = AddTaskViewController()
-    doneView.navigationController?.pushViewController(addTaskScreen, animated: false)
+    doneView.navigationController?.pushViewController(addTaskScreen, animated: true)
   }
   
   func goToTeamListScreen(from doneView: DoneUIProtocol) {
     let teamListScreen = TeamListViewController()
-    doneView.navigationController?.pushViewController(teamListScreen, animated: false)
+    doneView.navigationController?.pushViewController(teamListScreen, animated: true)
   }
 }

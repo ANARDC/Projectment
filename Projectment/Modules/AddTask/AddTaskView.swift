@@ -18,12 +18,15 @@ final class AddTaskViewController: UIViewController, AddTaskViewProtocol {
 // MARK: - Life Cycle
 
 extension AddTaskViewController {
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configurator = AddTaskConfigurator(self)
     self.configurator.configure(self)
     self.presenter.viewDidLoad()
+  }
+  
+  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    self.presenter.traitCollectionDidChange()
   }
 }
 

@@ -18,12 +18,15 @@ final class TeamListViewController: UIViewController, TeamListViewProtocol {
 // MARK: - Life Cycle
 
 extension TeamListViewController {
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configurator = TeamListConfigurator(self)
     self.configurator.configure(self)
     self.presenter.viewDidLoad()
+  }
+  
+  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    self.presenter.traitCollectionDidChange()
   }
 }
 
