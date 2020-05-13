@@ -6,6 +6,8 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
+import RxSwift
+
 final class AddTeammateConfigurator: AddTeammateConfiguratorProtocol {
   
   // MARK: properties
@@ -14,9 +16,19 @@ final class AddTeammateConfigurator: AddTeammateConfiguratorProtocol {
   var router     : AddTeammateRouterProtocol!
   
   init(_ view: AddTeammateUIProtocol) {
-    self.presenter = AddTeammatePresenter(view)
+    let input = AddTeammateInput(id: PublishSubject<String>(),
+                                 name: PublishSubject<String>(),
+                                 lastName: PublishSubject<String>(),
+                                 job: PublishSubject<Job>(),
+                                 post: PublishSubject<TeammatePost>(),
+                                 addButton: PublishSubject<Void>())
+    let output = AddTeammateOutput(dataIsValid: PublishSubject<Bool>())
     
-    self.interactor = AddTeammateInteractor(self.presenter)
+    self.presenter = AddTeammatePresenter(view, input, output)
+    
+    let dataService = DataService()
+    
+    self.interactor = AddTeammateInteractor(self.presenter, dataService)
     self.router     = AddTeammateRouter(self.presenter)
     
     self.presenter.interactor = self.interactor

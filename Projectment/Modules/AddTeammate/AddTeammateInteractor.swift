@@ -9,9 +9,19 @@
 final class AddTeammateInteractor: AddTeammateInteractorProtocol {
   
   // MARK: properties
-  weak var presenter: AddTeammateInteractorPresenterProtocol!
+  weak var presenter : AddTeammateInteractorPresenterProtocol!
+  var dataService    : DataService
   
-  init(_ presenter: AddTeammateInteractorPresenterProtocol) {
-    self.presenter = presenter
+  init(_ presenter: AddTeammateInteractorPresenterProtocol, _ dataService: DataService) {
+    self.presenter   = presenter
+    self.dataService = dataService
+  }
+  
+  func saveTeammate(for data: Teammate) {
+    self.dataService.saveTeammate(for: data)
+  }
+  
+  var teammatesIDList: [String]? {
+    self.dataService.teammatesIDList
   }
 }

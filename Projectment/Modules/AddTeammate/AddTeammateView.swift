@@ -7,6 +7,8 @@
 //
 
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class AddTeammateViewController: UIViewController, AddTeammateViewProtocol {
   
@@ -16,8 +18,11 @@ final class AddTeammateViewController: UIViewController, AddTeammateViewProtocol
   
   var nameTextField        : CustomTextField?
   var lastNameTextField    : CustomTextField?
+  var idTextField          : CustomTextField?
   var jobAndPostPickerView : UIPickerView?
   var addTeammateButton    : UIButton?
+  
+  var bag = DisposeBag()
 }
 
 // MARK: - Life Cycle
@@ -37,6 +42,56 @@ extension AddTeammateViewController {
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesBegan(touches, with: event)
     self.view.endEditing(true)
+  }
+}
+
+// MARK: - Reactive
+
+extension AddTeammateViewController {
+  func bindNameSubscriber() {
+    self.nameTextField?.rx.text
+      .subscribeOn(SerialDispatchQueueScheduler(qos: .userInteractive))
+      .ignoreNil()
+      .subscribe(self.presenter.input.name)
+      .disposed(by: self.bag)
+  }
+  
+  func bindLastNameSubscriber() {
+    self.lastNameTextField?.rx.text
+      .subscribeOn(SerialDispatchQueueScheduler(qos: .userInteractive))
+      .ignoreNil()
+      .subscribe(self.presenter.input.lastName)
+      .disposed(by: self.bag)
+  }
+  
+  func bindIDSubscriber() {
+    self.idTextField?.rx.text
+      .subscribeOn(SerialDispatchQueueScheduler(qos: .userInteractive))
+      .ignoreNil()
+      .subscribe(self.presenter.input.id)
+      .disposed(by: self.bag)
+  }
+  
+  func bindJobSubcriber() {
+    self.jobAndPostPickerView?.rx.itemSelected
+      .filter { $0.component == 0 }
+      .map { Job.allCases[$0.row] }
+      .subscribe(self.presenter.input.job)
+      .disposed(by: self.bag)
+  }
+  
+  func bindPostSubcriber() {
+    self.jobAndPostPickerView?.rx.itemSelected
+      .filter { $0.component == 1 }
+      .map { TeammatePost.allCases[$0.row] }
+      .subscribe(self.presenter.input.post)
+      .disposed(by: self.bag)
+  }
+  
+  func bindAddTeammateButtonSubscriber() {
+    self.addTeammateButton?.rx.tap
+      .subscribe(self.presenter.input.addButton)
+      .disposed(by: self.bag)
   }
 }
 
@@ -99,18 +154,39 @@ extension AddTeammateViewController: AddTeammateUIProtocol {
     }
   }
   
+  func makeIDTextField() {
+    self.idTextField = CustomTextField() {
+      $0.layer.borderColor  = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
+      $0.layer.borderWidth  = 3
+      $0.layer.cornerRadius = 25
+      $0.font               = .systemFont(ofSize: 18)
+      $0.placeholder        = "ID"
+    }
+    
+    guard let idTextField = self.idTextField, let lastNameTextField = self.lastNameTextField else { return }
+    
+    self.view.addSubview(idTextField)
+    
+    idTextField.snp.makeConstraints { maker in
+      maker.top.equalTo(lastNameTextField.snp.bottom).offset(20)
+      maker.left.equalTo(20)
+      maker.right.equalTo(-20)
+      maker.height.equalTo(50)
+    }
+  }
+  
   func makeJobAndPostPickerView() {
     self.jobAndPostPickerView = UIPickerView() {
       $0.delegate   = self
       $0.dataSource = self
     }
     
-    guard let jobAndPostPickerView = self.jobAndPostPickerView, let lastNameTextField = self.lastNameTextField else { return }
+    guard let jobAndPostPickerView = self.jobAndPostPickerView, let idTextField = self.idTextField else { return }
     
     self.view.addSubview(jobAndPostPickerView)
     
     jobAndPostPickerView.snp.makeConstraints { maker in
-      maker.top.equalTo(lastNameTextField.snp.bottom).offset(20)
+      maker.top.equalTo(idTextField.snp.bottom).offset(20)
       maker.left.equalTo(20)
       maker.right.equalTo(-20)
       maker.height.equalTo(200)
@@ -136,6 +212,15 @@ extension AddTeammateViewController: AddTeammateUIProtocol {
       maker.height.equalTo(50)
     }
   }
+  
+  func changeAddTeammateButton(isValid: Bool) {
+    self.addTeammateButton?.backgroundColor = isValid ? self.addTeammateButton?.backgroundColor?.withAlphaComponent(1) : self.addTeammateButton?.backgroundColor?.withAlphaComponent(0.6)
+    
+    let titleColor = isValid ? UIColor.white.withAlphaComponent(1) : UIColor.white.withAlphaComponent(0.6)
+      
+    self.addTeammateButton?.setTitleColor(titleColor, for: .normal)
+    self.addTeammateButton?.isEnabled = isValid
+   }
 }
 
 extension AddTeammateViewController: UIPickerViewDelegate, UIPickerViewDataSource {

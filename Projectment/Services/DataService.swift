@@ -9,6 +9,10 @@
 import Realm
 
 final class DataService {
+  func saveTeammate(for data: Teammate) {
+    
+  }
+  
   private var tasks: [Task]? {
     [Task(id: "1",
           title: "Make login screen design",
@@ -97,15 +101,23 @@ final class DataService {
               post: .senior)]
   }
   
+  var tasksIDList: [String]? {
+    self.tasks?.map { $0.id }
+  }
+  
+  var teammatesIDList: [String]? {
+    self.team?.map { $0.id }
+  }
+  
   var toDoTasks: [Task]? {
-    self.tasks?.filter({ $0.state == .toDo })
+    self.tasks?.filter { $0.state == .toDo }
   }
   
   var inProgressTasks: [Task]? {
-    self.tasks?.filter({ $0.state == .inProgress })
+    self.tasks?.filter { $0.state == .inProgress }
   }
   
   var doneTasks: [Task]? {
-    self.tasks?.filter({ $0.state == .done })
+    self.tasks?.filter { $0.state == .done }
   }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E0E6900E198B6CF260F8C5D /* Pods_Projectment_ProjectmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D76AA315A07029FE030F4D2 /* Pods_Projectment_ProjectmentUITests.framework */; };
 		3AF9117E48BCCD02CC8CC0EF /* Pods_Projectment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35C16FAC44FD0BB236DB65A /* Pods_Projectment.framework */; };
+		99130824246C5AE200704708 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99130823246C5AE200704708 /* Observable.swift */; };
 		991A912A246C296F00CB56CD /* AddTeammatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A9124246C296F00CB56CD /* AddTeammatePresenter.swift */; };
 		991A912B246C296F00CB56CD /* AddTeammateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A9125246C296F00CB56CD /* AddTeammateRouter.swift */; };
 		991A912C246C296F00CB56CD /* AddTeammateProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A9126246C296F00CB56CD /* AddTeammateProtocols.swift */; };
@@ -105,6 +106,7 @@
 		7000D5008CD78A63ED4C23A5 /* Pods-Projectment-ProjectmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Projectment-ProjectmentUITests.release.xcconfig"; path = "Target Support Files/Pods-Projectment-ProjectmentUITests/Pods-Projectment-ProjectmentUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8D76AA315A07029FE030F4D2 /* Pods_Projectment_ProjectmentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Projectment_ProjectmentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7349C10079BE03F253AF35 /* Pods-ProjectmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectmentTests.debug.xcconfig"; path = "Target Support Files/Pods-ProjectmentTests/Pods-ProjectmentTests.debug.xcconfig"; sourceTree = "<group>"; };
+		99130823246C5AE200704708 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		991A9124246C296F00CB56CD /* AddTeammatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeammatePresenter.swift; sourceTree = "<group>"; };
 		991A9125246C296F00CB56CD /* AddTeammateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeammateRouter.swift; sourceTree = "<group>"; };
 		991A9126246C296F00CB56CD /* AddTeammateProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeammateProtocols.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				99941AD5246ADEFD000CBA82 /* UIImageView.swift */,
 				991A9130246C39BF00CB56CD /* CustomTextField.swift */,
 				991A9132246C505A00CB56CD /* UIPickerView.swift */,
+				99130823246C5AE200704708 /* Observable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				99941AA9246830F3000CBA82 /* DoneRouter.swift in Sources */,
 				99941ACA2469E7F8000CBA82 /* Contextable.swift in Sources */,
 				991A912F246C296F00CB56CD /* AddTeammateConfigurator.swift in Sources */,
+				99130824246C5AE200704708 /* Observable.swift in Sources */,
 				99941AB3246845BF000CBA82 /* Task.swift in Sources */,
 				99941AD8246AFA80000CBA82 /* TeamContext.swift in Sources */,
 				99941A9F246830E7000CBA82 /* InProgressInteractor.swift in Sources */,
