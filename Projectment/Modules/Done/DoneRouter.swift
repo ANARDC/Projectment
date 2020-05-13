@@ -26,7 +26,7 @@ final class DoneRouter: DoneRouterProtocol {
   }
   
   func goToTeamListScreen(from doneView: DoneUIProtocol) {
-    let teamListScreen = TeamListViewController()
+    let teamListScreen = TeamListViewController(context: TeamContext.shared, style: .grouped)
     doneView.navigationController?.pushViewController(teamListScreen, animated: true)
   }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TeamListViewController: UIViewController, TeamListViewProtocol {
+final class TeamListViewController: BaseEntityTableViewController<TeamContext, Teammate>, TeamListViewProtocol {
   
   // MARK: properties
   var configurator : TeamListConfiguratorProtocol!
@@ -20,13 +20,24 @@ final class TeamListViewController: UIViewController, TeamListViewProtocol {
 extension TeamListViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
+    super.generalDelegate = self
     self.configurator = TeamListConfigurator(self)
     self.configurator.configure(self)
     self.presenter.viewDidLoad()
   }
-  
-  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-    self.presenter.traitCollectionDidChange()
+}
+
+// MARK: - Data
+
+extension TeamListViewController: TeamListViewDataProtocol {
+  func setTeam(for team: [Teammate]?) {
+    super.entities = team
+  }
+}
+
+extension TeamListViewController: BaseEntityTableViewControllerDelegate {
+  func addEntityButton() {
+    print("Add Teammate")
   }
 }
 

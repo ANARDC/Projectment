@@ -17,7 +17,7 @@ import UIKit
 }
 
 class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: UITableViewController {
-  var generalDelegate      : BaseEntityTableViewControllerDelegate? {
+  var generalDelegate: BaseEntityTableViewControllerDelegate? {
     didSet {
       self.makeAddEntityButton()
       if type(of: self.context) == TasksContext.self {
@@ -26,7 +26,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
       self.addNavBarButtons()
     }
   }
-  var tasksContextDelegate : BaseEntityTableViewControllerTasksContextDelegate? {
+  var tasksContextDelegate: BaseEntityTableViewControllerTasksContextDelegate? {
     didSet {
       self.makeAddEntityButton()
       if type(of: self.context) == TasksContext.self {
@@ -78,6 +78,8 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
         cell.make()
         return cell
       }
+    } else if type(of: self.context) == TasksContext.self {
+      
     }
     
     return UITableViewCell()

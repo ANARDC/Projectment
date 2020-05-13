@@ -23,6 +23,7 @@ final class AddTaskPresenter: AddTaskPresenterGeneralProtocol {
 
 extension AddTaskPresenter: AddTaskLifeCyclePresenterProtocol {
   func viewDidLoad() {
+    self.view.makeView()
     self.view.makeNavBar()
   }
   

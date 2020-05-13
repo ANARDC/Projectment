@@ -23,11 +23,8 @@ final class TeamListPresenter: TeamListPresenterGeneralProtocol {
 
 extension TeamListPresenter: TeamListLifeCyclePresenterProtocol {
   func viewDidLoad() {
+    self.view.setTeam(for: self.interactor.team)
     self.view.makeNavBar()
-  }
-  
-  func traitCollectionDidChange() {
-    self.view.view.backgroundColor = self.view.traitCollection.userInterfaceStyle == .light ? .white : .black
   }
 }
 

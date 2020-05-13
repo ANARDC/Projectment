@@ -33,6 +33,10 @@ extension AddTaskViewController {
 // MARK: - UI Making
 
 extension AddTaskViewController: AddTaskUIProtocol {
+  func makeView() {
+    self.view.backgroundColor = self.traitCollection.userInterfaceStyle == .light ? .white : .black
+  }
+  
   func makeNavBar() {
     self.navigationItem.title = "Add Task"
   }

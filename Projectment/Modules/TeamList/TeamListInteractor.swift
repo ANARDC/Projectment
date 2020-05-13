@@ -9,9 +9,15 @@
 final class TeamListInteractor: TeamListInteractorProtocol {
   
   // MARK: properties
-  weak var presenter: TeamListInteractorPresenterProtocol!
+  weak var presenter : TeamListInteractorPresenterProtocol!
+  var dataService    : DataService!
   
-  init(_ presenter: TeamListInteractorPresenterProtocol) {
-    self.presenter = presenter
+  init(_ presenter: TeamListInteractorPresenterProtocol, _ dataService: DataService) {
+    self.presenter   = presenter
+    self.dataService = dataService
+  }
+  
+  var team: [Teammate]? {
+    self.dataService.team
   }
 }

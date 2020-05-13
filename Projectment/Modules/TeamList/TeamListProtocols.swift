@@ -14,8 +14,12 @@ protocol TeamListViewProtocol: TeamListUIProtocol {
   var presenter: TeamListViewPresenterProtocol! { get set }
 }
 
-protocol TeamListUIProtocol: UIViewController {
+protocol TeamListUIProtocol: UIViewController, TeamListViewDataProtocol {
   func makeNavBar()
+}
+
+protocol TeamListViewDataProtocol {
+  func setTeam(for team: [Teammate]?)
 }
 
 // MARK: Presenter
@@ -30,7 +34,6 @@ protocol TeamListViewPresenterProtocol: TeamListLifeCyclePresenterProtocol, Team
 
 protocol TeamListLifeCyclePresenterProtocol: class {
   func viewDidLoad()
-  func traitCollectionDidChange()
 }
 
 protocol TeamListActionsPresenterProtocol: class {
@@ -48,7 +51,7 @@ protocol TeamListRouterPresenterProtocol: class {
 // MARK: Interactor
 
 protocol TeamListInteractorProtocol: class {
-  
+  var team: [Teammate]? { get }
 }
 
 // MARK: Router

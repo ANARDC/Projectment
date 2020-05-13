@@ -23,7 +23,7 @@ final class ToDoRouter: ToDoRouterProtocol {
   }
   
   func goToTeamListScreen(from toDoView: ToDoUIProtocol) {
-    let teamListScreen = TeamListViewController()
+    let teamListScreen = TeamListViewController(context: TeamContext.shared, style: .grouped)
     toDoView.navigationController?.pushViewController(teamListScreen, animated: true)
   }
 }

@@ -18,7 +18,9 @@ final class TeamListConfigurator: TeamListConfiguratorProtocol {
   init(_ view: TeamListUIProtocol) {
     self.presenter = TeamListPresenter(view)
     
-    self.interactor = TeamListInteractor(self.presenter)
+    let dataService = DataService()
+    
+    self.interactor = TeamListInteractor(self.presenter, dataService)
     self.router     = TeamListRouter(self.presenter)
     
     self.presenter.interactor = self.interactor

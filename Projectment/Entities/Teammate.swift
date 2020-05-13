@@ -8,7 +8,7 @@
 
 import Unrealm
 
-struct Teammate: Realmable {
+struct Teammate: Realmable, Entitiable {
   var id       : String = UUID().uuidString
   var name     : String = ""
   var lastName : String?

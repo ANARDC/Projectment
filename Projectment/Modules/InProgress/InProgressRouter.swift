@@ -26,7 +26,7 @@ final class InProgressRouter: InProgressRouterProtocol {
   }
   
   func goToTeamListScreen(from inProgressView: InProgressUIProtocol) {
-    let teamListScreen = TeamListViewController()
+    let teamListScreen = TeamListViewController(context: TeamContext.shared, style: .grouped)
     inProgressView.navigationController?.pushViewController(teamListScreen, animated: true)
   }
 }
