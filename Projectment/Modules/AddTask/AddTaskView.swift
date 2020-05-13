@@ -48,11 +48,12 @@ extension AddTaskViewController {
 }
 
 // MARK: - UI Making
-// TODO: Закинуть все эти элементы в таблицу чтобы на 5.5 экране нормально все выглядело
 
 extension AddTaskViewController: AddTaskUIProtocol {
   func changeTheme() {
     self.view.backgroundColor = self.view.traitCollection.userInterfaceStyle == .light ? .white : .black
+    self.titleTextField?.layer.borderColor = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
+    self.descriptionTextView?.layer.borderColor = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
   }
   
   func makeView() {
