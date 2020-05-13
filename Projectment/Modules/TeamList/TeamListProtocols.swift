@@ -37,7 +37,7 @@ protocol TeamListLifeCyclePresenterProtocol: class {
 }
 
 protocol TeamListActionsPresenterProtocol: class {
-  
+  func goToAddTeammateScreen()
 }
 
 protocol TeamListInteractorPresenterProtocol: class {
@@ -57,7 +57,7 @@ protocol TeamListInteractorProtocol: class {
 // MARK: Router
 
 protocol TeamListRouterProtocol: class {
-  
+  func goToAddTeammateScreen(from teamListview: TeamListUIProtocol)
 }
 
 // MARK: Configurator

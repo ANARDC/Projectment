@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		0E0E6900E198B6CF260F8C5D /* Pods_Projectment_ProjectmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D76AA315A07029FE030F4D2 /* Pods_Projectment_ProjectmentUITests.framework */; };
 		3AF9117E48BCCD02CC8CC0EF /* Pods_Projectment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35C16FAC44FD0BB236DB65A /* Pods_Projectment.framework */; };
+		991A912A246C296F00CB56CD /* AddTeammatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A9124246C296F00CB56CD /* AddTeammatePresenter.swift */; };
+		991A912B246C296F00CB56CD /* AddTeammateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A9125246C296F00CB56CD /* AddTeammateRouter.swift */; };
+		991A912C246C296F00CB56CD /* AddTeammateProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A9126246C296F00CB56CD /* AddTeammateProtocols.swift */; };
+		991A912D246C296F00CB56CD /* AddTeammateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A9127246C296F00CB56CD /* AddTeammateInteractor.swift */; };
+		991A912E246C296F00CB56CD /* AddTeammateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A9128246C296F00CB56CD /* AddTeammateView.swift */; };
+		991A912F246C296F00CB56CD /* AddTeammateConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991A9129246C296F00CB56CD /* AddTeammateConfigurator.swift */; };
 		9976E9D4246B0BD70081D953 /* AddTaskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9976E9CE246B0BD70081D953 /* AddTaskPresenter.swift */; };
 		9976E9D5246B0BD70081D953 /* AddTaskRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9976E9CF246B0BD70081D953 /* AddTaskRouter.swift */; };
 		9976E9D6246B0BD70081D953 /* AddTaskProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9976E9D0246B0BD70081D953 /* AddTaskProtocols.swift */; };
@@ -97,6 +103,12 @@
 		7000D5008CD78A63ED4C23A5 /* Pods-Projectment-ProjectmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Projectment-ProjectmentUITests.release.xcconfig"; path = "Target Support Files/Pods-Projectment-ProjectmentUITests/Pods-Projectment-ProjectmentUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8D76AA315A07029FE030F4D2 /* Pods_Projectment_ProjectmentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Projectment_ProjectmentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7349C10079BE03F253AF35 /* Pods-ProjectmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectmentTests.debug.xcconfig"; path = "Target Support Files/Pods-ProjectmentTests/Pods-ProjectmentTests.debug.xcconfig"; sourceTree = "<group>"; };
+		991A9124246C296F00CB56CD /* AddTeammatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeammatePresenter.swift; sourceTree = "<group>"; };
+		991A9125246C296F00CB56CD /* AddTeammateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeammateRouter.swift; sourceTree = "<group>"; };
+		991A9126246C296F00CB56CD /* AddTeammateProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeammateProtocols.swift; sourceTree = "<group>"; };
+		991A9127246C296F00CB56CD /* AddTeammateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeammateInteractor.swift; sourceTree = "<group>"; };
+		991A9128246C296F00CB56CD /* AddTeammateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeammateView.swift; sourceTree = "<group>"; };
+		991A9129246C296F00CB56CD /* AddTeammateConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeammateConfigurator.swift; sourceTree = "<group>"; };
 		9976E9CE246B0BD70081D953 /* AddTaskPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPresenter.swift; sourceTree = "<group>"; };
 		9976E9CF246B0BD70081D953 /* AddTaskRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskRouter.swift; sourceTree = "<group>"; };
 		9976E9D0246B0BD70081D953 /* AddTaskProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskProtocols.swift; sourceTree = "<group>"; };
@@ -206,6 +218,19 @@
 				D1F9478F96728F0F5ACA8B48 /* Pods-ProjectmentTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		991A9123246C294D00CB56CD /* AddTeammate */ = {
+			isa = PBXGroup;
+			children = (
+				991A9128246C296F00CB56CD /* AddTeammateView.swift */,
+				991A9124246C296F00CB56CD /* AddTeammatePresenter.swift */,
+				991A9125246C296F00CB56CD /* AddTeammateRouter.swift */,
+				991A9127246C296F00CB56CD /* AddTeammateInteractor.swift */,
+				991A9129246C296F00CB56CD /* AddTeammateConfigurator.swift */,
+				991A9126246C296F00CB56CD /* AddTeammateProtocols.swift */,
+			);
+			path = AddTeammate;
 			sourceTree = "<group>";
 		};
 		9976E9CD246B0BBF0081D953 /* AddTask */ = {
@@ -334,6 +359,7 @@
 				CA4510ABD0A72F5CCC672040 /* Done */,
 				9976E9CD246B0BBF0081D953 /* AddTask */,
 				9976E9DA246B0BE20081D953 /* TeamList */,
+				991A9123246C294D00CB56CD /* AddTeammate */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -674,6 +700,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				991A912A246C296F00CB56CD /* AddTeammatePresenter.swift in Sources */,
 				99941A9E246830E7000CBA82 /* InProgressProtocols.swift in Sources */,
 				9976E9E3246B0BFB0081D953 /* TeamListProtocols.swift in Sources */,
 				CA4512FFF499CF4ADA8457CC /* SceneDelegate.swift in Sources */,
@@ -697,6 +724,7 @@
 				99941AD2246ACABB000CBA82 /* UIButton.swift in Sources */,
 				99941AA9246830F3000CBA82 /* DoneRouter.swift in Sources */,
 				99941ACA2469E7F8000CBA82 /* Contextable.swift in Sources */,
+				991A912F246C296F00CB56CD /* AddTeammateConfigurator.swift in Sources */,
 				99941AB3246845BF000CBA82 /* Task.swift in Sources */,
 				99941AD8246AFA80000CBA82 /* TeamContext.swift in Sources */,
 				99941A9F246830E7000CBA82 /* InProgressInteractor.swift in Sources */,
@@ -709,9 +737,11 @@
 				CA4511ED465EA6EC8A24CF1A /* ToDoPresenter.swift in Sources */,
 				99941AB724684F3E000CBA82 /* TeammatePost.swift in Sources */,
 				99941ABF24686F56000CBA82 /* BaseEntityTableViewCell.swift in Sources */,
+				991A912D246C296F00CB56CD /* AddTeammateInteractor.swift in Sources */,
 				9976E9E1246B0BFB0081D953 /* TeamListPresenter.swift in Sources */,
 				99941AD6246ADEFD000CBA82 /* UIImageView.swift in Sources */,
 				9976E9D7246B0BD70081D953 /* AddTaskInteractor.swift in Sources */,
+				991A912E246C296F00CB56CD /* AddTeammateView.swift in Sources */,
 				99941AD4246ACE21000CBA82 /* UIStackView.swift in Sources */,
 				99941AD0246ABB5D000CBA82 /* UILabel.swift in Sources */,
 				99941AB924684F9D000CBA82 /* TaskType.swift in Sources */,
@@ -719,6 +749,8 @@
 				CA451C5BFD2A9EAA82EA60E0 /* ToDoRouter.swift in Sources */,
 				99941AA0246830E7000CBA82 /* InProgressView.swift in Sources */,
 				CA451AF7CB2F9BF7B3BBAD58 /* ToDoProtocols.swift in Sources */,
+				991A912B246C296F00CB56CD /* AddTeammateRouter.swift in Sources */,
+				991A912C246C296F00CB56CD /* AddTeammateProtocols.swift in Sources */,
 				99941AC32469CE79000CBA82 /* DataService.swift in Sources */,
 				9976E9E2246B0BFB0081D953 /* TeamListRouter.swift in Sources */,
 				9976E9E6246B0BFB0081D953 /* TeamListConfigurator.swift in Sources */,

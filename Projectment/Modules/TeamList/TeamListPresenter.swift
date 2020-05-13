@@ -31,5 +31,7 @@ extension TeamListPresenter: TeamListLifeCyclePresenterProtocol {
 // MARK: - View Actions
 
 extension TeamListPresenter: TeamListActionsPresenterProtocol {
-  
+  func goToAddTeammateScreen() {
+    self.router.goToAddTeammateScreen(from: self.view)
+  }
 }

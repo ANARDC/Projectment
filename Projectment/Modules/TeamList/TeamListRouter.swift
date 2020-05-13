@@ -19,4 +19,9 @@ final class TeamListRouter: TeamListRouterProtocol {
   init(_ presenter: TeamListRouterPresenterProtocol) {
     self.presenter = presenter
   }
+  
+  func goToAddTeammateScreen(from teamListview: TeamListUIProtocol) {
+    let addTeammateScreen = AddTeammateViewController()
+    teamListview.navigationController?.pushViewController(addTeammateScreen, animated: true)
+  }
 }

@@ -37,7 +37,7 @@ extension TeamListViewController: TeamListViewDataProtocol {
 
 extension TeamListViewController: BaseEntityTableViewControllerDelegate {
   func addEntityButton() {
-    print("Add Teammate")
+    self.presenter.goToAddTeammateScreen()
   }
 }
 
