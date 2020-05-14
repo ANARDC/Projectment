@@ -68,7 +68,7 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
   
   func makeDescriptionLabel() {
     self.taskDescriptionLabel = UILabel() {
-      $0.text          = self.entity?.description
+      $0.text          = self.entity?.taskDescription
       $0.font          = .systemFont(ofSize: 13)
       $0.textColor     = .darkGray
       $0.numberOfLines = 0

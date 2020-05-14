@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class AddTaskViewController: UIViewController, AddTaskViewProtocol {
   
@@ -22,6 +24,8 @@ final class AddTaskViewController: UIViewController, AddTaskViewProtocol {
   var expiresPickerView                   : UIPickerView?
   var stateAndTypeAndComplexityPickerView : UIPickerView?
   var addTaskButton                       : UIButton?
+  
+  var bag = DisposeBag()
 }
 
 // MARK: - Life Cycle
@@ -36,6 +40,79 @@ extension AddTaskViewController {
   
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
     self.presenter.traitCollectionDidChange()
+  }
+}
+
+// MARK: - Reactive
+
+extension AddTaskViewController: AddTaskViewReactive {
+  func bindTitleSubscriber() {
+    self.titleTextField?.rx.text
+      .subscribeOn(SerialDispatchQueueScheduler(qos: .userInteractive))
+      .ignoreNil()
+      .subscribe(self.presenter.input.title)
+      .disposed(by: self.bag)
+  }
+  
+  func bindDescriptionSubscriber() {
+    self.descriptionTextView?.rx.text
+      .subscribe(self.presenter.input.taskDescription)
+      .disposed(by: self.bag)
+  }
+  
+  func bindWhoSubscriber() {
+    self.whoPickerView?.rx.itemSelected
+      .map { self.team?[$0.row].id }
+      .subscribe(self.presenter.input.teammateID)
+      .disposed(by: self.bag)
+  }
+  
+  func bindExpiresSubscriber() {
+    self.expiresPickerView?.rx.itemSelected
+      .map({
+        switch $0.row {
+        case 1:
+          return Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInHour))
+        case 2:
+          return Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay))
+        case 3:
+          return Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInWeek))
+        default:
+          return nil
+        }
+      })
+      .subscribe(self.presenter.input.expires)
+      .disposed(by: self.bag)
+  }
+  
+  func bindStateSubscriber() {
+    self.stateAndTypeAndComplexityPickerView?.rx.itemSelected
+      .filter { $0.component == 0 }
+      .map { TaskState.allCases[$0.row] }
+      .subscribe(self.presenter.input.state)
+      .disposed(by: self.bag)
+  }
+  
+  func bindTypeSubscriber() {
+    self.stateAndTypeAndComplexityPickerView?.rx.itemSelected
+      .filter { $0.component == 1 }
+      .map { TaskType.allCases[$0.row] }
+      .subscribe(self.presenter.input.type)
+      .disposed(by: self.bag)
+  }
+  
+  func bindComplexitySubscriber() {
+    self.stateAndTypeAndComplexityPickerView?.rx.itemSelected
+      .filter { $0.component == 2 }
+      .map { TaskComplexity.allCases[$0.row] }
+      .subscribe(self.presenter.input.complexity)
+      .disposed(by: self.bag)
+  }
+  
+  func bindAddTaskButtonSubscriber() {
+    self.addTaskButton?.rx.tap
+      .subscribe(self.presenter.input.addButton)
+      .disposed(by: self.bag)
   }
 }
 
@@ -182,6 +259,15 @@ extension AddTaskViewController: AddTaskUIProtocol {
       maker.right.equalTo(-20)
       maker.height.equalTo(50)
     }
+  }
+  
+  func changeAddTaskButton(isValid: Bool) {
+    self.addTaskButton?.backgroundColor = isValid ? self.addTaskButton?.backgroundColor?.withAlphaComponent(1) : self.addTaskButton?.backgroundColor?.withAlphaComponent(0.6)
+    
+    let titleColor = isValid ? UIColor.white.withAlphaComponent(1) : UIColor.white.withAlphaComponent(0.6)
+      
+    self.addTaskButton?.setTitleColor(titleColor, for: .normal)
+    self.addTaskButton?.isEnabled = isValid
   }
 }
 

@@ -20,7 +20,7 @@ final class AddTeammateInteractor: AddTeammateInteractorProtocol {
   }
   
   func saveTeammate(for data: Teammate) -> Observable<RealmOperationState> {
-    self.dataService.saveTeammate(for: data)
+    self.dataService.save(for: data)
   }
   
   var teammatesIDList: [String]? {

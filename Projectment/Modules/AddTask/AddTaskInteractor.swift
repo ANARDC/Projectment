@@ -6,6 +6,8 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
+import RxSwift
+
 final class AddTaskInteractor: AddTaskInteractorProtocol {
   
   // MARK: properties
@@ -15,6 +17,10 @@ final class AddTaskInteractor: AddTaskInteractorProtocol {
   init(_ presenter: AddTaskInteractorPresenterProtocol, _ dataService: DataService) {
     self.presenter    = presenter
     self.dataService = dataService
+  }
+  
+  func saveTask(for task: Task) -> Observable<RealmOperationState> {
+    self.dataService.save(for: task)
   }
   
   var team: [Teammate]? {

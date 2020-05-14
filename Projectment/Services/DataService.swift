@@ -6,6 +6,7 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
+import Unrealm
 import RealmSwift
 import RxSwift
 
@@ -16,12 +17,12 @@ final class DataService {
     print(Realm.Configuration.defaultConfiguration.fileURL)
   }
   
-  func saveTeammate(for data: Teammate) -> Observable<RealmOperationState> {
+  func save<T: Realmable>(for entity: T) -> Observable<RealmOperationState> {
     var state: RealmOperationState?
     
     do {
       try realm?.write {
-        self.realm?.add(data)
+        self.realm?.add(entity)
         state = .success
       }
     } catch {
@@ -34,8 +35,8 @@ final class DataService {
   private var tasks: [Task]? {
     [Task(id: "1",
           title: "Make login screen design",
-          description: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
-          who: self.team?.randomElement(),
+          taskDescription: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
+          teammateID: self.team?.randomElement()?.id,
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
           state: TaskState.toDo.rawValue,
@@ -43,8 +44,8 @@ final class DataService {
           complexity: TaskComplexity.easy.rawValue),
      Task(id: "2",
           title: "Configure GitHub",
-          description: "Delegate to head of development team configuring github for remote control versions of the product",
-          who: self.team?.randomElement(),
+          taskDescription: "Delegate to head of development team configuring github for remote control versions of the product",
+          teammateID: self.team?.randomElement()?.id,
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
           state: TaskState.toDo.rawValue,
@@ -52,8 +53,8 @@ final class DataService {
           complexity: TaskComplexity.middle.rawValue),
      Task(id: "3",
           title: "Make login screen design",
-          description: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
-          who: self.team?.randomElement(),
+          taskDescription: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
+          teammateID: self.team?.randomElement()?.id,
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
           state: TaskState.toDo.rawValue,
@@ -61,8 +62,8 @@ final class DataService {
           complexity: TaskComplexity.hard.rawValue),
      Task(id: "4",
           title: "Configure GitHub",
-          description: "Delegate to head of development team configuring github for remote control versions of the product",
-          who: self.team?.randomElement(),
+          taskDescription: "Delegate to head of development team configuring github for remote control versions of the product",
+          teammateID: self.team?.randomElement()?.id,
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
           state: TaskState.inProgress.rawValue,
@@ -70,8 +71,8 @@ final class DataService {
           complexity: TaskComplexity.easy.rawValue),
      Task(id: "5",
           title: "Make login screen design",
-          description: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
-          who: self.team?.randomElement(),
+          taskDescription: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
+          teammateID: self.team?.randomElement()?.id,
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
           state: TaskState.inProgress.rawValue,
@@ -79,8 +80,8 @@ final class DataService {
           complexity: TaskComplexity.easy.rawValue),
      Task(id: "6",
           title: "Configure GitHub",
-          description: "Delegate to head of development team configuring github for remote control versions of the product",
-          who: self.team?.randomElement(),
+          taskDescription: "Delegate to head of development team configuring github for remote control versions of the product",
+          teammateID: self.team?.randomElement()?.id,
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
           state: TaskState.done.rawValue,
@@ -88,8 +89,8 @@ final class DataService {
           complexity: TaskComplexity.easy.rawValue),
      Task(id: "7",
           title: "Make login screen design",
-          description: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
-          who: self.team?.randomElement(),
+          taskDescription: "Discuss with designers and development team all the details of the login screen and the date and complete the task",
+          teammateID: self.team?.randomElement()?.id,
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
           state: TaskState.done.rawValue,
@@ -97,8 +98,8 @@ final class DataService {
           complexity: TaskComplexity.easy.rawValue),
      Task(id: "8",
           title: "Configure GitHub",
-          description: "Delegate to head of development team configuring github for remote control versions of the product",
-          who: self.team?.randomElement(),
+          taskDescription: "Delegate to head of development team configuring github for remote control versions of the product",
+          teammateID: self.team?.randomElement()?.id,
           created: Date(),
           expires: Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInDay)),
           state: TaskState.toDo.rawValue,

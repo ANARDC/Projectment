@@ -20,3 +20,18 @@ struct AddTeammateInput {
 struct AddTeammateOutput {
   let dataIsValid: PublishSubject<Bool>
 }
+
+struct AddTaskInput {
+  let title           : PublishSubject<String>
+  let taskDescription : PublishSubject<String?>
+  let teammateID      : PublishSubject<String?>
+  let expires         : PublishSubject<Date?>
+  let state           : PublishSubject<TaskState>
+  let type            : PublishSubject<TaskType>
+  let complexity      : PublishSubject<TaskComplexity>
+  let addButton       : PublishSubject<Void>
+}
+
+struct AddTaskOutput {
+  let dataIsValid: PublishSubject<Bool>
+}

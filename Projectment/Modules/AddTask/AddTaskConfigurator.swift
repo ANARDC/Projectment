@@ -6,7 +6,7 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-// MARK: class
+import RxSwift
 
 final class AddTaskConfigurator: AddTaskConfiguratorProtocol {
   
@@ -16,7 +16,17 @@ final class AddTaskConfigurator: AddTaskConfiguratorProtocol {
   var router     : AddTaskRouterProtocol!
   
   init(_ view: AddTaskUIProtocol) {
-    self.presenter = AddTaskPresenter(view)
+    let input = AddTaskInput(title: PublishSubject<String>(),
+                             taskDescription: PublishSubject<String?>(),
+                             teammateID: PublishSubject<String?>(),
+                             expires: PublishSubject<Date?>(),
+                             state: PublishSubject<TaskState>(),
+                             type: PublishSubject<TaskType>(),
+                             complexity: PublishSubject<TaskComplexity>(),
+                             addButton: PublishSubject<Void>())
+    let output = AddTaskOutput(dataIsValid: PublishSubject<Bool>())
+    
+    self.presenter = AddTaskPresenter(view, input, output)
     
     let dataService = DataService()
     

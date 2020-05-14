@@ -56,6 +56,7 @@ private extension AddTeammatePresenter {
   func makeReactive() {
     self.makeNameAndIDSubscriber()
     self.makeAddTeammateButtonSubscriber()
+    self.makeDataValidationSubscriber()
   }
   
   func bindReactive() {
@@ -86,7 +87,7 @@ private extension AddTeammatePresenter {
       .subscribe(onNext: { name, id in
         let nameIsValid = !name.isEmpty
         let idIsValid   = !(id.isEmpty || (self.interactor.teammatesIDList?.contains(id) ?? false))
-        self.view.changeAddTeammateButton(isValid: nameIsValid && idIsValid)
+        self.output.dataIsValid.onNext(nameIsValid && idIsValid)
       })
       .disposed(by: self.bag)
   }
@@ -94,11 +95,8 @@ private extension AddTeammatePresenter {
   func makeAddTeammateButtonSubscriber() {
     self.input.addButton
       .withLatestFrom(self.teammateObservable)
-      .flatMapLatest({ teammate in
-        self.interactor.saveTeammate(for: teammate).materialize()
-      })
+      .flatMapLatest { self.interactor.saveTeammate(for: $0).materialize() }
       .subscribe(onNext: { event in
-        print("asdasd")
         switch event {
         case .next(let state):
           switch state {
@@ -112,6 +110,14 @@ private extension AddTeammatePresenter {
         case .completed:
           self.router.back(from: self.view)
         }
+      })
+      .disposed(by: self.bag)
+  }
+  
+  func makeDataValidationSubscriber() {
+    self.output.dataIsValid
+      .subscribe(onNext: { dataIsValid in
+        self.view.changeAddTeammateButton(isValid: dataIsValid)
       })
       .disposed(by: self.bag)
   }

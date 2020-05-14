@@ -19,4 +19,8 @@ final class AddTaskRouter: AddTaskRouterProtocol {
   init(_ presenter: AddTaskRouterPresenterProtocol) {
     self.presenter = presenter
   }
+  
+  func back(from addTaskView: AddTaskUIProtocol) {
+    addTaskView.navigationController?.popViewController(animated: true)
+  }
 }
