@@ -42,6 +42,9 @@ protocol ToDoActionsPresenterProtocol: class {
   func deleteTask(with id: String?)
   func addTaskButton()
   func showTeamListButton()
+  func moveTaskToToDo(with id: String?)
+  func moveTaskToInProgress(with id: String?)
+  func moveTaskToDone(with id: String?)
 }
 
 protocol ToDoInteractorPresenterProtocol: class {
@@ -59,6 +62,9 @@ protocol ToDoInteractorProtocol: class {
   var tasks       : [Task]? { get }
   
   func deleteTask(with id: String?)
+  func moveTaskToToDo(with id: String?)
+  func moveTaskToInProgress(with id: String?)
+  func moveTaskToDone(with id: String?)
 }
 
 // MARK: Router

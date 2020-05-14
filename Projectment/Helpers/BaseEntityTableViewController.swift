@@ -14,7 +14,12 @@ import UIKit
 }
 
 @objc protocol BaseEntityTableViewControllerTasksContextDelegate {
+  var screen: Screen { get }
+  
   func showTeamListButton()
+  func moveTaskToToDo(with id: String?)
+  func moveTaskToInProgress(with id: String?)
+  func moveTaskToDone(with id: String?)
 }
 
 class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: UITableViewController {
@@ -27,6 +32,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
       self.addNavBarButtons()
     }
   }
+  
   var tasksContextDelegate: BaseEntityTableViewControllerTasksContextDelegate? {
     didSet {
       self.makeAddEntityButton()
@@ -68,8 +74,16 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
     self.makeTasksTableView()
   }
   
-  override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+  override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     UISwipeActionsConfiguration(actions: [self.makeContextualDeleteAction(for: indexPath)])
+  }
+  
+  override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    if type(of: self.context) == TasksContext.self {
+      return UISwipeActionsConfiguration(actions: self.makeContextualActions(for: indexPath, from: self.tasksContextDelegate?.screen))
+    } else {
+      return nil
+    }
   }
   
   func makeContextualDeleteAction(for indexPath: IndexPath) -> UIContextualAction {
@@ -82,10 +96,55 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
       completion(true)
     }
     
-    action.image = UIImage(systemName: "xmark.circle")
+    action.image = UIImage(systemName: "multiply.circle.fill")
     action.backgroundColor = .red
     
     return action
+  }
+  
+  func makeContextualActions(for indexPath: IndexPath, from screen: Screen?) -> [UIContextualAction] {
+    let entityID = self.entities?[indexPath.row].id
+    
+    let movetoToDo = UIContextualAction(style: .normal, title: nil) { [unowned self] action, view, completion in
+      self.entities?.remove(at: indexPath.row)
+      self.tasksContextDelegate?.moveTaskToToDo(with: entityID)
+      
+      completion(true)
+    }
+    
+    movetoToDo.image = UIImage(systemName: "rectangle.stack.fill")
+    movetoToDo.backgroundColor = .purple
+    
+    let movetoInProgress = UIContextualAction(style: .normal, title: nil) { [unowned self] action, view, completion in
+      self.entities?.remove(at: indexPath.row)
+      self.tasksContextDelegate?.moveTaskToInProgress(with: entityID)
+      
+      completion(true)
+    }
+    
+    movetoInProgress.image = UIImage(systemName: "chart.bar.fill")
+    movetoInProgress.backgroundColor = .purple
+    
+    let movetoDone = UIContextualAction(style: .normal, title: nil) { [unowned self] action, view, completion in
+      self.entities?.remove(at: indexPath.row)
+      self.tasksContextDelegate?.moveTaskToDone(with: entityID)
+      
+      completion(true)
+    }
+    
+    movetoDone.image = UIImage(systemName: "checkmark.circle.fill")
+    movetoDone.backgroundColor = .purple
+    
+    switch screen {
+    case .toDo:
+      return [movetoDone, movetoInProgress]
+    case .inProgress:
+      return [movetoDone, movetoToDo]
+    case .done:
+      return [movetoInProgress, movetoToDo]
+    default:
+      return []
+    }
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

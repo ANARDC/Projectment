@@ -40,6 +40,33 @@ final class DataService {
     }
   }
   
+  func moveTaskToToDo(with id: String?) {
+    if var entity = self.realm?.object(ofType: Task.self, forPrimaryKey: id) {
+      entity.state = TaskState.toDo.rawValue
+      try? self.realm?.write {
+        self.realm?.add(entity, update: .modified)
+      }
+    }
+  }
+  
+  func moveTaskToInProgress(with id: String?) {
+    if var entity = self.realm?.object(ofType: Task.self, forPrimaryKey: id) {
+      entity.state = TaskState.inProgress.rawValue
+      try? self.realm?.write {
+        self.realm?.add(entity, update: .modified)
+      }
+    }
+  }
+  
+  func moveTaskToDone(with id: String?) {
+    if var entity = self.realm?.object(ofType: Task.self, forPrimaryKey: id) {
+      entity.state = TaskState.done.rawValue
+      try? self.realm?.write {
+        self.realm?.add(entity, update: .modified)
+      }
+    }
+  }
+  
   private lazy var tasks: [Task]? = {
     self.realm?.objects(Task.self).map { $0 }
   }()

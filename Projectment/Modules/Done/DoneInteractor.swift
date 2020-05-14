@@ -24,4 +24,16 @@ final class DoneInteractor: DoneInteractorProtocol {
   func deleteTask(with id: String?) {
     self.dataService.delete(entityType: Task.self, entityID: id)
   }
+  
+  func moveTaskToToDo(with id: String?) {
+    self.dataService.moveTaskToToDo(with: id)
+  }
+  
+  func moveTaskToInProgress(with id: String?) {
+    self.dataService.moveTaskToInProgress(with: id)
+  }
+  
+  func moveTaskToDone(with id: String?) {
+    self.dataService.moveTaskToDone(with: id)
+  }
 }

@@ -59,8 +59,24 @@ extension DoneViewController: BaseEntityTableViewControllerDelegate {
 }
 
 extension DoneViewController: BaseEntityTableViewControllerTasksContextDelegate {
+  var screen: Screen {
+    .done
+  }
+  
   func showTeamListButton() {
     self.presenter.showTeamListButton()
+  }
+  
+  func moveTaskToToDo(with id: String?) {
+    self.presenter.moveTaskToToDo(with: id)
+  }
+  
+  func moveTaskToInProgress(with id: String?) {
+    self.presenter.moveTaskToInProgress(with: id)
+  }
+  
+  func moveTaskToDone(with id: String?) {
+    self.presenter.moveTaskToDone(with: id)
   }
 }
 

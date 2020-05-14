@@ -48,4 +48,16 @@ extension ToDoPresenter: ToDoActionsPresenterProtocol {
   func showTeamListButton() {
     self.router.goToTeamListScreen(from: self.view)
   }
+  
+  func moveTaskToToDo(with id: String?) {
+    self.interactor.moveTaskToToDo(with: id)
+  }
+  
+  func moveTaskToInProgress(with id: String?) {
+    self.interactor.moveTaskToInProgress(with: id)
+  }
+  
+  func moveTaskToDone(with id: String?) {
+    self.interactor.moveTaskToDone(with: id)
+  }
 }

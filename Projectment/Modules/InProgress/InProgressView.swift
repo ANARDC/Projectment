@@ -61,6 +61,22 @@ extension InProgressViewController: BaseEntityTableViewControllerDelegate {
 }
 
 extension InProgressViewController: BaseEntityTableViewControllerTasksContextDelegate {
+  var screen: Screen {
+    .inProgress
+  }
+  
+  func moveTaskToToDo(with id: String?) {
+    self.presenter.moveTaskToToDo(with: id)
+  }
+  
+  func moveTaskToInProgress(with id: String?) {
+    self.presenter.moveTaskToInProgress(with: id)
+  }
+  
+  func moveTaskToDone(with id: String?) {
+    self.presenter.moveTaskToDone(with: id)
+  }
+  
   func showTeamListButton() {
     self.presenter.showTeamListButton()
   }

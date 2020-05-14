@@ -6,7 +6,9 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-enum Screen {
+import Foundation
+
+@objc enum Screen: Int {
   case toDo
   case inProgress
   case done
