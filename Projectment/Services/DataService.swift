@@ -11,17 +11,17 @@ import RealmSwift
 import RxSwift
 
 final class DataService {
-  let realm = try? Realm()
+  var realm = try? Realm()
   
   init() {
-    print(Realm.Configuration.defaultConfiguration.fileURL)
+    print(Realm.Configuration.defaultConfiguration.fileURL ?? "Realm Configuration File Cannot Be Found")
   }
   
-  func save<T: Realmable>(for entity: T) -> Observable<RealmOperationState> {
+  func save<Entity: Realmable & Entitiable>(for entity: Entity) -> Observable<RealmOperationState> {
     var state: RealmOperationState?
     
     do {
-      try realm?.write {
+      try self.realm?.write {
         self.realm?.add(entity)
         state = .success
       }
@@ -30,6 +30,14 @@ final class DataService {
     }
     
     return Observable.just(state ?? .error)
+  }
+  
+  func delete<Entity: Realmable & Entitiable>(entityType: Entity.Type, entityID: String?) {
+    if let entity = self.realm?.object(ofType: entityType, forPrimaryKey: entityID) {
+      try? self.realm?.write {
+        self.realm?.delete(entity)
+      }
+    }
   }
   
   private lazy var tasks: [Task]? = {

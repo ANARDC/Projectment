@@ -51,6 +51,10 @@ extension InProgressViewController {
 }
 
 extension InProgressViewController: BaseEntityTableViewControllerDelegate {
+  func deleteEntity(with id: String?) {
+    self.presenter.deleteTask(with: id)
+  }
+  
   func addEntityButton() {
     self.presenter.addTaskButton()
   }

@@ -39,6 +39,7 @@ protocol TeamListLifeCyclePresenterProtocol: class {
 }
 
 protocol TeamListActionsPresenterProtocol: class {
+  func deleteTeammate(with id: String?)
   func goToAddTeammateScreen()
 }
 
@@ -53,8 +54,10 @@ protocol TeamListRouterPresenterProtocol: class {
 // MARK: Interactor
 
 protocol TeamListInteractorProtocol: class {
-  var dataService    : DataService! { get set }
+  var dataService: DataService { get set }
   var team: [Teammate]? { get }
+  
+  func deleteTeammate(with id: String?)
 }
 
 // MARK: Router

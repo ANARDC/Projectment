@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol BaseEntityTableViewControllerDelegate {
   func addEntityButton()
+  func deleteEntity(with id: String?)
 }
 
 @objc protocol BaseEntityTableViewControllerTasksContextDelegate {
@@ -45,7 +46,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
     self.context = context
     super.init(style: style)
   }
-
+  
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -65,6 +66,26 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
   override func viewDidLoad() {
     super.viewDidLoad()
     self.makeTasksTableView()
+  }
+  
+  override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    UISwipeActionsConfiguration(actions: [self.makeContextualDeleteAction(for: indexPath)])
+  }
+  
+  func makeContextualDeleteAction(for indexPath: IndexPath) -> UIContextualAction {
+    let entityID = self.entities?[indexPath.row].id
+    
+    let action = UIContextualAction(style: .normal, title: nil) { [unowned self] action, view, completion in
+      self.entities?.remove(at: indexPath.row)
+      self.generalDelegate?.deleteEntity(with: entityID)
+      
+      completion(true)
+    }
+    
+    action.image = UIImage(systemName: "xmark.circle")
+    action.backgroundColor = .red
+    
+    return action
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

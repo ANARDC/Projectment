@@ -39,6 +39,7 @@ protocol InProgressLifeCyclePresenterProtocol: class {
 }
 
 protocol InProgressActionsPresenterProtocol: class {
+  func deleteTask(with id: String?)
   func addTaskButton()
   func showTeamListButton()
 }
@@ -54,7 +55,10 @@ protocol InProgressRouterPresenterProtocol: class {
 // MARK: Interactor
 
 protocol InProgressInteractorProtocol: class {
-  var tasks: [Task]? { get }
+  var dataService : DataService { get set }
+  var tasks       : [Task]? { get }
+  
+  func deleteTask(with id: String?)
 }
 
 // MARK: Router

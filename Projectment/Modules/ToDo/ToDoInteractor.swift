@@ -10,7 +10,7 @@ final class ToDoInteractor: ToDoInteractorProtocol {
   
   // MARK: properties
   weak var presenter : ToDoInteractorPresenterProtocol!
-  var dataService    : DataService!
+  var dataService    : DataService
   
   init(_ presenter: ToDoInteractorPresenterProtocol, _ dataService: DataService) {
     self.presenter   = presenter
@@ -19,5 +19,9 @@ final class ToDoInteractor: ToDoInteractorProtocol {
   
   var tasks: [Task]? {
     self.dataService.toDoTasks
+  }
+  
+  func deleteTask(with id: String?) {
+    self.dataService.delete(entityType: Task.self, entityID: id)
   }
 }

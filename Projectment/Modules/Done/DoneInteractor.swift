@@ -10,7 +10,7 @@ final class DoneInteractor: DoneInteractorProtocol {
   
   // MARK: properties
   weak var presenter : DoneInteractorPresenterProtocol!
-  var dataService    : DataService!
+  var dataService    : DataService
   
   init(_ presenter: DoneInteractorPresenterProtocol, _ dataService: DataService) {
     self.presenter  = presenter
@@ -19,5 +19,9 @@ final class DoneInteractor: DoneInteractorProtocol {
   
   var tasks: [Task]? {
     self.dataService.doneTasks
+  }
+  
+  func deleteTask(with id: String?) {
+    self.dataService.delete(entityType: Task.self, entityID: id)
   }
 }

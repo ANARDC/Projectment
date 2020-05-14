@@ -14,4 +14,8 @@ struct Teammate: Realmable, Entitiable {
   var lastName : String?
   var job      : String?
   var post     : String?
+  
+  static func primaryKey() -> String? {
+    "id"
+  }
 }

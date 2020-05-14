@@ -37,6 +37,10 @@ extension TeamListPresenter: TeamListLifeCyclePresenterProtocol {
 // MARK: - View Actions
 
 extension TeamListPresenter: TeamListActionsPresenterProtocol {
+  func deleteTeammate(with id: String?) {
+    self.interactor.deleteTeammate(with: id)
+  }
+  
   func goToAddTeammateScreen() {
     self.router.goToAddTeammateScreen(from: self.view)
   }

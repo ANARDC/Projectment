@@ -10,7 +10,7 @@ final class InProgressInteractor: InProgressInteractorProtocol {
   
   // MARK: properties
   weak var presenter : InProgressInteractorPresenterProtocol!
-  var dataService    : DataService!
+  var dataService    : DataService
   
   init(_ presenter: InProgressInteractorPresenterProtocol, _ dataService: DataService) {
     self.presenter   = presenter
@@ -19,5 +19,9 @@ final class InProgressInteractor: InProgressInteractorProtocol {
   
   var tasks: [Task]? {
     self.dataService.inProgressTasks
+  }
+  
+  func deleteTask(with id: String?) {
+    self.dataService.delete(entityType: Task.self, entityID: id)
   }
 }

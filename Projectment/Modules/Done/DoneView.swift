@@ -49,6 +49,10 @@ extension DoneViewController {
 }
 
 extension DoneViewController: BaseEntityTableViewControllerDelegate {
+  func deleteEntity(with id: String?) {
+    self.presenter.deleteTask(with: id)
+  }
+  
   func addEntityButton() {
     self.presenter.addTaskButton()
   }

@@ -10,7 +10,7 @@ final class TeamListInteractor: TeamListInteractorProtocol {
   
   // MARK: properties
   weak var presenter : TeamListInteractorPresenterProtocol!
-  var dataService    : DataService!
+  var dataService    : DataService
   
   init(_ presenter: TeamListInteractorPresenterProtocol, _ dataService: DataService) {
     self.presenter   = presenter
@@ -19,5 +19,9 @@ final class TeamListInteractor: TeamListInteractorProtocol {
   
   var team: [Teammate]? {
     self.dataService.team
+  }
+  
+  func deleteTeammate(with id: String?) {
+    self.dataService.delete(entityType: Teammate.self, entityID: id)
   }
 }

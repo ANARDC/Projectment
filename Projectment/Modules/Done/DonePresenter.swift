@@ -23,6 +23,8 @@ final class DonePresenter: DonePresenterGeneralProtocol {
 
 extension DonePresenter: DoneLifeCyclePresenterProtocol {
   func viewWillAppear() {
+    self.interactor.dataService = DataService()
+    self.view.setTasks(for: self.interactor.tasks)
     self.view.makeTabBar()
   }
   
@@ -35,6 +37,10 @@ extension DonePresenter: DoneLifeCyclePresenterProtocol {
 // MARK: - View Actions
 
 extension DonePresenter: DoneActionsPresenterProtocol {
+  func deleteTask(with id: String?) {
+    self.interactor.deleteTask(with: id)
+  }
+  
   func addTaskButton() {
     self.router.goToAddTaskScreen(from: self.view)
   }

@@ -39,6 +39,7 @@ protocol DoneLifeCyclePresenterProtocol: class {
 }
 
 protocol DoneActionsPresenterProtocol: class {
+  func deleteTask(with id: String?)
   func addTaskButton()
   func showTeamListButton()
 }
@@ -54,7 +55,10 @@ protocol DoneRouterPresenterProtocol: class {
 // MARK: Interactor
 
 protocol DoneInteractorProtocol: class {
-  var tasks: [Task]? { get }
+  var dataService : DataService { get set }
+  var tasks       : [Task]? { get }
+  
+  func deleteTask(with id: String?)
 }
 
 // MARK: Router

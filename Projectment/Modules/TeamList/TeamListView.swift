@@ -40,6 +40,10 @@ extension TeamListViewController: TeamListViewDataProtocol {
 }
 
 extension TeamListViewController: BaseEntityTableViewControllerDelegate {
+  func deleteEntity(with id: String?) {
+    self.presenter.deleteTeammate(with: id)
+  }
+  
   func addEntityButton() {
     self.presenter.goToAddTeammateScreen()
   }

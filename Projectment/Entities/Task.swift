@@ -18,4 +18,8 @@ struct Task: Realmable, Entitiable {
   var state           : String = TaskState.toDo.rawValue
   var type            : String = TaskType.unknown.rawValue
   var complexity      : String = TaskComplexity.unknown.rawValue
+  
+  static func primaryKey() -> String? {
+    "id"
+  }
 }

@@ -6,8 +6,6 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-// MARK: class
-
 final class TeamListConfigurator: TeamListConfiguratorProtocol {
   
   // MARK: properties

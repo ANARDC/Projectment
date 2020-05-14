@@ -23,6 +23,8 @@ final class ToDoPresenter: ToDoPresenterGeneralProtocol {
 
 extension ToDoPresenter: ToDoLifeCyclePresenterProtocol {
   func viewWillAppear() {
+    self.interactor.dataService = DataService()
+    self.view.setTasks(for: self.interactor.tasks)
     self.view.makeTabBar()
   }
   
@@ -35,6 +37,10 @@ extension ToDoPresenter: ToDoLifeCyclePresenterProtocol {
 // MARK: - View Actions
 
 extension ToDoPresenter: ToDoActionsPresenterProtocol {
+  func deleteTask(with id: String?) {
+    self.interactor.deleteTask(with: id)
+  }
+  
   func addTaskButton() {
     self.router.goToAddTaskScreen(from: self.view)
   }

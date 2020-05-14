@@ -23,6 +23,8 @@ final class InProgressPresenter: InProgressPresenterGeneralProtocol {
 
 extension InProgressPresenter: InProgressLifeCyclePresenterProtocol {
   func viewWillAppear() {
+    self.interactor.dataService = DataService()
+    self.view.setTasks(for: self.interactor.tasks)
     self.view.makeTabBar()
   }
   
@@ -35,6 +37,10 @@ extension InProgressPresenter: InProgressLifeCyclePresenterProtocol {
 // MARK: - View Actions
 
 extension InProgressPresenter: InProgressActionsPresenterProtocol {
+  func deleteTask(with id: String?) {
+    self.interactor.deleteTask(with: id)
+  }
+  
   func addTaskButton() {
     self.router.goToAddTaskScreen(from: self.view)
   }
