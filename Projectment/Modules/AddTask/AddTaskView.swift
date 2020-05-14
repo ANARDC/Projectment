@@ -41,6 +41,11 @@ extension AddTaskViewController {
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
     self.presenter.traitCollectionDidChange()
   }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesBegan(touches, with: event)
+    self.view.endEditing(true)
+  }
 }
 
 // MARK: - Reactive
@@ -62,6 +67,7 @@ extension AddTaskViewController: AddTaskViewReactive {
   
   func bindWhoSubscriber() {
     self.whoPickerView?.rx.itemSelected
+      .filter { _ in (self.team?.count ?? 0) > 0 }
       .map { self.team?[$0.row].id }
       .subscribe(self.presenter.input.teammateID)
       .disposed(by: self.bag)
