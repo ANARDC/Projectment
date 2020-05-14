@@ -17,6 +17,8 @@ protocol DoneViewProtocol: DoneUIProtocol {
 protocol DoneUIProtocol: UIViewController, DoneViewDataProtocol {
   func makeNavBar()
   func makeTabBar()
+  func makeTeammateInfoView(for: Teammate?)
+  func makeDateInfoView(for dates: (Date?, Date?))
 }
 
 protocol DoneViewDataProtocol {
@@ -45,6 +47,8 @@ protocol DoneActionsPresenterProtocol: class {
   func moveTaskToToDo(with id: String?)
   func moveTaskToInProgress(with id: String?)
   func moveTaskToDone(with id: String?)
+  func whoButton(with id: String?)
+  func dateButton(with id: String?)
 }
 
 protocol DoneInteractorPresenterProtocol: class {
@@ -60,6 +64,7 @@ protocol DoneRouterPresenterProtocol: class {
 protocol DoneInteractorProtocol: class {
   var dataService : DataService { get set }
   var tasks       : [Task]? { get }
+  var team        : [Teammate]? { get }
   
   func deleteTask(with id: String?)
   func moveTaskToToDo(with id: String?)

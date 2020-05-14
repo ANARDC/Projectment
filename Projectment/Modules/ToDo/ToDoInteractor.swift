@@ -21,6 +21,10 @@ final class ToDoInteractor: ToDoInteractorProtocol {
     self.dataService.toDoTasks
   }
   
+  var team: [Teammate]? {
+    self.dataService.team
+  }
+  
   func deleteTask(with id: String?) {
     self.dataService.delete(entityType: Task.self, entityID: id)
   }

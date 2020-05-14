@@ -21,6 +21,10 @@ final class InProgressInteractor: InProgressInteractorProtocol {
     self.dataService.inProgressTasks
   }
   
+  var team: [Teammate]? {
+    self.dataService.team
+  }
+  
   func deleteTask(with id: String?) {
     self.dataService.delete(entityType: Task.self, entityID: id)
   }

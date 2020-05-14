@@ -80,6 +80,14 @@ extension InProgressViewController: BaseEntityTableViewControllerTasksContextDel
   func showTeamListButton() {
     self.presenter.showTeamListButton()
   }
+  
+  func whoButton(with id: String?) {
+    self.presenter.whoButton(with: id)
+  }
+  
+  func dateButton(with id: String?) {
+    self.presenter.dateButton(with: id)
+  }
 }
 
 // MARK: - Data
@@ -99,5 +107,29 @@ extension InProgressViewController: InProgressUIProtocol {
   
   func makeTabBar() {
     self.tabBarController?.tabBar.isHidden = false
+  }
+  
+  func makeTeammateInfoView(for teammate: Teammate?) {
+    let alert = UIAlertController(title: "\(teammate?.name ?? "") \(teammate?.lastName ?? "")", message: "ID: \(teammate?.id ?? "")\nJob: \(teammate?.job ?? "")\nPost: \(teammate?.post ?? "")", preferredStyle: UIAlertController.Style.alert)
+    alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
+  }
+  
+  func makeDateInfoView(for dates: (Date?, Date?)) {
+    var alert: UIAlertController
+    
+    let formatter = DateFormatter()
+    formatter.dateFormat = "HH:mm:ss dd.MM.yyyy EEEE"
+    
+    guard let createdDate = dates.0 else { return }
+    
+    if let expiresDate = dates.1 {
+      alert = UIAlertController(title: "Dates", message: "Created: \(formatter.string(from: createdDate))\nExpires: \(formatter.string(from: expiresDate))", preferredStyle: UIAlertController.Style.alert)
+    } else {
+      alert = UIAlertController(title: "Dates", message: "Created: \(formatter.string(from: createdDate))\nExpires: Never", preferredStyle: UIAlertController.Style.alert)
+    }
+    
+    alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
   }
 }

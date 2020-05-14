@@ -17,6 +17,8 @@ protocol InProgressViewProtocol: InProgressUIProtocol {
 protocol InProgressUIProtocol: UIViewController, InProgressViewDataProtocol {
   func makeNavBar()
   func makeTabBar()
+  func makeTeammateInfoView(for: Teammate?)
+  func makeDateInfoView(for dates: (Date?, Date?))
 }
 
 protocol InProgressViewDataProtocol {
@@ -45,6 +47,8 @@ protocol InProgressActionsPresenterProtocol: class {
   func moveTaskToToDo(with id: String?)
   func moveTaskToInProgress(with id: String?)
   func moveTaskToDone(with id: String?)
+  func whoButton(with id: String?)
+  func dateButton(with id: String?)
 }
 
 protocol InProgressInteractorPresenterProtocol: class {
@@ -60,6 +64,7 @@ protocol InProgressRouterPresenterProtocol: class {
 protocol InProgressInteractorProtocol: class {
   var dataService : DataService { get set }
   var tasks       : [Task]? { get }
+  var team        : [Teammate]? { get }
   
   func deleteTask(with id: String?)
   func moveTaskToToDo(with id: String?)

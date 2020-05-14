@@ -20,6 +20,8 @@ import UIKit
   func moveTaskToToDo(with id: String?)
   func moveTaskToInProgress(with id: String?)
   func moveTaskToDone(with id: String?)
+  func whoButton(with: String?)
+  func dateButton(with: String?)
 }
 
 class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: UITableViewController {
@@ -154,7 +156,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if type(of: self.context) == TasksContext.self {
       if let cell = tableView.dequeueReusableCell(withIdentifier: self.cellID, for: indexPath) as? BaseEntityTableViewCell<TasksContext, Task>, let task = self.entities?[indexPath.row] as? Task {
-        cell.setup(with: task)
+        cell.setup(with: task, delegate: self.tasksContextDelegate)
         cell.make()
         return cell
       }

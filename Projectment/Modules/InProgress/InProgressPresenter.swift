@@ -60,4 +60,16 @@ extension InProgressPresenter: InProgressActionsPresenterProtocol {
   func moveTaskToDone(with id: String?) {
     self.interactor.moveTaskToDone(with: id)
   }
+  
+  func whoButton(with id: String?) {
+    let task = self.interactor.tasks?.filter { $0.id == id }.first
+    let teammate = self.interactor.team?.filter { $0.id == task?.teammateID }.first
+    self.view.makeTeammateInfoView(for: teammate)
+  }
+  
+  func dateButton(with id: String?) {
+    let taskDate = self.interactor.tasks?.filter { $0.id == id }.first?.created
+    let taskExpiresDate = self.interactor.tasks?.filter { $0.id == id }.first?.expires
+    self.view.makeDateInfoView(for: (taskDate, taskExpiresDate))
+  }
 }

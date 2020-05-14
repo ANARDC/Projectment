@@ -9,7 +9,8 @@
 import SnapKit
 
 final class BaseEntityTableViewCell<Context: Contextable, Entity: Entitiable>: UITableViewCell {
-  var entity: Entity?
+  var entity   : Entity?
+  var delegate : BaseEntityTableViewControllerTasksContextDelegate?
   
   // Task Context UI Elements
   
@@ -29,17 +30,26 @@ final class BaseEntityTableViewCell<Context: Contextable, Entity: Entitiable>: U
   var teammateJobLabel      : UILabel?
   var teammatePostLabel     : UILabel?
   
-  func setup(with entity: Entity?) {
-    self.entity = entity
-  }
-  
   override func prepareForReuse() {
     super.prepareForReuse()
     self.subviews.forEach({ $0.removeFromSuperview() })
   }
+  
+  @objc func callWhoButton() {
+    self.delegate?.whoButton(with: self.entity?.id)
+  }
+  
+  @objc func callDateButton() {
+    self.delegate?.dateButton(with: self.entity?.id)
+  }
 }
 
 extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task {
+  func setup(with entity: Entity?, delegate: BaseEntityTableViewControllerTasksContextDelegate?) {
+    self.entity   = entity
+    self.delegate = delegate
+  }
+  
   func make() {
     self.makeTitleLabel()
     self.makeDescriptionLabel()
@@ -91,6 +101,8 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
       $0.setImage(UIImage(systemName: "person.crop.circle.fill"), for: .normal)
       $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
       
+      $0.addTarget(self, action: #selector(self.callWhoButton), for: .touchUpInside)
+      
       $0.snp.makeConstraints {
         $0.width.height.equalTo(20)
       }
@@ -102,12 +114,14 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
       $0.setImage(UIImage(systemName: "clock.fill"), for: .normal)
       $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
       
+      $0.addTarget(self, action: #selector(self.callDateButton), for: .touchUpInside)
+      
       $0.snp.makeConstraints {
         $0.width.height.equalTo(20)
       }
     }
   }
-    
+  
   func makeTypeIcon() {
     self.taskTypeIcon = UIImageView(image: TaskType(rawValue: self.entity?.type ?? "unknown")?.icon) {
       $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
@@ -180,6 +194,10 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
 }
 
 extension BaseEntityTableViewCell where Context == TeamContext, Entity == Teammate {
+  func setup(with entity: Entity?) {
+    self.entity = entity
+  }
+  
   func make() {
     self.makeTeammateIDLabel()
     self.makeTeammateNameLabel()
