@@ -308,7 +308,6 @@
 				991A9132246C505A00CB56CD /* UIPickerView.swift */,
 				991A9130246C39BF00CB56CD /* CustomTextField.swift */,
 				99130823246C5AE200704708 /* Observable.swift */,
-				99130825246C792800704708 /* RealmOperationState.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -427,6 +426,7 @@
 				99941AC024687AC1000CBA82 /* TaskComplexity.swift */,
 				9976E9E7246B0CD20081D953 /* Screen.swift */,
 				9976E9E9246B0E280081D953 /* Reactive.swift */,
+				99130825246C792800704708 /* RealmOperationState.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
