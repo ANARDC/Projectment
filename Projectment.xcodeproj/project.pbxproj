@@ -532,10 +532,9 @@
 			};
 			buildConfigurationList = CA4511A9BAFB98F096317729 /* Build configuration list for PBXProject "Projectment" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
