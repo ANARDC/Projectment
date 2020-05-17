@@ -124,7 +124,8 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
   
   func makeTypeIcon() {
     self.taskTypeIcon = UIImageView(image: TaskType(rawValue: self.entity?.type ?? "unknown")?.icon) {
-      $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
+      $0.tintColor   = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
+      $0.contentMode = .scaleAspectFit
       
       $0.snp.makeConstraints {
         switch TaskType(rawValue: self.entity?.type ?? "unknown") {
@@ -149,7 +150,8 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
   
   func makeWeightIcon() {
     self.taskComplexityIcon = UIImageView(image: TaskComplexity(rawValue: self.entity?.complexity ?? "unknown")? .icon) {
-      $0.tintColor = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
+      $0.tintColor   = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
+      $0.contentMode = .scaleAspectFit
       
       $0.snp.makeConstraints {
         switch TaskComplexity(rawValue: self.entity?.complexity ?? "unknown") {
