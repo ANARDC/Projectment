@@ -11,7 +11,7 @@ import RealmSwift
 import RxSwift
 
 final class DataService {
-  var realm = try? Realm()
+  private var realm = try? Realm()
   
   init() {
     print(Realm.Configuration.defaultConfiguration.fileURL ?? "Realm Configuration File Cannot Be Found")
@@ -67,31 +67,31 @@ final class DataService {
     }
   }
   
-  private lazy var tasks: [Task]? = {
-    self.realm?.objects(Task.self).map { $0 }
-  }()
-  
   lazy var team: [Teammate]? = {
     self.realm?.objects(Teammate.self).map { $0 }
   }()
   
-  var tasksIDList: [String]? {
-    self.tasks?.map { $0.id }
-  }
-  
-  var teammatesIDList: [String]? {
+  lazy var teammatesIDList: [String]? = {
     self.team?.map { $0.id }
-  }
+  }()
   
-  var toDoTasks: [Task]? {
+  private lazy var tasks: [Task]? = {
+    self.realm?.objects(Task.self).map { $0 }
+  }()
+  
+  lazy var tasksIDList: [String]? = {
+    self.tasks?.map { $0.id }
+  }()
+  
+  lazy var toDoTasks: [Task]? = {
     self.tasks?.filter { $0.state == TaskState.toDo.rawValue }
-  }
+  }()
   
-  var inProgressTasks: [Task]? {
+  lazy var inProgressTasks: [Task]? = {
     self.tasks?.filter { $0.state == TaskState.inProgress.rawValue }
-  }
+  }()
   
-  var doneTasks: [Task]? {
+  lazy var doneTasks: [Task]? = {
     self.tasks?.filter { $0.state == TaskState.done.rawValue }
-  }
+  }()
 }
