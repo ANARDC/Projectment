@@ -25,12 +25,11 @@ extension TeamListPresenter: TeamListLifeCyclePresenterProtocol {
   func viewWillAppear() {
     self.interactor.dataService = DataService()
     self.view.setTeam(for: self.interactor.team)
+    self.view.makeTabBar()
   }
   
   func viewDidLoad() {
-    self.view.setTeam(for: self.interactor.team)
     self.view.makeNavBar()
-    self.view.makeTabBar()
   }
 }
 
