@@ -40,6 +40,10 @@ extension AddTaskPresenter: AddTaskLifeCyclePresenterProtocol {
     self.bindReactive()
   }
   
+  func viewWillAppear() {
+    self.view.makeTabBar()
+  }
+  
   func traitCollectionDidChange() {
     self.view.changeTheme()
   }
@@ -50,7 +54,6 @@ private extension AddTaskPresenter {
     self.view.setTeam(for: self.team)
     self.view.makeView()
     self.view.makeNavBar()
-    self.view.makeTabBar()
     self.view.makeTitleTextField()
     self.view.makeDescriptionTextView()
     self.view.makeWhoPickerView()

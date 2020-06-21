@@ -56,6 +56,7 @@ protocol AddTaskViewPresenterProtocol: AddTaskLifeCyclePresenterProtocol, AddTas
 
 protocol AddTaskLifeCyclePresenterProtocol: class {
   func viewDidLoad()
+  func viewWillAppear()
   func traitCollectionDidChange()
 }
 

@@ -38,6 +38,11 @@ extension AddTaskViewController {
     self.presenter.viewDidLoad()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.presenter.viewWillAppear()
+  }
+  
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
     self.presenter.traitCollectionDidChange()
   }

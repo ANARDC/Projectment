@@ -7,7 +7,9 @@
 //
 
 struct TeamContext: Contextable {
-  static var shared = TeamContext(info: ContextInfo(name: "", description: "String", scenesCount: 1))
+  static var shared = TeamContext(info: ContextInfo(name: "Team Context",
+                                                    description: "Interaction with team members",
+                                                    scenesCount: 1))
   
   var info: ContextInfo
 }
