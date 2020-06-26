@@ -128,22 +128,21 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
       $0.contentMode = .scaleAspectFit
       
       $0.snp.makeConstraints {
-        switch TaskType(rawValue: self.entity?.type ?? "unknown") {
-        case .design:
-          $0.width.height.equalTo(20)
-        case .management:
-          $0.width.height.equalTo(30)
-        case .development:
-          $0.width.height.equalTo(25)
-        case .planning:
-          $0.width.height.equalTo(20)
-        case .testing:
-          $0.width.height.equalTo(25)
-        case .unknown:
-          $0.width.height.equalTo(20)
-        case .none:
-          return
-        }
+        $0.width.height.equalTo(20)
+        
+        /* SnapKit swearing for some reason ¯\_(ツ)_/¯
+         *
+         * switch TaskType(rawValue: self.entity?.type ?? "unknown") {
+         * case .design, .planning, .unknown:
+         *   $0.width.height.equalTo(20)
+         * case .development, .testing:
+         *   $0.width.height.equalTo(25)
+         * case .management:
+         *   $0.width.height.equalTo(30)
+         * case .none:
+         *   return
+         * }
+         */
       }
     }
   }
@@ -154,18 +153,19 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
       $0.contentMode = .scaleAspectFit
       
       $0.snp.makeConstraints {
-        switch TaskComplexity(rawValue: self.entity?.complexity ?? "unknown") {
-        case .easy:
-          $0.width.height.equalTo(20)
-        case .middle:
-          $0.width.height.equalTo(20)
-        case .hard:
-          $0.width.height.equalTo(25)
-        case .unknown:
-          $0.width.height.equalTo(20)
-        case .none:
-          return
-        }
+        $0.width.height.equalTo(20)
+        
+        /* SnapKit swearing for some reason ¯\_(ツ)_/¯
+         *
+         * switch TaskComplexity(rawValue: self.entity?.complexity ?? "unknown") {
+         * case .easy, .middle, .unknown:
+         * $0.width.height.equalTo(20)
+         * case .hard:
+         * $0.width.height.equalTo(25)
+         * case .none:
+         * return
+         * }
+         */
       }
     }
   }
