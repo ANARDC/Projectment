@@ -12,8 +12,6 @@ struct TimeService<T: BinaryInteger> {
   static var secondsInHour : T { 3_600 }
   
   static func secondsIn(daysCount: T) -> T {
-    guard daysCount >= 0 else { return 0 }
-    
-    return TimeService.secondsInDay * daysCount
+    daysCount >= 0 ? TimeService.secondsInDay * daysCount : 0
   }
 }

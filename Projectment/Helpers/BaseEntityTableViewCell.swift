@@ -32,7 +32,7 @@ final class BaseEntityTableViewCell<Context: Contextable, Entity: Entitiable>: U
   
   override func prepareForReuse() {
     super.prepareForReuse()
-    self.subviews.forEach({ $0.removeFromSuperview() })
+    self.subviews.forEach { $0.removeFromSuperview() }
   }
   
   @objc func callWhoButton() {

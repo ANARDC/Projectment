@@ -80,7 +80,7 @@ extension AddTaskViewController: AddTaskViewReactive {
   
   func bindExpiresSubscriber() {
     self.expiresPickerView?.rx.itemSelected
-      .map({
+      .map {
         switch $0.row {
         case 1:
           return Date(timeIntervalSinceNow: .init(TimeService<Int>.secondsInHour))
@@ -91,7 +91,7 @@ extension AddTaskViewController: AddTaskViewReactive {
         default:
           return nil
         }
-      })
+      }
       .subscribe(self.presenter.input.expires)
       .disposed(by: self.bag)
   }
