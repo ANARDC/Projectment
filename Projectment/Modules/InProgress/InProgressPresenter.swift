@@ -62,7 +62,7 @@ extension InProgressPresenter: InProgressActionsPresenterProtocol {
   }
   
   func whoButton(with id: String?) {
-    let task = self.interactor.tasks?.filter { $0.id == id }.first
+    let task     = self.interactor.tasks?.filter { $0.id == id }.first
     let teammate = self.interactor.team?.filter { $0.id == task?.teammateID }.first
     self.view.makeTeammateInfoView(for: teammate)
   }

@@ -18,7 +18,7 @@ protocol ToDoUIProtocol: UIViewController, ToDoViewDataProtocol {
   func makeNavBar()
   func makeTabBar()
   func makeTeammateInfoView(for: Teammate?)
-  func makeDateInfoView(for dates: (Date?, Date?))
+  func makeDateInfoView(for created: Date?, _ expires: Date?)
 }
 
 protocol ToDoViewDataProtocol {
