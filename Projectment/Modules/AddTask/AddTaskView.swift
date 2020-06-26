@@ -139,9 +139,11 @@ extension AddTaskViewController {
 
 extension AddTaskViewController: AddTaskUIProtocol {
   func changeTheme() {
-    self.view.backgroundColor = self.view.traitCollection.userInterfaceStyle == .light ? .white : .black
-    self.titleTextField?.layer.borderColor = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
-    self.descriptionTextView?.layer.borderColor = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
+    let themeIsLight = self.view.traitCollection.userInterfaceStyle == .light
+    
+    self.view.backgroundColor                   = themeIsLight ? .white : .black
+    self.titleTextField?.layer.borderColor      = themeIsLight ? UIColor.purple.cgColor : UIColor.white.cgColor
+    self.descriptionTextView?.layer.borderColor = themeIsLight ? UIColor.purple.cgColor : UIColor.white.cgColor
   }
   
   func makeView() {
