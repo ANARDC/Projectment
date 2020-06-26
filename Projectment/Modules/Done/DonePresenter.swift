@@ -62,14 +62,15 @@ extension DonePresenter: DoneActionsPresenterProtocol {
   }
   
   func whoButton(with id: String?) {
-    let task = self.interactor.tasks?.filter { $0.id == id }.first
+    let task     = self.interactor.tasks?.filter { $0.id == id }.first
     let teammate = self.interactor.team?.filter { $0.id == task?.teammateID }.first
     self.view.makeTeammateInfoView(for: teammate)
   }
   
   func dateButton(with id: String?) {
-    let taskDate = self.interactor.tasks?.filter { $0.id == id }.first?.created
-    let taskExpiresDate = self.interactor.tasks?.filter { $0.id == id }.first?.expires
-    self.view.makeDateInfoView(for: (taskDate, taskExpiresDate))
+    let task    = self.interactor.tasks?.filter { $0.id == id }.first
+    let created = task?.created
+    let expires = task?.expires
+    self.view.makeDateInfoView(for: created, expires)
   }
 }
