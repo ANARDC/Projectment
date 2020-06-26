@@ -32,7 +32,12 @@ extension AddTeammateViewController {
     super.viewDidLoad()
     self.configurator = AddTeammateConfigurator(self)
     self.configurator.configure(self)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     self.presenter.viewDidLoad()
+//    self.navigationItem.largeTitleDisplayMode = .never
   }
   
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -127,7 +132,7 @@ extension AddTeammateViewController: AddTeammateUIProtocol {
     self.view.addSubview(nameTextField)
     
     nameTextField.snp.makeConstraints { maker in
-      maker.top.equalTo((self.navigationController?.navigationBar.frame.maxY ?? 0) + 20)
+      maker.top.equalTo(160)
       maker.left.equalTo(20)
       maker.right.equalTo(-20)
       maker.height.equalTo(50)
