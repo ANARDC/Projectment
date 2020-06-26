@@ -104,10 +104,12 @@ extension AddTeammateViewController {
 
 extension AddTeammateViewController: AddTeammateUIProtocol {
   func changeTheme() {
-    self.view.backgroundColor = self.view.traitCollection.userInterfaceStyle == .light ? .white : .black
-    self.nameTextField?.layer.borderColor = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
-    self.lastNameTextField?.layer.borderColor = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
-    self.idTextField?.layer.borderColor = self.view.traitCollection.userInterfaceStyle == .light ? UIColor.purple.cgColor : UIColor.white.cgColor
+    let themeIsLight = self.view.traitCollection.userInterfaceStyle == .light
+    
+    self.view.backgroundColor                 = themeIsLight ? .white : .black
+    self.nameTextField?.layer.borderColor     = themeIsLight ? UIColor.purple.cgColor : UIColor.white.cgColor
+    self.lastNameTextField?.layer.borderColor = themeIsLight ? UIColor.purple.cgColor : UIColor.white.cgColor
+    self.idTextField?.layer.borderColor       = themeIsLight ? UIColor.purple.cgColor : UIColor.white.cgColor
   }
   
   func makeView() {
