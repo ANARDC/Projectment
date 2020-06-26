@@ -17,13 +17,13 @@ final class DoneInteractor: DoneInteractorProtocol {
     self.dataService = dataService
   }
   
-  lazy var tasks: [Task]? = {
+  var tasks: [Task]? {
     self.dataService.doneTasks
-  }()
+  }
   
-  lazy var team: [Teammate]? = {
+  var team: [Teammate]? {
     self.dataService.team
-  }()
+  }
   
   func deleteTask(with id: String?) {
     self.dataService.delete(entityType: Task.self, entityID: id)
