@@ -65,16 +65,8 @@ extension InProgressViewController: BaseEntityTableViewControllerTasksContextDel
     .inProgress
   }
   
-  func moveTaskToToDo(with id: String?) {
-    self.presenter.moveTaskToToDo(with: id)
-  }
-  
-  func moveTaskToInProgress(with id: String?) {
-    self.presenter.moveTaskToInProgress(with: id)
-  }
-  
-  func moveTaskToDone(with id: String?) {
-    self.presenter.moveTaskToDone(with: id)
+  func changeTaskState(with id: String?, to state: TaskState) {
+    self.presenter.changeTaskState(with: id, to: state)
   }
   
   func showTeamListButton() {

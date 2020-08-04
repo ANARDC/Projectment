@@ -13,15 +13,20 @@ import UIKit
   func deleteEntity(with id: String?)
 }
 
-@objc protocol BaseEntityTableViewControllerTasksContextDelegate {
+protocol BaseEntityTableViewControllerTasksContextDelegate: BaseEntityTableViewControllerSelectors {
   var screen: Screen { get }
   
-  func showTeamListButton()
-  func moveTaskToToDo(with id: String?)
-  func moveTaskToInProgress(with id: String?)
-  func moveTaskToDone(with id: String?)
+  
+  func changeTaskState(with id: String?, to state: TaskState)
+//  func moveTaskToToDo(with id: String?)
+//  func moveTaskToInProgress(with id: String?)
+//  func moveTaskToDone(with id: String?)
   func whoButton(with: String?)
   func dateButton(with: String?)
+}
+
+@objc protocol BaseEntityTableViewControllerSelectors {
+  func showTeamListButton()
 }
 
 class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: UITableViewController {
@@ -109,8 +114,8 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
     
     let movetoToDo = UIContextualAction(style: .normal, title: nil) { [unowned self] action, view, completion in
       self.entities?.remove(at: indexPath.row)
-      self.tasksContextDelegate?.moveTaskToToDo(with: entityID)
-      
+      self.tasksContextDelegate?.changeTaskState(with: entityID, to: .toDo)
+
       completion(true)
     }
     
@@ -119,8 +124,8 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
     
     let movetoInProgress = UIContextualAction(style: .normal, title: nil) { [unowned self] action, view, completion in
       self.entities?.remove(at: indexPath.row)
-      self.tasksContextDelegate?.moveTaskToInProgress(with: entityID)
-      
+      self.tasksContextDelegate?.changeTaskState(with: entityID, to: .inProgress)
+
       completion(true)
     }
     
@@ -129,7 +134,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
     
     let movetoDone = UIContextualAction(style: .normal, title: nil) { [unowned self] action, view, completion in
       self.entities?.remove(at: indexPath.row)
-      self.tasksContextDelegate?.moveTaskToDone(with: entityID)
+      self.tasksContextDelegate?.changeTaskState(with: entityID, to: .done)
       
       completion(true)
     }

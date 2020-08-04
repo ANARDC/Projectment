@@ -9,8 +9,11 @@
 import UIKit
 
 extension UILabel {
-  convenience init(closure: (UILabel) -> ()) {
+  convenience init(superview: UIView, configuring: (UILabel) -> (), constraints: (UILabel) -> ()) {
     self.init()
-    closure(self)
+    configuring(self)
+    self.translatesAutoresizingMaskIntoConstraints = false
+    superview.addSubview(self)
+    constraints(self)
   }
 }

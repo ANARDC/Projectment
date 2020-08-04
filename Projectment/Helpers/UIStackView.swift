@@ -9,8 +9,12 @@
 import UIKit
 
 extension UIStackView {
-  convenience init(arrangedSubviews: [UIView], closure: (UIStackView) -> ()) {
+  convenience init(superview: UIView, arrangedSubviews: [UIView], configuring: (UIStackView) -> (), constraints: (UIStackView) -> ()) {
     self.init(arrangedSubviews: arrangedSubviews)
-    closure(self)
+    configuring(self)
+    self.translatesAutoresizingMaskIntoConstraints = false
+    superview.addSubview(self)
+    constraints(self)
   }
 }
+

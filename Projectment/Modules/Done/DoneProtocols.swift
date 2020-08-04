@@ -44,9 +44,7 @@ protocol DoneActionsPresenterProtocol: class {
   func deleteTask(with id: String?)
   func addTaskButton()
   func showTeamListButton()
-  func moveTaskToToDo(with id: String?)
-  func moveTaskToInProgress(with id: String?)
-  func moveTaskToDone(with id: String?)
+  func changeTaskState(with id: String?, to state: TaskState)
   func whoButton(with id: String?)
   func dateButton(with id: String?)
 }
@@ -67,9 +65,7 @@ protocol DoneInteractorProtocol: class {
   var team        : [Teammate]? { get }
   
   func deleteTask(with id: String?)
-  func moveTaskToToDo(with id: String?)
-  func moveTaskToInProgress(with id: String?)
-  func moveTaskToDone(with id: String?)
+  func changeTaskState(with id: String?, to state: TaskState)
 }
 
 // MARK: Router

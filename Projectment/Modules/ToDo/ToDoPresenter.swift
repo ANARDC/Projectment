@@ -49,16 +49,8 @@ extension ToDoPresenter: ToDoActionsPresenterProtocol {
     self.router.goToTeamListScreen(from: self.view)
   }
   
-  func moveTaskToToDo(with id: String?) {
-    self.interactor.moveTaskToToDo(with: id)
-  }
-  
-  func moveTaskToInProgress(with id: String?) {
-    self.interactor.moveTaskToInProgress(with: id)
-  }
-  
-  func moveTaskToDone(with id: String?) {
-    self.interactor.moveTaskToDone(with: id)
+  func changeTaskState(with id: String?, to state: TaskState) {
+    self.interactor.changeTaskState(with: id, to: state)
   }
   
   func whoButton(with id: String?) {
