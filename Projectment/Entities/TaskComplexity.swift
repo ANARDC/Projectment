@@ -6,9 +6,9 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-import UIKit
+import Unrealm
 
-enum TaskComplexity: String, CaseIterable {
+enum TaskComplexity: String, CaseIterable, RealmableEnum {
   case easy
   case middle
   case hard

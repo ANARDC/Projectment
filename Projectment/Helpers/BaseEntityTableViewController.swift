@@ -16,11 +16,7 @@ import UIKit
 protocol BaseEntityTableViewControllerTasksContextDelegate: BaseEntityTableViewControllerSelectors {
   var screen: Screen { get }
   
-  
   func changeTaskState(with id: String?, to state: TaskState)
-//  func moveTaskToToDo(with id: String?)
-//  func moveTaskToInProgress(with id: String?)
-//  func moveTaskToDone(with id: String?)
   func whoButton(with: String?)
   func dateButton(with: String?)
 }
@@ -78,7 +74,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.makeTasksTableView()
+    self.makeTableView()
   }
   
   override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -115,7 +111,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
     let movetoToDo = UIContextualAction(style: .normal, title: nil) { [unowned self] action, view, completion in
       self.entities?.remove(at: indexPath.row)
       self.tasksContextDelegate?.changeTaskState(with: entityID, to: .toDo)
-
+      
       completion(true)
     }
     
@@ -125,7 +121,7 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
     let movetoInProgress = UIContextualAction(style: .normal, title: nil) { [unowned self] action, view, completion in
       self.entities?.remove(at: indexPath.row)
       self.tasksContextDelegate?.changeTaskState(with: entityID, to: .inProgress)
-
+      
       completion(true)
     }
     
@@ -160,13 +156,15 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if type(of: self.context) == TasksContext.self {
-      if let cell = tableView.dequeueReusableCell(withIdentifier: self.cellID, for: indexPath) as? BaseEntityTableViewCell<TasksContext, Task>, let task = self.entities?[indexPath.row] as? Task {
+      if let cell = tableView.dequeueReusableCell(withIdentifier: self.cellID, for: indexPath) as? BaseEntityTableViewCell<TasksContext, Task>,
+         let task = self.entities?[indexPath.row] as? Task {
         cell.setup(with: task, delegate: self.tasksContextDelegate)
         cell.make()
         return cell
       }
     } else if type(of: self.context) == TeamContext.self {
-      if let cell = tableView.dequeueReusableCell(withIdentifier: self.cellID, for: indexPath) as? BaseEntityTableViewCell<TeamContext, Teammate>, let teammate = self.entities?[indexPath.row] as? Teammate {
+      if let cell = tableView.dequeueReusableCell(withIdentifier: self.cellID, for: indexPath) as? BaseEntityTableViewCell<TeamContext, Teammate>,
+         let teammate = self.entities?[indexPath.row] as? Teammate {
         cell.setup(with: teammate)
         cell.make()
         return cell
@@ -182,17 +180,24 @@ class BaseEntityTableViewController<Context: Contextable, Entity: Entitiable>: U
 }
 
 private extension BaseEntityTableViewController {
-  func makeTasksTableView() {
-    self.tableView.register(BaseEntityTableViewCell<Context, Entity>.self, forCellReuseIdentifier: self.cellID)
+  func makeTableView() {
+    self.tableView.register(BaseEntityTableViewCell<Context, Entity>.self,
+                            forCellReuseIdentifier: self.cellID)
   }
   
   func makeAddEntityButton() {
     var addEntityButton: UIBarButtonItem
     
     if let generalDelegate = self.generalDelegate {
-      addEntityButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .done, target: self, action: #selector(generalDelegate.addEntityButton))
+      addEntityButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"),
+                                        style: .done,
+                                        target: self,
+                                        action: #selector(generalDelegate.addEntityButton))
     } else {
-      addEntityButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .done, target: self, action: nil)
+      addEntityButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"),
+                                        style: .done,
+                                        target: self,
+                                        action: nil)
     }
     
     addEntityButton.tintColor = .white
@@ -203,9 +208,15 @@ private extension BaseEntityTableViewController {
     var showTeamListButton: UIBarButtonItem
     
     if let tasksContextDelegate = self.tasksContextDelegate {
-      showTeamListButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.stack.person.crop"), style: .done, target: self, action: #selector(tasksContextDelegate.showTeamListButton))
+      showTeamListButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.stack.person.crop"),
+                                           style: .done,
+                                           target: self,
+                                           action: #selector(tasksContextDelegate.showTeamListButton))
     } else {
-      showTeamListButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.stack.person.crop"), style: .done, target: self, action: nil)
+      showTeamListButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.stack.person.crop"),
+                                           style: .done,
+                                           target: self,
+                                           action: nil)
     }
     
     showTeamListButton.tintColor = .white

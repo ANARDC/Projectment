@@ -88,7 +88,7 @@ extension AddTeammateViewController {
   func bindPostSubcriber() {
     self.jobAndPostPickerView?.rx.itemSelected
       .filter { $0.component == 1 }
-      .map { TeammatePost.allCases[$0.row] }
+      .map { Post.allCases[$0.row] }
       .subscribe(self.presenter.input.post)
       .disposed(by: self.bag)
   }
@@ -242,7 +242,7 @@ extension AddTeammateViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     case 0:
       return Job.allCases.count
     case 1:
-      return TeammatePost.allCases.count
+      return Post.allCases.count
     default:
       return 0
     }
@@ -253,7 +253,7 @@ extension AddTeammateViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     case 0:
       return Job.allCases[row].rawValue.capitalized
     case 1:
-      return TeammatePost.allCases[row].rawValue.capitalized
+      return Post.allCases[row].rawValue.capitalized
     default:
       return nil
     }

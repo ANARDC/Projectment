@@ -102,7 +102,7 @@ extension InProgressViewController: InProgressUIProtocol {
   }
   
   func makeTeammateInfoView(for teammate: Teammate?) {
-    let alert = UIAlertController(title: "\(teammate?.name ?? "") \(teammate?.lastName ?? "")", message: "ID: \(teammate?.id ?? "")\nJob: \(teammate?.job ?? "")\nPost: \(teammate?.post ?? "")", preferredStyle: UIAlertController.Style.alert)
+    let alert = UIAlertController(title: "\(teammate?.name ?? "") \(teammate?.lastName ?? "")", message: "ID: \(teammate?.id ?? "")\nJob: \(teammate?.job.rawValue ?? "")\nPost: \(teammate?.post.rawValue ?? "")", preferredStyle: UIAlertController.Style.alert)
     alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
     self.present(alert, animated: true, completion: nil)
   }

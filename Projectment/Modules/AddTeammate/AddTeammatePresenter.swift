@@ -76,8 +76,8 @@ private extension AddTeammatePresenter {
         Teammate(id: id,
                  name: name,
                  lastName: lastName,
-                 job: job.rawValue,
-                 post: post.rawValue)
+                 job: job,
+                 post: post)
     }
   }
   

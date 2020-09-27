@@ -20,7 +20,7 @@ final class AddTeammateConfigurator: AddTeammateConfiguratorProtocol {
                                  name: PublishSubject<String>(),
                                  lastName: PublishSubject<String>(),
                                  job: PublishSubject<Job>(),
-                                 post: PublishSubject<TeammatePost>(),
+                                 post: PublishSubject<Post>(),
                                  addButton: PublishSubject<Void>())
     let output = AddTeammateOutput(dataIsValid: PublishSubject<Bool>())
     

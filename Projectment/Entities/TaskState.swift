@@ -6,7 +6,9 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-enum TaskState: String, CaseIterable {
+import Unrealm
+
+enum TaskState: String, CaseIterable, RealmableEnum {
   case toDo
   case inProgress
   case done

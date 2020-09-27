@@ -15,11 +15,9 @@ struct Task: Realmable, Entitiable {
   var teammateID      : String?
   var created         : Date = Date()
   var expires         : Date?
-  var state           : String = TaskState.toDo.rawValue
-  var type            : String = TaskType.unknown.rawValue
-  var complexity      : String = TaskComplexity.unknown.rawValue
+  var state           : TaskState = .toDo
+  var type            : TaskType = .unknown
+  var complexity      : TaskComplexity = .unknown
   
-  static func primaryKey() -> String? {
-    "id"
-  }
+  static func primaryKey() -> String? { "id" }
 }

@@ -42,7 +42,7 @@ final class DataService {
   
   func changeTaskState(with id: String?, to state: TaskState) {
     if var entity = self.realm?.object(ofType: Task.self, forPrimaryKey: id) {
-      entity.state = state.rawValue
+      entity.state = state
       try? self.realm?.write {
         self.realm?.add(entity, update: .modified)
       }
@@ -66,14 +66,14 @@ final class DataService {
   }()
   
   lazy var toDoTasks: [Task]? = {
-    self.tasks?.filter { $0.state == TaskState.toDo.rawValue }
+    self.tasks?.filter { $0.state == TaskState.toDo }
   }()
   
   lazy var inProgressTasks: [Task]? = {
-    self.tasks?.filter { $0.state == TaskState.inProgress.rawValue }
+    self.tasks?.filter { $0.state == TaskState.inProgress }
   }()
   
   lazy var doneTasks: [Task]? = {
-    self.tasks?.filter { $0.state == TaskState.done.rawValue }
+    self.tasks?.filter { $0.state == TaskState.done }
   }()
 }

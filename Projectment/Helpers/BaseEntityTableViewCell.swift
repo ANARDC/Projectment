@@ -67,12 +67,13 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
         label.text          = self.entity?.title
         label.font          = .systemFont(ofSize: 18)
         label.numberOfLines = 1
-    },
+      },
       constraints: { label in
         label.snp.makeConstraints { maker in
           maker.top.leading.equalTo(10)
         }
-    })
+      }
+    )
   }
   
   func makeDescriptionLabel() {
@@ -83,7 +84,7 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
         label.font          = .systemFont(ofSize: 13)
         label.textColor     = .darkGray
         label.numberOfLines = 3
-    },
+      },
       constraints: { label in
         guard let titleLabel = self.taskTitleLabel else { return }
         
@@ -92,7 +93,8 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
           maker.left.equalTo(10)
           maker.bottom.right.equalTo(-10)
         }
-    })
+      }
+    )
   }
   
   func makeWhoButton() {
@@ -122,7 +124,7 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
   }
   
   func makeTypeIcon() {
-    self.taskTypeIcon = UIImageView(image: TaskType(rawValue: self.entity?.type ?? "unknown")?.icon) {
+    self.taskTypeIcon = UIImageView(image: self.entity?.type.icon) {
       $0.tintColor   = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
       $0.contentMode = .scaleAspectFit
       
@@ -147,7 +149,7 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
   }
   
   func makeWeightIcon() {
-    self.taskComplexityIcon = UIImageView(image: TaskComplexity(rawValue: self.entity?.complexity ?? "unknown")? .icon) {
+    self.taskComplexityIcon = UIImageView(image: self.entity?.complexity.icon) {
       $0.tintColor   = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .purple : .white
       $0.contentMode = .scaleAspectFit
       
@@ -176,7 +178,7 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
       configuring: { stackView in
         stackView.axis    = .horizontal
         stackView.spacing = 10
-    },
+      },
       constraints: { stackView in
         stackView.snp.makeConstraints { maker in
           guard let titleLabel = self.taskTitleLabel else { return }
@@ -185,7 +187,8 @@ extension BaseEntityTableViewCell where Context == TasksContext, Entity == Task 
           maker.left.equalTo(titleLabel.snp.right).offset(20)
           maker.centerY.equalTo(titleLabel)
         }
-    })
+      }
+    )
   }
 }
 
@@ -209,12 +212,13 @@ extension BaseEntityTableViewCell where Context == TeamContext, Entity == Teamma
         label.font          = .systemFont(ofSize: 10)
         label.textColor     = .darkGray
         label.numberOfLines = 1
-    },
+      },
       constraints: { label in
         label.snp.makeConstraints { maker in
           maker.bottom.right.equalTo(-10)
         }
-    })
+      }
+    )
   }
   
   func makeTeammateNameLabel() {
@@ -224,23 +228,24 @@ extension BaseEntityTableViewCell where Context == TeamContext, Entity == Teamma
         label.text          = "\(self.entity?.name ?? "UnknownName") \(self.entity?.lastName ?? "UnknownLastName")"
         label.font          = .systemFont(ofSize: 18)
         label.numberOfLines = 1
-    },
+      },
       constraints: { label in
         label.snp.makeConstraints { maker in
           maker.left.equalTo(10)
           maker.top.equalTo(5)
         }
-    })
+      }
+    )
   }
   
   func makeTeammateJobLabel() {
     self.teammateJobLabel = UILabel(
       superview: self,
       configuring: { label in
-        label.text          = "Job: \(Job(rawValue: self.entity?.job ?? "designer")?.rawValue.capitalized ?? "Uncnown")"
+        label.text          = "Job: \(self.entity?.job.rawValue.capitalized ?? "Unknown")"
         label.font          = .systemFont(ofSize: 14)
         label.numberOfLines = 1
-    },
+      },
       constraints: { label in
         guard let teammateNameLabel = self.teammateNameLabel else { return }
         
@@ -248,17 +253,18 @@ extension BaseEntityTableViewCell where Context == TeamContext, Entity == Teamma
           maker.left.equalTo(10)
           maker.top.equalTo(teammateNameLabel.snp.bottom).offset(5)
         }
-    })
+      }
+    )
   }
   
   func makeTeammatePostLabel() {
     self.teammatePostLabel = UILabel(
       superview: self,
       configuring: { label in
-        label.text          = "Post: \(TeammatePost(rawValue: self.entity?.post ?? "junior")?.rawValue.capitalized ?? "Unknown")"
+        label.text          = "Post: \(self.entity?.post.rawValue.capitalized ?? "Unknown")"
         label.font          = .systemFont(ofSize: 14)
         label.numberOfLines = 1
-    },
+      },
       constraints: { label in
         guard let teammateJobLabel = self.teammateJobLabel else { return }
         
@@ -267,6 +273,7 @@ extension BaseEntityTableViewCell where Context == TeamContext, Entity == Teamma
           maker.top.equalTo(teammateJobLabel.snp.bottom).offset(5)
           maker.bottom.equalTo(-5)
         }
-    })
+      }
+    )
   }
 }

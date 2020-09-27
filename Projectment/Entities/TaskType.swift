@@ -6,9 +6,9 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-import UIKit
+import Unrealm
 
-enum TaskType: String, CaseIterable {
+enum TaskType: String, CaseIterable, RealmableEnum {
   case design
   case management
   case development

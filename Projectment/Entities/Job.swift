@@ -6,7 +6,9 @@
 //  Copyright © 2020 Anar. All rights reserved.
 //
 
-enum Job: String, CaseIterable {
+import Unrealm
+
+enum Job: String, CaseIterable, RealmableEnum {
   case designer
   case developer
   case manager

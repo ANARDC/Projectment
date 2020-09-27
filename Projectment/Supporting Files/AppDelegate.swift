@@ -14,8 +14,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    Realm.registerRealmables(Task.self)
-    Realm.registerRealmables(Teammate.self)
+    Realm.registerRealmables(Task.self, Teammate.self)
     
     return true
   }

@@ -90,14 +90,13 @@ private extension AddTaskPresenter {
                      self.input.state.startWith(.toDo),
                      self.input.type.startWith(.design),
                      self.input.complexity.startWith(.easy)) { title, taskDescription, teammateID, expires, state, type, complexity in
-                      Task(id: UUID().uuidString,
-                           title: title,
+                      Task(title: title,
                            taskDescription: taskDescription,
                            teammateID: teammateID,
                            expires: expires,
-                           state: state.rawValue,
-                           type: type.rawValue,
-                           complexity: complexity.rawValue)
+                           state: state,
+                           type: type,
+                           complexity: complexity)
     }
   }
   

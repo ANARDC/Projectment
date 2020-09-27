@@ -13,7 +13,7 @@ struct AddTeammateInput {
   let name      : PublishSubject<String>
   let lastName  : PublishSubject<String>
   let job       : PublishSubject<Job>
-  let post      : PublishSubject<TeammatePost>
+  let post      : PublishSubject<Post>
   let addButton : PublishSubject<Void>
 }
 
